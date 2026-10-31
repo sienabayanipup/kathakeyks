@@ -13,8 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ivory:#F8F2E9; --rose:#D9A5AE; --mocha:#684C49; --beige:#C9AD8D; --white:#FFFEFC;
-  --mocha-soft:rgba(104,76,73,.72); --line:rgba(104,76,73,.14);
+  --ivory:#bcad9e; --rose:#D9A5AE; --mocha:#3d2e2b; --beige:#C9AD8D; --white:#f6f0e8;
+  --mocha-soft:rgba(61,46,43,.8); --line:rgba(61,46,43,.22);
   --serif:"Playfair Display","DM Serif Display",Georgia,serif;
   --sans:"Manrope","Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --script:"Caveat","Segoe Script",cursive;
@@ -32,7 +32,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;margin:0;lett
 h2{font-size:clamp(2rem,4.4vw,3.2rem)}
 h3{font-size:1.3rem}
 p{margin:0}
-.script{font-family:var(--script);font-size:1.7rem;color:var(--rose);line-height:1}
+.script{font-family:var(--script);font-size:1.7rem;color:var(--mocha);line-height:1}
 section{padding:96px 0}
 .lede{color:var(--mocha-soft);max-width:52ch;margin-top:16px}
 
@@ -45,12 +45,14 @@ section{padding:96px 0}
 .btn-sm{padding:9px 20px;font-size:.85rem}
 
 /* nav */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(248,242,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.announce{background:#5a403d;color:#FFFEFC;text-align:center;font-size:.84rem;padding:9px 16px;position:relative;z-index:21}
+.announce a{text-decoration:underline;text-underline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(188,173,158,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ivory);z-index:30}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{font-family:var(--serif);font-size:1.5rem;text-decoration:none}
-.logo span{color:var(--rose)}
-.menu{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0}
+.nav{display:flex;flex-direction:column;align-items:center;padding:18px 0 12px;gap:10px}
+.logo{font-family:var(--serif);font-size:2.1rem;text-decoration:none;line-height:1}
+.logo span{color:#fffefc}
+.menu{display:flex;align-items:center;justify-content:center;gap:32px;list-style:none;margin:0;padding:0}
 .menu a:not(.btn){text-decoration:none;font-weight:500;font-size:.93rem;position:relative}
 .menu a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--rose);transform:scaleX(0);transition:transform .3s;transform-origin:left}
 .menu a:not(.btn):hover::after{transform:scaleX(1)}
@@ -69,14 +71,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ph.empty b{display:block;font:400 1.1rem var(--serif);color:var(--mocha);margin-bottom:4px}
 
 /* hero */
-.hero{padding:56px 0 88px}
-.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(2.5rem,5.6vw,4.4rem);margin:14px 0 22px}
-.hero .lede{font-size:1.08rem}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.hero-art{position:relative}
-.hero-main{aspect-ratio:4/5}
-.hero-sub{position:absolute;left:-44px;bottom:-36px;width:38%;aspect-ratio:1;border:6px solid var(--ivory);border-radius:var(--r)}
+.hero{padding:44px 0 72px}
+.hero-stack{display:flex;flex-direction:column;align-items:center;text-align:center;gap:44px}
+.hero-kicker{font-weight:700;font-size:1.05rem;margin-bottom:14px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);margin:0 auto 18px;max-width:18ch}
+.hero .lede{margin:0 auto;font-size:1.05rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;justify-content:center}
+.hero-art{position:relative;width:min(100%,560px)}
+.hero-main{aspect-ratio:1}
+.hero-sub{position:absolute;right:-28px;bottom:-28px;width:34%;aspect-ratio:1;border:6px solid var(--ivory);border-radius:var(--r)}
 
 /* cakes */
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
@@ -89,7 +92,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .card .ph{aspect-ratio:4/5;border-radius:14px}
 .card h3{margin:20px 12px 6px}
 .card p{margin:0 12px 18px;color:var(--mocha-soft);font-size:.92rem;flex:1}
-.card .btn{margin:0 12px;align-self:flex-start}
+.card .btn{margin:0 12px;align-self:stretch}
 .card[hidden]{display:none}
 
 /* gallery */
@@ -114,9 +117,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* why */
 .why{padding-top:0}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-.why-item{padding:32px 28px 8px 0}
-.why-item+.why-item{padding-left:28px;border-left:1px solid var(--line)}
+.why-h{text-align:center;margin-bottom:40px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);text-align:center}
+.why-item{padding:32px 28px 8px}
+.why-item+.why-item{border-left:1px solid var(--line)}
 .why-item svg{width:26px;height:26px;stroke:var(--rose);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
 .why-item p{color:var(--mocha-soft);font-size:.92rem;margin-top:8px}
 
@@ -137,7 +141,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .links a{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border:1px solid var(--line);border-radius:14px;text-decoration:none;font-weight:600;transition:border-color .25s,background .25s}
 .links a:hover{border-color:var(--rose);background:var(--ivory)}
 .links small{font-weight:400;color:var(--mocha-soft)}
-footer{padding:36px 0 44px;text-align:center;font-size:.85rem;color:var(--mocha-soft)}
+footer{background:var(--white);padding:56px 0 32px;font-size:.92rem;color:var(--mocha-soft);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h3{font-size:1.05rem;color:var(--mocha);margin-bottom:10px}
+.foot a:not(.logo){display:block;text-decoration:none;padding:3px 0}
+.foot a:not(.logo):hover{color:var(--mocha);text-decoration:underline}
+.foot p{margin-top:10px}
+.copy{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.82rem}
+@media (max-width:700px){.foot{grid-template-columns:1fr}}
 
 /* lightbox */
 dialog{border:0;background:transparent;padding:0;max-width:92vw;max-height:92vh;overflow:visible}
@@ -152,27 +163,20 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
 .hero-art{animation:rise 1.1s .15s both}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-/* dark */
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--ivory:#2b2120;--white:#352928;--mocha:#F1E6DA;--mocha-soft:rgba(241,230,218,.72);--line:rgba(241,230,218,.16)}
-  :root:not([data-theme="light"]) .btn-fill:hover{background:#fff}
-  :root:not([data-theme="light"]) .order{background:#1f1716}
-  :root:not([data-theme="light"]) .ph.empty{background:linear-gradient(135deg,#40322f,#3a2c2c)}
-  :root:not([data-theme="light"]) .btn-fill{color:#2b2120}
-}
-
 /* responsive */
 @media (max-width:960px){
+  .nav{flex-direction:row;justify-content:space-between;padding:0;height:68px}
+  .logo{font-size:1.5rem}
+  .why-grid{grid-template-columns:1fr}.why-item,.why-item+.why-item{border-left:0;padding:24px 0 8px}.why-item+.why-item{border-top:1px solid var(--line)}
   section{padding:72px 0}
-  .hero-grid,.about-grid,.contact-box{grid-template-columns:1fr}
-  .hero-grid{gap:48px}.hero-sub{left:12px;bottom:-28px}
+  .about-grid,.contact-box{grid-template-columns:1fr}
+  .hero-sub{right:8px;bottom:-24px}
   .grid{grid-template-columns:repeat(2,1fr)}
   .masonry{columns:2}
-  .why-grid,.steps{grid-template-columns:repeat(2,1fr)}
-  .why-item:nth-child(3){padding-left:0;border-left:0}
+  .steps{grid-template-columns:repeat(2,1fr)}
   .contact-box{padding:36px 24px}
   .burger{display:block}
-  .menu{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ivory);padding:8px 24px 24px;border-bottom:1px solid var(--line);display:none}
+  .menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ivory);padding:8px 24px 24px;border-bottom:1px solid var(--line);display:none}
   .menu.open{display:flex}
   .menu li{padding:12px 0;border-bottom:1px solid var(--line)}
   .menu li:last-child{border:0;padding-top:20px}
@@ -184,12 +188,13 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
   .why-grid,.steps{grid-template-columns:1fr}
   .why-item,.why-item+.why-item{padding:24px 0 8px;border-left:0}
   .why-item+.why-item{border-top:1px solid var(--line)}
-  .hero-sub{width:42%}
+  .hero-sub{width:38%}
 }
 </style>
 </head>
 <body>
 
+<div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
 <header>
   <nav class="wrap nav" aria-label="Main">
     <a href="#home" class="logo" aria-label="Katha Keyks home">Katha <span>Keyks</span></a>
@@ -207,9 +212,9 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
 
 <main id="home">
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap hero-stack">
     <div class="hero-copy">
-      <span class="script">handcrafted with love</span>
+      <p class="hero-kicker">Custom cakes, made to order.</p>
       <h1>Every Celebration Deserves a Little Sweetness.</h1>
       <p class="lede">Beautifully crafted cakes for life’s sweetest moments. Made with creativity, care, and a little extra magic.</p>
       <div class="cta-row">
@@ -228,7 +233,7 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
   <div class="wrap">
     <div class="head">
       <div>
-        <span class="script">the collection</span>
+        <span class="script">small batches, big celebrations</span>
         <h2>Our Cakes</h2>
         <p class="lede">Every cake is made to order. Browse by occasion, then tell us your idea.</p>
       </div>
@@ -281,23 +286,11 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
 
 <section class="why">
   <div class="wrap">
+    <h2 class="why-h">Handmade by Ann <span style="color:var(--rose)">♥</span></h2>
     <div class="why-grid">
-      <div class="why-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>
-        <h3>Personalized Designs</h3><p>Cakes shaped around your theme, colors and story.</p>
-      </div>
-      <div class="why-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M12 9v11M4 14h16M12 9c-3 0-4-4-1.500-4S12 9 12 9zm0 0c3 0 4-4 1.500-4S12 9 12 9z"/></svg>
-        <h3>Made for Your Moments</h3><p>Birthdays, weddings and every occasion in between.</p>
-      </div>
-      <div class="why-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800z"/></svg>
-        <h3>Detailed Finishes</h3><p>Creative decoration, finished with a careful eye.</p>
-      </div>
-      <div class="why-item">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V7a5 5 0 0 1 10 0v4M5 11h14l-1 9H6z"/></svg>
-        <h3>Crafted with Care</h3><p>Every cake is made to order, never mass produced.</p>
-      </div>
+      <div class="why-item"><h3>Made to order</h3><p>Every cake is made for your date and your celebration, never mass produced.</p></div>
+      <div class="why-item"><h3>Designed with you</h3><p>Bring a theme, colors or an inspiration photo and we shape the cake around it.</p></div>
+      <div class="why-item"><h3>Crafted with care</h3><p>Creative, detailed finishes made by hand with love.</p></div>
     </div>
   </div>
 </section>
@@ -336,7 +329,14 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
 </section>
 </main>
 
-<footer><div class="wrap">© <span id="yr"></span> Katha Keyks. All cakes made to order.</div></footer>
+<footer>
+  <div class="wrap foot">
+    <div><a href="#home" class="logo">Katha <span>Keyks</span></a><p>Where every cake tells a story.</p></div>
+    <div><h3>Explore</h3><a href="#cakes">Our Cakes</a><a href="#gallery">Gallery</a><a href="#about">Meet Ann</a><a href="#order">How to Order</a></div>
+    <div><h3>Say hello</h3><a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Facebook</a><a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Order inquiry</a></div>
+  </div>
+  <div class="wrap copy">© <span id="yr"></span> Katha Keyks. All cakes made to order.</div>
+</footer>
 
 <dialog id="lb" aria-label="Cake photo"><button aria-label="Close">×</button><img alt=""></dialog>
 
@@ -371,7 +371,7 @@ document.querySelectorAll("[data-slot]").forEach(f=>fill(f,PHOTOS[f.dataset.slot
 const prod=document.getElementById("products");
 CATS.forEach(([k,name,desc])=>{
   const c=document.createElement("article");c.className="card";c.dataset.cat=k;
-  c.innerHTML='<figure class="ph"></figure><h3>'+name+'</h3><p>'+desc+(PRICES[k]?' <strong>'+PRICES[k]+'</strong>':'')+'</p><a class="btn btn-line btn-sm" target="_blank" rel="noopener" href="https://www.facebook.com/cakeliciousph">Inquire About This Cake</a>';
+  c.innerHTML='<figure class="ph"></figure><h3>'+name+'</h3><p>'+desc+(PRICES[k]?' <strong>'+PRICES[k]+'</strong>':'')+'</p><a class="btn btn-fill btn-sm" target="_blank" rel="noopener" href="https://www.facebook.com/cakeliciousph">Inquire About This Cake</a>';
   fill(c.querySelector(".ph"),PHOTOS.products[k],name);
   prod.appendChild(c);
 });
