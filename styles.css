@@ -208,4 +208,20 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
   .hero-sub{width:40%;left:-10px;bottom:-18px}
 }
 
+/* happy clients */
+.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.client{background:var(--white);border-radius:var(--r);padding:12px 12px 22px}
+.client-ph{margin:0;border-radius:14px;overflow:hidden;background:var(--blush)}
+.client-ph img{width:100%;height:auto}
+.client-body{padding:18px 10px 0}
+.client blockquote{margin:0 0 12px;font:400 1.15rem/1.45 var(--serif)}
+.client-cap{color:var(--text-soft);font-size:.92rem}
+.client-name{margin-top:6px;font-weight:700;font-size:.85rem;letter-spacing:.04em}
+.client-link{display:inline-block;margin-top:10px;font-weight:600;font-size:.88rem;color:var(--btn);text-underline-offset:3px}
+.client-link:hover{color:var(--btn-hover)}
+.client-cta{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;background:var(--blush);padding:36px 32px;min-height:300px;align-self:stretch;text-decoration:none}
+.client-cta p{color:var(--text-soft);font-size:.95rem}
+@media (max-width:960px){.clients-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.clients-grid{grid-template-columns:1fr}.client-cta{min-height:0}}
+
 .menu a[aria-current=page]:not(.btn)::after{transform:scaleX(1)}
