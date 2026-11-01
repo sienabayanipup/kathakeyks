@@ -58,14 +58,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* hero */
 .hero{padding:44px 0 72px}
-.hero-stack{display:flex;flex-direction:column;align-items:center;text-align:center;gap:44px}
+.hero-stack{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:72px}
 .hero-kicker{font-weight:700;font-size:1.05rem;margin-bottom:14px}
-.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);margin:0 auto 18px;max-width:18ch}
-.hero .lede{margin:0 auto;font-size:1.05rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);margin:0 0 18px;max-width:14ch}
+.hero .lede{margin:0;font-size:1.05rem}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;justify-content:center}
-.hero-art{position:relative;width:min(100%,560px)}
-.hero-main{aspect-ratio:1}
-.hero-sub{position:absolute;right:-28px;bottom:-28px;width:34%;aspect-ratio:1;border:6px solid var(--ivory);border-radius:var(--r)}
+.hero .cta-row{justify-content:flex-start}
+.hero-art{position:relative;width:min(100%,440px);justify-self:center}
+.hero-main{aspect-ratio:3/4;box-shadow:0 24px 60px -24px rgba(61,46,43,.45)}
+.hero-sub{position:absolute;left:-56px;bottom:40px;width:40%;aspect-ratio:1;border:6px solid var(--ivory);border-radius:var(--r);box-shadow:0 16px 40px -18px rgba(61,46,43,.5)}
 
 /* cakes */
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
@@ -185,7 +186,12 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
   .why-grid{grid-template-columns:1fr}.why-item,.why-item+.why-item{border-left:0;padding:24px 0 8px}.why-item+.why-item{border-top:1px solid var(--line)}
   section{padding:72px 0}
   .about-grid,.contact-box{grid-template-columns:1fr}
-  .hero-sub{right:8px;bottom:-24px}
+  .hero-stack{grid-template-columns:1fr;gap:56px;text-align:center}
+  .hero h1{margin:0 auto 18px;max-width:18ch}
+  .hero .lede{margin:0 auto}
+  .hero .cta-row{justify-content:center}
+  .hero-art{width:min(100%,380px)}
+  .hero-sub{left:-14px;bottom:-20px;width:38%}
   .grid{grid-template-columns:repeat(2,1fr)}
   .masonry{columns:2}
   .steps{grid-template-columns:repeat(2,1fr)}
@@ -203,7 +209,8 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--ivory);border
   .why-grid,.steps{grid-template-columns:1fr}
   .why-item,.why-item+.why-item{padding:24px 0 8px;border-left:0}
   .why-item+.why-item{border-top:1px solid var(--line)}
-  .hero-sub{width:38%}
+  .hero-art{width:min(86%,340px)}
+  .hero-sub{width:40%;left:-10px;bottom:-18px}
 }
 
 .menu a[aria-current=page]:not(.btn)::after{transform:scaleX(1)}
