@@ -277,3 +277,9 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
 .hero-main:hover{rotate:-1.5deg}
 .hero-sub:hover{rotate:2.5deg}
 @media (prefers-reduced-motion:reduce){.sprinkles{display:none}}
+
+/* logo: cake mark in header, full logo in footer */
+.logo{display:inline-flex;align-items:center;gap:10px}
+.logo img{width:auto;height:56px}
+.logo-full img{height:auto;width:180px}
+@media (max-width:960px){.logo img{height:44px}.logo-full img{height:auto;width:160px}}
