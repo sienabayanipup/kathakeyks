@@ -257,3 +257,23 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
   .lede,.hero .lede{font-size:1.05rem}
   .hero h1{font-size:2.4rem}
 }
+
+/* hero: falling sprinkles + floating photos */
+.hero{position:relative;overflow:clip}
+.hero>.wrap{position:relative;z-index:1}
+.sprinkles{position:absolute;inset:0;z-index:0;pointer-events:none}
+.sprinkles span{position:absolute;top:-24px;opacity:0;border-radius:4px;animation:sprinkle linear infinite;will-change:transform,opacity}
+.sprinkles .dot{width:8px;height:8px;border-radius:50%}
+.sprinkles .bar{width:5px;height:16px;border-radius:3px}
+@keyframes sprinkle{
+  0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}
+  10%{opacity:.75}
+  85%{opacity:.75}
+  100%{opacity:0;transform:translate3d(var(--dx),var(--fall),0) rotate(var(--rot))}
+}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+.hero-main{animation:float 7s 1.2s ease-in-out infinite alternate;transition:rotate .6s cubic-bezier(.2,.7,.2,1)}
+.hero-sub{animation:float 8s 1.6s ease-in-out infinite alternate-reverse;transition:rotate .6s cubic-bezier(.2,.7,.2,1)}
+.hero-main:hover{rotate:-1.5deg}
+.hero-sub:hover{rotate:2.5deg}
+@media (prefers-reduced-motion:reduce){.sprinkles{display:none}}
