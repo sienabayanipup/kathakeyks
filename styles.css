@@ -229,3 +229,23 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
 /* edible toppers note under bento */
 .tp-note{max-width:62ch;margin:48px auto 0;text-align:center;color:var(--text-soft)}
 .bento .ph.empty{cursor:default}
+
+/* contact (dark, map + info) */
+.cx{--maroon:#4A1D2A;background:var(--maroon);color:var(--white);padding:88px 0}
+.cx-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.cx-map{border-radius:var(--r);overflow:hidden;aspect-ratio:1;max-height:520px;width:100%;background:var(--blush)}
+.cx-map iframe{width:100%;height:100%;border:0;display:block}
+.cx h2{color:var(--white);font-size:clamp(2.2rem,4.6vw,3.6rem);max-width:12ch;margin-bottom:40px}
+.cx-info{display:grid;grid-template-columns:1fr 1fr;gap:34px 28px}
+.cx-item h3{display:flex;align-items:center;gap:10px;margin:0 0 8px;font:500 1.7rem/1 var(--script);letter-spacing:0;color:#F2C9D1}
+.cx-item h3 svg{width:22px;height:22px;flex:none;fill:none;stroke:#F2C9D1;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cx-item p,.cx-item p a{font-size:.95rem;color:rgba(255,255,255,.85);text-decoration:none}
+.cx-item p a:hover{color:var(--white);text-decoration:underline}
+.cx-social{display:flex;gap:12px;margin-top:4px}
+.cx-social a{width:40px;height:40px;border-radius:50%;border:1.5px solid #F2C9D1;display:grid;place-items:center;transition:background .25s}
+.cx-social a:hover{background:rgba(255,255,255,.14)}
+.cx-social svg{width:18px;height:18px;fill:#F2C9D1}
+.cx .cta-row{justify-content:flex-start;margin-top:40px}
+.cx :focus-visible{outline-color:var(--white)}
+@media (max-width:960px){.cx{padding:64px 0}.cx-grid{grid-template-columns:1fr;gap:40px}.cx-map{aspect-ratio:4/3;max-height:none}}
+@media (max-width:560px){.cx-info{grid-template-columns:1fr}}
