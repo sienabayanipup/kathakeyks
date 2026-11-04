@@ -13,8 +13,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fraunces:opsz,wght,SOFT@9..144,400..600,0..100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* Home page: fit in one screen, compact footer (scoped to body.home) */
+body.home .foot{align-items:center}
+body.home footer{padding-top:0;padding-bottom:0}
+body.home footer .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 28px;padding-top:12px;padding-bottom:6px}
+body.home footer .foot>div{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:0}
+body.home footer .foot h3{margin:0 4px 0 0;font-size:.85rem}
+body.home footer .foot a{display:inline-block;margin:0;font-size:.85rem}
+body.home footer .logo-full img{width:44px;height:44px}
+body.home footer .foot p{display:none}
+body.home footer .copy{padding-top:6px;padding-bottom:10px;font-size:.78rem}
+@media (min-width:901px) and (min-height:560px){
+  html,body.home{height:100%}
+  body.home{display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden}
+  body.home main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  body.home .hero{flex:1 1 auto;min-height:0;display:flex;align-items:center;overflow:hidden;padding-top:clamp(8px,2vh,28px);padding-bottom:clamp(8px,2vh,28px)}
+  body.home .hero .hero-stack{width:100%;max-height:100%;align-items:center}
+  body.home .hero h1{font-size:clamp(1.8rem,5.4vh,3.3rem);margin-bottom:clamp(6px,1.4vh,14px)}
+  body.home .hero .lede{margin-bottom:clamp(10px,2vh,20px)}
+  body.home .hero-art{max-height:min(100%,50vh);min-height:0}
+  body.home .hero-art .ph{max-height:50vh}
+  body.home .why{flex:0 0 auto;padding-top:clamp(10px,2vh,22px);padding-bottom:clamp(10px,2vh,22px)}
+  body.home .why-h{margin:0 0 clamp(6px,1.4vh,14px);font-size:clamp(1.2rem,3vh,1.7rem)}
+  body.home .why-item p{font-size:.9rem;line-height:1.4;margin:0}
+  body.home .why-item h3{margin:0 0 3px;font-size:1.05rem}
+}
+</style>
 </head>
-<body>
+<body class="home">
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
 <header>
   <nav class="wrap nav" aria-label="Main">
