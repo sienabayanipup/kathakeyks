@@ -25,25 +25,72 @@
 </header>
 <main>
 <section class="order" id="order">
-  <div class="wrap"><h2>Ordering is simple.</h2>
-    <ol class="steps">
-      <li>Browse the cake gallery.</li>
-      <li>Choose your preferred design or send an inspiration photo.</li>
-      <li>Discuss the details and event requirements.</li>
-      <li>Confirm your order through our official contact channel, with a 50% down payment.</li>
-    </ol>
-    <div class="remind">
-      <h3>Important reminders for made-to-order cakes</h3>
-      <div class="rm-grid">
-        <div><h4>Advance ordering is required</h4><p>Please order ahead of time. We do not accept same-day or rush orders, so every cake gets proper preparation.</p></div>
-        <div><h4>Booking confirmation</h4><p>Your order is reserved once we have confirmed the details and received payment. A 50% down payment is required.</p></div>
-        <div><h4>Customization details</h4><p>Send your theme, flavor, size, dedication or message, and inspiration photos (if any) to avoid delays.</p></div>
-        <div><h4>Cancellations</h4><p>Because each cake is made just for you, cancellations or major changes may not be allowed once the order is confirmed.</p></div>
-        <div><h4>Pick-up and delivery</h4><p>Please be on time for pick-up, or make sure someone can receive the cake on delivery, to avoid delays or damage.</p></div>
-        <div><h4>Subject to availability</h4><p>Slots may be limited during peak seasons and holidays, so early reservations are highly recommended.</p></div>
-      </div>
+<style>
+/* Scoped to the "Ordering is simple" section only */
+#order.order{--o-cream:#fbf6ee;--o-beige:#f1e7d8;--o-blush:#f3dcd6;--o-blush-deep:#e3b9b0;--o-brown:#6b4a3a;--o-ink:#4a3b34;--o-line:rgba(107,74,58,.22);background:linear-gradient(180deg,var(--o-cream),var(--o-beige));padding:clamp(40px,6vw,72px) 0;border-top:1px solid var(--o-line)}
+#order .o-shell{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(28px,4.5vw,64px);align-items:stretch}
+#order .o-head{margin:0 0 clamp(18px,2.5vw,28px)}
+#order .o-head h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(1.9rem,3.4vw,2.75rem);line-height:1.1;letter-spacing:-.01em;color:var(--o-brown);margin:0 0 6px;text-align:left}
+#order .o-head p{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--o-ink);opacity:.8;font-size:1rem}
+#order .o-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--o-line)}
+#order .o-steps li{position:relative;padding:22px clamp(14px,2.2vw,28px) 24px 0;border-bottom:1px solid var(--o-line);margin:0}
+#order .o-steps li:nth-child(odd){border-right:1px solid var(--o-line)}
+#order .o-steps li:nth-child(even){padding-left:clamp(14px,2.2vw,28px);padding-right:0}
+#order .o-num{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:2.4rem;line-height:1;color:var(--o-blush-deep);margin-bottom:8px}
+#order .o-steps h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.2rem;line-height:1.25;color:var(--o-brown);margin:0 0 6px}
+#order .o-steps p{font-family:'Nunito',system-ui,sans-serif;font-size:.95rem;line-height:1.55;color:var(--o-ink);margin:0;max-width:34ch}
+#order .o-remember{background:var(--o-blush);border-radius:20px;padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;position:relative}
+#order .o-remember::before{content:"";position:absolute;inset:8px;border:1px solid rgba(107,74,58,.18);border-radius:14px;pointer-events:none}
+#order .o-remember h3{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.9rem;line-height:1.1;color:var(--o-brown);margin:0 0 6px;position:relative}
+#order .o-remember ul{list-style:none;margin:0 0 20px;padding:0;position:relative}
+#order .o-remember li{padding:13px 0 13px 22px;border-top:1px solid rgba(107,74,58,.2);position:relative;font-family:'Nunito',system-ui,sans-serif;font-size:.93rem;line-height:1.5;color:var(--o-ink);margin:0}
+#order .o-remember li::before{content:"";position:absolute;left:2px;top:1.15em;width:7px;height:7px;border-radius:50%;background:var(--o-brown)}
+#order .o-remember li strong{display:block;font-weight:800;color:var(--o-brown);font-size:.98rem}
+#order .o-remember .btn{align-self:flex-start;margin-top:auto;position:relative}
+/* Fit the whole section in one screen (no scrolling needed to see it) */
+@media (min-width:901px) and (min-height:520px){
+  #order.order{min-height:calc(100vh - 132px);min-height:calc(100dvh - 132px);display:flex;align-items:center;padding:clamp(20px,4vh,56px) 0;box-sizing:border-box}
+  #order .o-shell{width:100%}
+  #order .o-head{margin-bottom:clamp(10px,2.2vh,24px)}
+  #order .o-head h2{font-size:clamp(1.8rem,4.6vh,2.75rem)}
+  #order .o-steps li{padding-top:clamp(12px,2.6vh,24px);padding-bottom:clamp(12px,2.8vh,26px)}
+  #order .o-num{font-size:clamp(1.8rem,5vh,2.6rem);margin-bottom:clamp(4px,1vh,8px)}
+  #order .o-remember{padding:clamp(18px,3.4vh,34px) clamp(20px,2.6vw,32px)}
+  #order .o-remember li{padding-top:clamp(8px,1.8vh,14px);padding-bottom:clamp(8px,1.8vh,14px)}
+  #order .o-remember ul{margin-bottom:clamp(12px,2.4vh,22px)}
+}
+@media (max-width:900px){
+  #order .o-shell{grid-template-columns:1fr}
+  #order .o-steps p{max-width:none}
+}
+@media (max-width:520px){
+  #order .o-steps{grid-template-columns:1fr 1fr}
+  #order .o-steps li{padding:16px 10px 18px 0}
+  #order .o-steps li:nth-child(even){padding-left:12px}
+  #order .o-num{font-size:1.9rem}
+  #order .o-steps h3{font-size:1.05rem}
+  #order .o-steps p{font-size:.88rem}
+}
+</style>
+  <div class="wrap o-shell">
+    <div class="o-process">
+      <div class="o-head"><h2>Ordering is simple.</h2><p>Four easy steps from idea to cake.</p></div>
+      <ol class="o-steps">
+        <li><span class="o-num" aria-hidden="true">01</span><h3>Choose Your Cake</h3><p>Browse our cake gallery or send an inspiration photo.</p></li>
+        <li><span class="o-num" aria-hidden="true">02</span><h3>Share Your Details</h3><p>Tell us your preferred flavor, size, theme, and event date.</p></li>
+        <li><span class="o-num" aria-hidden="true">03</span><h3>Confirm Your Booking</h3><p>Finalize your order details and secure your booking with a 50% down payment.</p></li>
+        <li><span class="o-num" aria-hidden="true">04</span><h3>Enjoy Your Cake</h3><p>Get ready for something sweet on your special day!</p></li>
+      </ol>
     </div>
-    <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+    <aside class="o-remember" aria-labelledby="o-remember-title">
+      <h3 id="o-remember-title">A Few Things to Remember</h3>
+      <ul>
+        <li><strong>Advance Booking</strong>We do not accept same-day or rush orders.</li>
+        <li><strong>50% Down Payment</strong>Required to secure your booking.</li>
+        <li><strong>Pickup &amp; Delivery</strong>Please be on time for pickup or arrange someone to receive your cake.</li>
+      </ul>
+      <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+    </aside>
   </div>
 </section>
 </main>
