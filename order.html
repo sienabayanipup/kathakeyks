@@ -71,6 +71,31 @@
   #order .o-steps h3{font-size:1.05rem}
   #order .o-steps p{font-size:.88rem}
 }
+#order .o-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:auto;position:relative}
+#order .o-actions .btn{margin:0}
+/* Availability calendar */
+#order .o-cal{border:0;padding:0;background:transparent;max-width:92vw;color:var(--o-ink);font-family:'Nunito',system-ui,sans-serif}
+#order .o-cal::backdrop{background:rgba(74,59,52,.45)}
+#order .o-cal-box{position:relative;width:min(380px,92vw);box-sizing:border-box;background:var(--o-cream);border-radius:20px;padding:24px 22px 20px;box-shadow:0 14px 40px rgba(74,59,52,.3)}
+#order .o-cal-box::before{content:"";position:absolute;inset:7px;border:1px solid rgba(107,74,58,.18);border-radius:14px;pointer-events:none}
+#order .o-cal-x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--o-brown);cursor:pointer;border-radius:50%}
+#order .o-cal-title{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.8rem;color:var(--o-brown);margin:0 0 10px;text-align:center}
+#order .o-cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+#order .o-cal-nav strong{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.1rem;color:var(--o-brown)}
+#order .o-cal-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--o-line);background:#fff;color:var(--o-brown);font-size:1.2rem;line-height:1;cursor:pointer}
+#order .o-cal-nav button:disabled{opacity:.3;cursor:default}
+#order .o-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+#order .o-cal-grid .wd{font-size:.72rem;font-weight:800;color:var(--o-brown);opacity:.7;padding:4px 0}
+#order .o-cal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:.88rem;font-weight:600;background:#fff;border:1px solid var(--o-line)}
+#order .o-cal-grid .d.past{opacity:.35;background:transparent;border-color:transparent}
+#order .o-cal-grid .d.ltd{background:#f3e3b8;border-color:#e3cd93}
+#order .o-cal-grid .d.full{background:var(--o-blush-deep);border-color:var(--o-blush-deep);color:#fff;text-decoration:line-through}
+#order .o-cal-key{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:14px 0 8px;padding:0;font-size:.8rem}
+#order .o-cal-key li{display:flex;align-items:center;gap:6px;margin:0}
+#order .o-cal-key i{width:14px;height:14px;border-radius:5px;display:inline-block;border:1px solid var(--o-line);background:#fff}
+#order .o-cal-key .k-ltd{background:#f3e3b8;border-color:#e3cd93}
+#order .o-cal-key .k-full{background:var(--o-blush-deep);border-color:var(--o-blush-deep)}
+#order .o-cal-note{margin:0;text-align:center;font-size:.8rem;opacity:.8}
 </style>
   <div class="wrap o-shell">
     <div class="o-process">
@@ -89,9 +114,57 @@
         <li><strong>50% Down Payment</strong>Required to secure your booking.</li>
         <li><strong>Pickup &amp; Delivery</strong>Please be on time for pickup or arrange someone to receive your cake.</li>
       </ul>
-      <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+      <div class="o-actions">
+        <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+        <button class="btn btn-line" type="button" id="o-cal-open">Check Availability</button>
+      </div>
     </aside>
   </div>
+  <dialog class="o-cal" id="o-cal" aria-labelledby="o-cal-title">
+    <div class="o-cal-box">
+      <button class="o-cal-x" type="button" data-close aria-label="Close calendar">&times;</button>
+      <h3 class="o-cal-title" id="o-cal-title">Check Availability</h3>
+      <div class="o-cal-nav"><button type="button" data-prev aria-label="Previous month">&lsaquo;</button><strong data-month aria-live="polite"></strong><button type="button" data-next aria-label="Next month">&rsaquo;</button></div>
+      <div class="o-cal-grid" data-grid></div>
+      <ul class="o-cal-key"><li><i></i>Available</li><li><i class="k-ltd"></i>Few slots left</li><li><i class="k-full"></i>Fully booked</li></ul>
+      <p class="o-cal-note">Dates are a guide. Message us to confirm your date.</p>
+    </div>
+  </dialog>
+<script>
+(function(){
+  /* ===== EDIT HERE: dates as 'YYYY-MM-DD'. Sample dates below, replace with real ones. ===== */
+  var FULL=['2026-11-14','2026-11-21','2026-11-28','2026-12-20','2026-12-24'];
+  var FEW=['2026-11-15','2026-11-22','2026-12-12','2026-12-19','2026-12-23'];
+  /* ======================================================================================= */
+  var dlg=document.getElementById('o-cal'),openBtn=document.getElementById('o-cal-open');
+  if(!dlg||!openBtn)return;
+  var grid=dlg.querySelector('[data-grid]'),label=dlg.querySelector('[data-month]'),prev=dlg.querySelector('[data-prev]'),next=dlg.querySelector('[data-next]');
+  var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),startM=new Date(now.getFullYear(),now.getMonth(),1),view=new Date(startM);
+  var MON=['January','February','March','April','May','June','July','August','September','October','November','December'],WD=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  function pad(n){return String(n).padStart(2,'0');}
+  function render(){
+    var y=view.getFullYear(),m=view.getMonth(),html='';
+    label.textContent=MON[m]+' '+y;
+    WD.forEach(function(w){html+='<div class="wd">'+w+'</div>';});
+    for(var b=0;b<new Date(y,m,1).getDay();b++)html+='<div></div>';
+    for(var d=1,n=new Date(y,m+1,0).getDate();d<=n;d++){
+      var iso=y+'-'+pad(m+1)+'-'+pad(d),dt=new Date(y,m,d),cls='d',txt='available';
+      if(dt<=today){cls+=' past';txt='not available';}
+      else if(FULL.indexOf(iso)>-1){cls+=' full';txt='fully booked';}
+      else if(FEW.indexOf(iso)>-1){cls+=' ltd';txt='few slots left';}
+      html+='<div class="'+cls+'" aria-label="'+MON[m]+' '+d+', '+txt+'">'+d+'</div>';
+    }
+    grid.innerHTML=html;
+    prev.disabled=view<=startM;
+    next.disabled=view>=new Date(startM.getFullYear(),startM.getMonth()+11,1);
+  }
+  prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);render();});
+  next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);render();});
+  openBtn.addEventListener('click',function(){view=new Date(startM);render();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
+  dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+})();
+</script>
 </section>
 </main>
 <footer>
