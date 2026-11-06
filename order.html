@@ -128,6 +128,12 @@
 #order .oq-note{font-size:.76rem;line-height:1.4;opacity:.8;margin:0 0 12px}
 #order .oq-sum .btn{width:100%;text-align:center;box-sizing:border-box}
 #order .oq-copied{min-height:1.1em;margin:8px 0 0;font-size:.76rem;font-weight:700;color:var(--o-brown);text-align:center}
+#order .oq-dp{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 10px;font-size:.84rem}
+#order .oq-dp span{font-weight:700;opacity:.85}
+#order .oq-dp strong{font-weight:800;color:var(--o-brown);font-size:1rem}
+#order .oq-sum .oq-terms{list-style:none;margin:0 0 12px;padding:10px 0 0;border-top:1px solid rgba(107,74,58,.18);font-size:.76rem;line-height:1.4}
+#order .oq-sum .oq-terms li{display:block;position:relative;padding:2px 0 2px 14px;border:0;margin:0;opacity:.9}
+#order .oq-sum .oq-terms li::before{content:"";position:absolute;left:2px;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--o-brown)}
 @media (max-width:700px){
   #order .oq-body{grid-template-columns:1fr}
   #order .oq-sum{position:sticky;bottom:-24px;top:auto;box-shadow:0 -6px 16px rgba(74,59,52,.15)}
@@ -212,8 +218,14 @@
         <div class="oq-sum" aria-live="polite">
           <h4>Your order</h4>
           <ul data-sum></ul>
-          <div class="oq-total"><span>Estimated total</span><strong data-total></strong></div>
-          <p class="oq-note">Estimate only. The final price is confirmed once we review your design and event details.</p>
+          <div class="oq-total"><span>Total</span><strong data-total></strong></div>
+          <div class="oq-dp"><span>50% down payment</span><strong data-dp></strong></div>
+          <ul class="oq-terms">
+            <li>50% down payment is required when booking.</li>
+            <li>No cancellation of bookings.</li>
+            <li>Major changes may not be allowed once confirmed.</li>
+            <li>No same-day or rush orders.</li>
+          </ul>
           <a class="btn btn-fill" data-send href="https://docs.google.com/forms/d/e/1FAIpQLSfjFIxypDbdok1fup8KgbOfmu6VX6IJjZ8OkuXuMkzalWImTQ/viewform" target="_blank" rel="noopener">Book My Order</a>
           <p class="oq-copied" data-copied></p>
         </div>
@@ -245,7 +257,7 @@
   /* ================================================================================================ */
   var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
   if(!dlg||!openBtn)return;
-  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]');
+  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]');
   var PESO='\u20B1';
   function money(n){return PESO+n.toLocaleString('en-PH');}
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
@@ -273,8 +285,8 @@
       rows+='<li><span>'+esc(g.t.replace(' (optional)',''))+'</span><span>'+esc(label)+'</span></li>';
       lines.push(g.t.replace(' (optional)','')+': '+label);
     });
-    sum.innerHTML=rows;totalEl.textContent=money(total);
-    lines.push('Estimated price: '+money(total)+' (estimate only)');
+    sum.innerHTML=rows;totalEl.textContent=money(total);var dp=Math.round(total/2);dpEl.textContent=money(dp);
+    lines.push('Total: '+money(total));lines.push('50% down payment: '+money(dp));
     text=lines.join('\n');copied.textContent='';
   }
   form.addEventListener('change',update);
