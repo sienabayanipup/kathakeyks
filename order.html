@@ -96,6 +96,41 @@
 #order .o-cal-key .k-ltd{background:#f3e3b8;border-color:#e3cd93}
 #order .o-cal-key .k-full{background:var(--o-blush-deep);border-color:var(--o-blush-deep)}
 #order .o-cal-note{margin:0;text-align:center;font-size:.8rem;opacity:.8}
+/* Cake quote builder */
+#order .o-quote{border:0;padding:0;background:transparent;max-width:96vw;color:var(--o-ink);font-family:'Nunito',system-ui,sans-serif}
+#order .o-quote::backdrop{background:rgba(74,59,52,.45)}
+#order .oq-box{position:relative;width:min(760px,96vw);max-height:92vh;max-height:92dvh;overflow-y:auto;box-sizing:border-box;background:var(--o-cream);border-radius:20px;padding:26px 24px 24px;box-shadow:0 14px 40px rgba(74,59,52,.3)}
+#order .oq-x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--o-brown);cursor:pointer;border-radius:50%;z-index:2}
+#order .oq-title{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:2rem;color:var(--o-brown);margin:0;text-align:left;line-height:1.1}
+#order .oq-sub{margin:2px 0 16px;font-size:.92rem;opacity:.8}
+#order .oq-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:start}
+#order .oq-form{display:flex;flex-direction:column;gap:14px}
+#order .oq-form fieldset{border:0;margin:0;padding:0;min-width:0}
+#order .oq-form legend{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1rem;color:var(--o-brown);padding:0;margin-bottom:6px}
+#order .oq-chips{display:flex;flex-wrap:wrap;gap:6px}
+#order .oq-chip{position:relative;margin:0;cursor:pointer}
+#order .oq-chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+#order .oq-chip span{display:flex;flex-direction:column;gap:1px;padding:8px 12px;border-radius:12px;border:1px solid var(--o-line);background:#fff;font-size:.86rem;font-weight:700;line-height:1.25;transition:background .15s,color .15s,border-color .15s}
+#order .oq-chip em{font-style:normal;font-weight:600;font-size:.74rem;opacity:.7}
+#order .oq-chip small{font-size:.72rem;font-weight:600;opacity:.7}
+#order .oq-chip input:checked+span{background:var(--o-brown);border-color:var(--o-brown);color:#fff}
+#order .oq-chip input:focus-visible+span{outline:2px solid var(--o-blush-deep);outline-offset:2px}
+#order .oq-sum{background:var(--o-blush);border-radius:16px;padding:18px 18px 16px;position:sticky;top:0}
+#order .oq-sum h4{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.05rem;color:var(--o-brown);margin:0 0 8px}
+#order .oq-sum ul{list-style:none;margin:0 0 10px;padding:0;font-size:.86rem}
+#order .oq-sum li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-top:1px solid rgba(107,74,58,.18);margin:0}
+#order .oq-sum li span:first-child{opacity:.75}
+#order .oq-sum li span:last-child{font-weight:700;text-align:right}
+#order .oq-total{display:flex;align-items:baseline;justify-content:space-between;border-top:2px solid rgba(107,74,58,.3);padding-top:10px;margin-bottom:6px}
+#order .oq-total span{font-size:.8rem;font-weight:800;color:var(--o-brown)}
+#order .oq-total strong{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.7rem;color:var(--o-brown)}
+#order .oq-note{font-size:.76rem;line-height:1.4;opacity:.8;margin:0 0 12px}
+#order .oq-sum .btn{width:100%;text-align:center;box-sizing:border-box}
+#order .oq-copied{min-height:1.1em;margin:8px 0 0;font-size:.76rem;font-weight:700;color:var(--o-brown);text-align:center}
+@media (max-width:700px){
+  #order .oq-body{grid-template-columns:1fr}
+  #order .oq-sum{position:sticky;bottom:-24px;top:auto;box-shadow:0 -6px 16px rgba(74,59,52,.15)}
+}
 </style>
   <div class="wrap o-shell">
     <div class="o-process">
@@ -116,6 +151,7 @@
       </ul>
       <div class="o-actions">
         <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+        <button class="btn btn-line" type="button" id="oq-open">Get a Quote</button>
         <button class="btn btn-line" type="button" id="o-cal-open">Check Availability</button>
       </div>
     </aside>
@@ -161,6 +197,79 @@
   prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);render();});
   next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);render();});
   openBtn.addEventListener('click',function(){view=new Date(startM);render();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
+  dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+})();
+</script>
+  <dialog class="o-quote" id="o-quote" aria-labelledby="oq-title">
+    <div class="oq-box">
+      <button class="oq-x" type="button" data-close aria-label="Close quote builder">&times;</button>
+      <h3 class="oq-title" id="oq-title">Build Your Cake</h3>
+      <p class="oq-sub">Pick your options and see an estimated price instantly.</p>
+      <div class="oq-body">
+        <form class="oq-form" data-form onsubmit="return false"></form>
+        <div class="oq-sum" aria-live="polite">
+          <h4>Your cake</h4>
+          <ul data-sum></ul>
+          <div class="oq-total"><span>Estimated total</span><strong data-total></strong></div>
+          <p class="oq-note">Estimate only. The final price is confirmed once we review your design and event details.</p>
+          <a class="btn btn-fill" data-send href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Copy Quote &amp; Message Us</a>
+          <p class="oq-copied" data-copied></p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+<script>
+(function(){
+  /* ===== EDIT PRICES HERE: ['Label', price in pesos, optional hint]. These are SAMPLE prices. ===== */
+  var GROUPS=[
+    {k:'size',t:'Base size',one:1,o:[['6 inch',1200],['8 inch',1800],['10 inch',2500]]},
+    {k:'tier',t:'Tiers',one:1,o:[['1 tier',0],['2 tiers',1500],['3 tiers',3000]]},
+    {k:'flavor',t:'Cake flavor',one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',150],['Ube',150],['Red velvet',200],['Caramel',200]]},
+    {k:'icing',t:'Icing',one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate drip',250],['Fondant',600]]},
+    {k:'design',t:'Design',one:1,o:[['Simple',0,'Clean finish, minimal decor'],['Detailed',500,'Piped or themed details'],['Premium custom',1200,'Sculpted or fully custom']]},
+    {k:'extra',t:'Extras (optional)',one:0,o:[['Edible topper',250],['Fresh flowers',450],['Edible gold & pearls',200]]}
+  ];
+  /* ================================================================================================ */
+  var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
+  if(!dlg||!openBtn)return;
+  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]');
+  var PESO='\u20B1';
+  function money(n){return PESO+n.toLocaleString('en-PH');}
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  var html='';
+  GROUPS.forEach(function(g){
+    html+='<fieldset><legend>'+esc(g.t)+'</legend><div class="oq-chips">';
+    g.o.forEach(function(o,i){
+      var type=g.one?'radio':'checkbox',chk=(g.one&&i===0)?' checked':'';
+      html+='<label class="oq-chip"><input type="'+type+'" name="'+g.k+'" value="'+i+'" data-price="'+o[1]+'" data-label="'+esc(o[0])+'"'+chk+'><span>'+esc(o[0])+(o[1]?'<em>+'+money(o[1])+'</em>':'')+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span></label>';
+    });
+    html+='</div></fieldset>';
+  });
+  form.innerHTML=html;
+  var text='';
+  function update(){
+    var total=0,rows='',lines=['Katha Keyks cake quote request'];
+    GROUPS.forEach(function(g){
+      var picked=[].slice.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'));
+      var label=picked.length?picked.map(function(i){return i.getAttribute('data-label');}).join(', '):'None';
+      picked.forEach(function(i){total+=+i.getAttribute('data-price');});
+      rows+='<li><span>'+esc(g.t.replace(' (optional)',''))+'</span><span>'+esc(label)+'</span></li>';
+      lines.push(g.t.replace(' (optional)','')+': '+label);
+    });
+    sum.innerHTML=rows;totalEl.textContent=money(total);
+    lines.push('Estimated price: '+money(total)+' (estimate only)');
+    text=lines.join('\n');copied.textContent='';
+  }
+  form.addEventListener('change',update);
+  function copy(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(text);}
+    return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=text;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}document.body.removeChild(a);});
+  }
+  send.addEventListener('click',function(){
+    copy().then(function(){copied.textContent='Quote copied! Paste it in your Facebook message.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
+  });
+  openBtn.addEventListener('click',function(){update();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
   dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
   dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
 })();
