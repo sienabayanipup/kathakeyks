@@ -105,6 +105,7 @@
 #order .oq-sub{margin:2px 0 16px;font-size:.92rem;opacity:.8}
 #order .oq-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:start}
 #order .oq-form{display:flex;flex-direction:column;gap:14px}
+#order .oq-form fieldset[hidden]{display:none}
 #order .oq-form fieldset{border:0;margin:0;padding:0;min-width:0}
 #order .oq-form legend{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1rem;color:var(--o-brown);padding:0;margin-bottom:6px}
 #order .oq-chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -204,16 +205,16 @@
   <dialog class="o-quote" id="o-quote" aria-labelledby="oq-title">
     <div class="oq-box">
       <button class="oq-x" type="button" data-close aria-label="Close quote builder">&times;</button>
-      <h3 class="oq-title" id="oq-title">Build Your Cake</h3>
+      <h3 class="oq-title" id="oq-title">Build Your Order</h3>
       <p class="oq-sub">Pick your options and see an estimated price instantly.</p>
       <div class="oq-body">
         <form class="oq-form" data-form onsubmit="return false"></form>
         <div class="oq-sum" aria-live="polite">
-          <h4>Your cake</h4>
+          <h4>Your order</h4>
           <ul data-sum></ul>
           <div class="oq-total"><span>Estimated total</span><strong data-total></strong></div>
           <p class="oq-note">Estimate only. The final price is confirmed once we review your design and event details.</p>
-          <a class="btn btn-fill" data-send href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Copy Quote &amp; Message Us</a>
+          <a class="btn btn-fill" data-send href="https://docs.google.com/forms/d/e/1FAIpQLSfjFIxypDbdok1fup8KgbOfmu6VX6IJjZ8OkuXuMkzalWImTQ/viewform" target="_blank" rel="noopener">Book My Order</a>
           <p class="oq-copied" data-copied></p>
         </div>
       </div>
@@ -223,12 +224,23 @@
 (function(){
   /* ===== EDIT PRICES HERE: ['Label', price in pesos, optional hint]. These are SAMPLE prices. ===== */
   var GROUPS=[
-    {k:'size',t:'Base size',one:1,o:[['6 inch',1200],['8 inch',1800],['10 inch',2500]]},
-    {k:'tier',t:'Tiers',one:1,o:[['1 tier',0],['2 tiers',1500],['3 tiers',3000]]},
-    {k:'flavor',t:'Cake flavor',one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',150],['Ube',150],['Red velvet',200],['Caramel',200]]},
-    {k:'icing',t:'Icing',one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate drip',250],['Fondant',600]]},
-    {k:'design',t:'Design',one:1,o:[['Simple',0,'Clean finish, minimal decor'],['Detailed',500,'Piped or themed details'],['Premium custom',1200,'Sculpted or fully custom']]},
-    {k:'extra',t:'Extras (optional)',one:0,o:[['Edible topper',250],['Fresh flowers',450],['Edible gold & pearls',200]]}
+    {k:'type',t:'What would you like?',one:1,o:[['Cake',0,'Custom cake, with optional cupcakes'],['Cupcakes only',0,'12 or 24 pieces'],['Edible topper only',0,'Toppers without a cake']]},
+    /* --- Cake --- */
+    {k:'size',t:'Base size',f:['cake'],one:1,o:[['6 inch',1200],['8 inch',1800],['10 inch',2500]]},
+    {k:'tier',t:'Tiers',f:['cake'],one:1,o:[['1 tier',0],['2 tiers',1500],['3 tiers',3000],['4 tiers',4500],['5 tiers',6000],['6 tiers',7500]]},
+    {k:'flavor',t:'Cake flavor',f:['cake'],one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',150],['Ube',150],['Red velvet',200],['Caramel',200]]},
+    {k:'icing',t:'Icing',f:['cake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate drip',250],['Fondant',600]]},
+    {k:'design',t:'Design',f:['cake'],one:1,o:[['Simple',0,'Clean finish, minimal decor'],['Detailed',500,'Piped or themed details'],['Premium custom',1200,'Sculpted or fully custom']]},
+    {k:'cupadd',t:'Add cupcakes (same flavor & icing)',f:['cake'],one:1,o:[['No cupcakes',0],['12 cupcakes',600],['24 cupcakes',1100]]},
+    {k:'extra',t:'Extras (optional)',f:['cake'],one:0,o:[['Edible topper',250],['Fresh flowers',450],['Edible gold & pearls',200]]},
+    /* --- Cupcakes only --- */
+    {k:'cqty',t:'Quantity',f:['cupcake'],one:1,o:[['12 cupcakes',700],['24 cupcakes',1300]]},
+    {k:'cflavor',t:'Cupcake flavor',f:['cupcake'],one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',60],['Ube',60],['Red velvet',100],['Caramel',100]]},
+    {k:'cicing',t:'Icing',f:['cupcake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate ganache',150]]},
+    {k:'cdesign',t:'Decoration',f:['cupcake'],one:1,o:[['Simple',0,'Clean swirl'],['Themed',250,'Matching toppers or details'],['Premium custom',600,'Hand-decorated']]},
+    /* --- Edible topper only --- */
+    {k:'tstyle',t:'Topper type',f:['topper'],one:1,o:[['Cake topper',250],['Cupcake toppers (12)',350],['Cupcake toppers (24)',600]]},
+    {k:'tdesign',t:'Topper design',f:['topper'],one:1,o:[['Name or message',0],['Themed or character',150],['Custom illustrated',350]]}
   ];
   /* ================================================================================================ */
   var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
@@ -239,7 +251,7 @@
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
   var html='';
   GROUPS.forEach(function(g){
-    html+='<fieldset><legend>'+esc(g.t)+'</legend><div class="oq-chips">';
+    html+='<fieldset data-g="'+g.k+'"><legend>'+esc(g.t)+'</legend><div class="oq-chips">';
     g.o.forEach(function(o,i){
       var type=g.one?'radio':'checkbox',chk=(g.one&&i===0)?' checked':'';
       html+='<label class="oq-chip"><input type="'+type+'" name="'+g.k+'" value="'+i+'" data-price="'+o[1]+'" data-label="'+esc(o[0])+'"'+chk+'><span>'+esc(o[0])+(o[1]?'<em>+'+money(o[1])+'</em>':'')+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span></label>';
@@ -249,8 +261,12 @@
   form.innerHTML=html;
   var text='';
   function update(){
-    var total=0,rows='',lines=['Katha Keyks cake quote request'];
+    var total=0,rows='',lines=['Katha Keyks order quote request'];
+    var T=['cake','cupcake','topper'][+(form.querySelector('input[name="type"]:checked')||{value:0}).value];
     GROUPS.forEach(function(g){
+      var show=!g.f||g.f.indexOf(T)>-1,fs=form.querySelector('[data-g="'+g.k+'"]');
+      if(fs)fs.hidden=!show;
+      if(!show)return;
       var picked=[].slice.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'));
       var label=picked.length?picked.map(function(i){return i.getAttribute('data-label');}).join(', '):'None';
       picked.forEach(function(i){total+=+i.getAttribute('data-price');});
@@ -267,7 +283,7 @@
     return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=text;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}document.body.removeChild(a);});
   }
   send.addEventListener('click',function(){
-    copy().then(function(){copied.textContent='Quote copied! Paste it in your Facebook message.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
+    copy().then(function(){copied.textContent='Quote copied! Paste it into the booking form.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
   });
   openBtn.addEventListener('click',function(){update();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
   dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
