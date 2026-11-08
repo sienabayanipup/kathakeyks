@@ -13,28 +13,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fraunces:opsz,wght,SOFT@9..144,400..600,0..100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.cake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.cake-card{background:var(--white,#f6f0e8);border-radius:var(--r,22px);padding:12px 12px 22px;display:flex;flex-direction:column;break-inside:avoid}
-.cake-photo{display:block;width:100%;padding:0;border:0;background:none;border-radius:14px;overflow:hidden;cursor:zoom-in}
-.cake-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .4s}
-.cake-photo:hover img,.cake-photo:focus-visible img{transform:scale(1.04)}
-.cake-photo:focus-visible{outline:3px solid var(--rose,#D9A5AE);outline-offset:2px}
-.cake-info{padding:16px 10px 0;display:flex;flex-direction:column;gap:8px;flex:1}
-.cake-tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mocha-soft,rgba(61,46,43,.8))}
-.cake-info h3{margin:0;font-family:var(--serif,Georgia,serif);font-size:1.3rem;line-height:1.2}
-.cake-info p{margin:0 0 10px;color:var(--mocha-soft,rgba(61,46,43,.8));font-size:.92rem;flex:1}
-.cake-info .btn{align-self:flex-start}
-@media(max-width:900px){.cake-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.cake-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.cake-photo img{transition:none}}
-</style>
 </head>
 <body>
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
 <header>
   <nav class="wrap nav" aria-label="Main">
-    <a href="index.html" class="logo" aria-label="Katha Keyks home"><img src="images/logo.png" alt="" width="56" height="56">Katha <span>Keyks</span></a>
+    <a href="index.html" class="logo" aria-label="Katha Keyks home"><img src="images/logo.png" alt="Katha Keyks by Ann" width="72" height="72"></a>
     <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     <ul class="menu" id="menu"><li><a href="index.html">Home</a></li><li><a href="cakes.html" aria-current="page">Our Cakes</a></li><li><a href="toppers.html">Edible Toppers</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a class="btn btn-fill btn-sm" href="order.html">Order a Cake</a></li></ul>
   </nav>
@@ -45,116 +29,15 @@
     <div class="head">
       <div><h2>Our Cakes</h2>
       </div>
-      <p class="lede" style="margin:0">Every cake is made to order, in different colors, finishes and themes. Tap a photo to enlarge it, then message us your own idea.</p>
+      <p class="lede" style="margin:0">Every cake is made to order, in different colors, finishes and themes. Tap a photo to enlarge it.</p>
     </div>
-    <div class="cake-grid" id="cake-grid">
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/moon-astronaut.jpg" data-alt="Moon Landing Astronaut" aria-label="Enlarge photo of Moon Landing Astronaut">
-          <img src="images/cakes/moon-astronaut.jpg" alt="Moon Landing Astronaut" width="914" height="1000" loading="eager">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Themed Cake</span>
-          <h3>Moon Landing Astronaut</h3>
-          <p>Space-themed birthday cake with a hand-modeled fondant astronaut planting a flag on the moon. Ombre buttercream shifts from white to dusty blue, with sculpted craters and a name banner.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/born-at-18.jpg" data-alt="Pink &amp; Purple Born @ 18" aria-label="Enlarge photo of Pink &amp; Purple Born @ 18">
-          <img src="images/cakes/born-at-18.jpg" alt="Pink &amp; Purple Born @ 18" width="750" height="1000" loading="eager">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Birthday Cake</span>
-          <h3>Pink &amp; Purple Born @ 18</h3>
-          <p>Two-tier 18th birthday cake with a polka-dot pink top, purple-and-pink striped bottom, a big fondant bow and a glitter topper.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/bento-trenta.jpg" data-alt="“Hala, Trenta Ka Na!” Bento" aria-label="Enlarge photo of “Hala, Trenta Ka Na!” Bento">
-          <img src="images/cakes/bento-trenta.jpg" alt="“Hala, Trenta Ka Na!” Bento" width="1000" height="750" loading="eager">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Bento Cake</span>
-          <h3>“Hala, Trenta Ka Na!” Bento</h3>
-          <p>A playful mini bento cake in dusty blue with a hand-piped message and little snowflake accents. Perfect for a cheeky milestone birthday.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/bento-first-bday.jpg" data-alt="Little Party Girl Bento" aria-label="Enlarge photo of Little Party Girl Bento">
-          <img src="images/cakes/bento-first-bday.jpg" alt="Little Party Girl Bento" width="1000" height="750" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Bento Cake</span>
-          <h3>Little Party Girl Bento</h3>
-          <p>A sweet pink 1st birthday bento with a hand-piped portrait in a red party hat, colorful sprinkle dots and a custom name.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/photo-drip.jpg" data-alt="Photo Drip Cake" aria-label="Enlarge photo of Photo Drip Cake">
-          <img src="images/cakes/photo-drip.jpg" alt="Photo Drip Cake" width="751" height="1000" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Customized Cake</span>
-          <h3>Photo Drip Cake</h3>
-          <p>Pink-striped buttercream with a white drip, rosette borders and pearls. Topped with an edible photo print and funny custom sign toppers.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/minecraft.jpg" data-alt="Minecraft Adventure" aria-label="Enlarge photo of Minecraft Adventure">
-          <img src="images/cakes/minecraft.jpg" alt="Minecraft Adventure" width="750" height="1000" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Themed Cake</span>
-          <h3>Minecraft Adventure</h3>
-          <p>A two-tier game-themed cake with piped buttercream grass, brick-textured “dirt”, printed character toppers and a custom name and age.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/quarantine-41.jpg" data-alt="Quarantine Birthday" aria-label="Enlarge photo of Quarantine Birthday">
-          <img src="images/cakes/quarantine-41.jpg" alt="Quarantine Birthday" width="770" height="1000" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Themed Cake</span>
-          <h3>Quarantine Birthday</h3>
-          <p>A tongue-in-cheek hazard-tape cake in bold yellow and black fondant, with printed hazmat figures and signs for a 41st birthday.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/unicorn-rainbow.jpg" data-alt="Rainbow Unicorn Dream" aria-label="Enlarge photo of Rainbow Unicorn Dream">
-          <img src="images/cakes/unicorn-rainbow.jpg" alt="Rainbow Unicorn Dream" width="800" height="1000" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Birthday Cake</span>
-          <h3>Rainbow Unicorn Dream</h3>
-          <p>Two-tier first birthday cake with a pastel watercolor finish, fondant unicorn, roses and bow, crowned by a fondant rainbow.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-      <article class="cake-card">
-        <button type="button" class="cake-photo" data-full="images/cakes/candy-land.jpg" data-alt="Candy Land Tower" aria-label="Enlarge photo of Candy Land Tower">
-          <img src="images/cakes/candy-land.jpg" alt="Candy Land Tower" width="750" height="1000" loading="lazy">
-        </button>
-        <div class="cake-info">
-          <span class="cake-tag">Specialty Cake</span>
-          <h3>Candy Land Tower</h3>
-          <p>A three-tier candy-themed cake with fondant lollipops, ice cream cones and a sweets-filled base with a toy train. Made for a very sweet party.</p>
-          <a class="btn btn-fill btn-sm" href="order.html">Order a Cake Like This</a>
-        </div>
-      </article>
-    </div>
-    <div id="bento" hidden></div>
+    <div class="bento" id="bento"></div>
   </div>
 </section>
 </main>
 <footer>
   <div class="wrap foot">
-    <div><a href="index.html" class="logo logo-full" aria-label="Katha Keyks home"><img src="images/logo.png" alt="Katha Keyks" width="180" height="180"></a><p>Where every cake tells a story.</p></div>
+    <div><a href="index.html" class="logo logo-full" aria-label="Katha Keyks home"><img src="images/logo.png" alt="Katha Keyks" width="100" height="100"></a><p>Where every cake tells a story.</p></div>
     <div><h3>Explore</h3><a href="cakes.html">Our Cakes</a><a href="toppers.html">Edible Toppers</a><a href="about.html">Meet Ann</a><a href="order.html">How to Order</a></div>
     <div><h3>Say hello</h3><a href="contact.html">Contact</a><a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Facebook</a><a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Order inquiry</a></div>
   </div>
@@ -162,15 +45,5 @@
 </footer>
 <dialog id="lb" aria-label="Cake photo"><button aria-label="Close">×</button><img alt=""></dialog>
 <script src="main.js"></script>
-<script>
-(function(){
-  var lb=document.getElementById("lb");if(!lb||!lb.showModal)return;
-  var img=lb.querySelector("img");
-  document.querySelectorAll(".cake-photo").forEach(function(b){
-    b.addEventListener("click",function(){img.src=b.dataset.full;img.alt=b.dataset.alt;lb.showModal();});
-  });
-  lb.addEventListener("click",function(e){if(e.target===lb||e.target.tagName==="BUTTON")lb.close();});
-})();
-</script>
 </body>
 </html>
