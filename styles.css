@@ -152,8 +152,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .links small{font-weight:400;color:var(--text-soft)}
 
 /* footer */
-footer{background:var(--cocoa);padding:56px 0 32px;font-size:.97rem;color:rgba(255,255,255,.8)}
-.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer{background:var(--cocoa);padding:36px 0 22px;font-size:.97rem;color:rgba(255,255,255,.8)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
 .foot h3{font-size:1.2rem;color:var(--white);margin-bottom:10px}
 .foot .logo{color:var(--white)}
 .foot .logo span{color:#F2C9D1}
@@ -161,7 +161,7 @@ footer{background:var(--cocoa);padding:56px 0 32px;font-size:.97rem;color:rgba(2
 .foot a:not(.logo):hover{color:var(--white);text-decoration:underline}
 .foot p{margin-top:10px}
 footer :focus-visible{outline-color:var(--white)}
-.copy{margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem}
+.copy{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:.85rem}
 @media (max-width:700px){.foot{grid-template-columns:1fr}}
 
 /* lightbox */
@@ -278,8 +278,9 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
 .hero-sub:hover{rotate:2.5deg}
 @media (prefers-reduced-motion:reduce){.sprinkles{display:none}}
 
-/* logo: cake mark in header, full logo in footer */
-.logo{display:inline-flex;align-items:center;gap:10px}
-.logo img{width:auto;height:56px}
-.logo-full img{height:auto;width:180px}
-@media (max-width:960px){.logo img{height:44px}.logo-full img{height:auto;width:160px}}
+/* logo image (header + footer) */
+.logo img{width:auto;height:64px}
+.logo-full{display:block;width:fit-content}
+.foot .logo img{width:100px;height:100px}
+.foot .logo-full+p{margin-top:6px}
+@media (max-width:960px){.logo img{height:52px}}
