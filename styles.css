@@ -330,3 +330,97 @@ dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:v
 /* about photo: caption badge */
 .ph-badge{position:absolute;right:14px;bottom:14px;max-width:calc(100% - 28px);margin:0;padding:8px 16px;border-radius:999px;background:rgba(255,249,242,.95);border:1px solid var(--line);box-shadow:0 6px 18px rgba(73,54,49,.18);font:700 .82rem/1.25 var(--sans);color:var(--cocoa)}
 @media (max-width:960px){.about-photo{max-width:420px;margin:0 auto}}
+
+
+/* =========================================================
+   ABOUT PAGE REDESIGN: "Meet the baker" + Awards
+   Champagne-gold tokens extend the existing palette.
+   ========================================================= */
+:root{
+  --gold:#B8923F;
+  --gold-deep:#8F6B2A;
+  --champagne:#F3E3BF;
+  --champagne-soft:#FBF3E2;
+}
+
+.ab{position:relative;padding:88px 0 96px;overflow:clip;background:
+  radial-gradient(60% 50% at 8% 10%,rgba(248,232,232,.9),transparent 70%),
+  var(--cream)}
+.ab-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:80px;align-items:center}
+
+/* --- the photograph: framed, never cropped (frame is exactly 3:4, like the file) --- */
+.ab-photo{position:relative;width:100%;max-width:540px;justify-self:center;margin:0;animation:rise 1s both}
+.ab-photo::before{ /* champagne hairline frame, offset */
+  content:"";position:absolute;inset:0;border:1.5px solid var(--gold);border-radius:34px;
+  transform:translate(20px,20px);z-index:0;opacity:.75}
+.ab-photo::after{ /* blush wash behind the frame */
+  content:"";position:absolute;left:-36px;top:-36px;width:62%;height:56%;border-radius:40px;
+  background:var(--blush);z-index:-1}
+.ab-frame{position:relative;z-index:1;margin:0;padding:14px 14px 0;background:var(--white);border-radius:30px;
+  box-shadow:0 2px 0 rgba(184,146,63,.25),0 28px 60px -18px rgba(73,54,49,.35),0 8px 18px -8px rgba(73,54,49,.18)}
+.ab-frame img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:20px}
+.ab-frame figcaption{padding:14px 10px 16px;text-align:center;font:600 .92rem/1.4 var(--sans);color:var(--text-soft)}
+
+/* --- story --- */
+.ab-script{display:block;font:600 clamp(1.9rem,3.2vw,2.5rem)/1.1 var(--script);color:var(--gold-deep);margin:0 0 14px}
+.ab-copy h2{font-size:clamp(2.3rem,4.6vw,3.7rem);line-height:1.04;letter-spacing:-.02em;max-width:15ch}
+.ab-rule{display:block;width:72px;height:2px;margin:26px 0 24px;border:0;background:linear-gradient(90deg,var(--gold),var(--champagne))}
+.ab-copy .lede{font:400 1.3rem/1.55 var(--serif);color:var(--cocoa);max-width:44ch;margin:0}
+.ab-copy p{max-width:56ch}
+.ab-copy .ab-story{margin-top:22px;display:grid;gap:16px;color:var(--text-soft)}
+.ab-copy .ab-story strong{color:var(--cocoa)}
+.ab-sign{display:flex;align-items:center;gap:16px;margin-top:30px}
+.ab-sign::before{content:"";width:44px;height:1.5px;background:var(--gold)}
+.ab-sign span{font:600 2.3rem/1 var(--script);color:var(--gold-deep)}
+
+/* --- awards --- */
+.aw{background:linear-gradient(180deg,var(--cream),var(--champagne-soft) 38%,var(--champagne-soft) 100%);padding:80px 0 96px;border-top:1px solid rgba(184,146,63,.25)}
+.aw-head{text-align:center;margin-bottom:48px}
+.aw-head .ab-script{margin-bottom:6px}
+.aw-grid{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:24px}
+.aw-card{position:relative;display:flex;flex-direction:column;gap:6px;padding:32px 34px 30px;background:var(--white);border:1px solid rgba(184,146,63,.35);border-radius:var(--r);box-shadow:0 18px 40px -26px rgba(73,54,49,.35)}
+.aw-card .aw-year{font:500 clamp(2.6rem,4.5vw,3.6rem)/1 var(--serif);letter-spacing:-.03em;color:var(--gold-deep);margin-bottom:6px}
+.aw-card h3{font-size:1.4rem}
+.aw-card .aw-cat{color:var(--cocoa);font-weight:700;font-size:1rem}
+.aw-card .aw-event{color:var(--text-soft);font-size:.97rem;margin-top:2px}
+.aw-card .aw-event a{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.aw-card .aw-event a:hover{color:var(--rose-warm)}
+.aw-medal{position:absolute;top:26px;right:28px;width:44px;height:58px;color:var(--gold)}
+.aw-medal.silver{color:#9A8F8A}
+.aw-medal.bronze{color:#B07A4F}
+.aw-feature{grid-row:span 2;justify-content:flex-end;padding:40px 42px 40px;background:
+  radial-gradient(90% 70% at 100% 0%,rgba(255,255,255,.85),transparent 60%),
+  linear-gradient(155deg,#FBF1D9,#F1DDAE);border-color:var(--gold)}
+.aw-feature .aw-year{font-size:clamp(4rem,8vw,6.4rem);color:var(--gold-deep)}
+.aw-feature h3{font-size:clamp(1.7rem,2.8vw,2.2rem)}
+.aw-feature .aw-medal{width:72px;height:94px;top:34px;right:38px}
+.aw-feature .aw-cat{font-size:1.1rem}
+.aw-feature .aw-event{color:#5C4A42;font-size:1rem}
+
+/* --- tablet --- */
+@media (max-width:960px){
+  .ab{padding:64px 0 72px}
+  .ab-grid{gap:56px}
+  .aw{padding:64px 0 76px}
+}
+/* --- stacked: photo first, then story --- */
+@media (max-width:860px){
+  .ab-grid{grid-template-columns:1fr;gap:56px}
+  .ab-photo{max-width:440px}
+  .ab-photo::before{transform:translate(14px,14px)}
+  .ab-photo::after{left:-18px;top:-18px}
+  .ab-copy{text-align:left}
+  .aw-grid{grid-template-columns:1fr;grid-template-rows:none}
+  .aw-feature{grid-row:auto;padding:36px 30px 32px;min-height:300px}
+}
+@media (max-width:560px){
+  .ab{padding:48px 0 60px}
+  .ab-photo{max-width:100%;margin-right:14px}
+  .ab-frame{padding:10px 10px 0;border-radius:26px}
+  .ab-frame img{border-radius:17px}
+  .ab-copy .lede{font-size:1.2rem}
+  .aw-card{padding:26px 24px 24px}
+  .aw-feature{padding:30px 24px 26px;min-height:0}
+  .aw-medal{top:20px;right:20px;width:36px;height:48px}
+  .aw-feature .aw-medal{width:56px;height:74px;top:24px;right:24px}
+}
