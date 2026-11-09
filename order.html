@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Katha Keyks | How to Order</title>
-<meta name="description" content="How to order a custom cake from Katha Keyks, plus important reminders for made-to-order cakes.">
+<title>Katha Keyks | How to Order &amp; FAQs</title>
+<meta name="description" content="How to order a custom cake from Katha Keyks, plus FAQs on booking, cake care, payment, delivery and pickup.">
 <meta property="og:title" content="Katha Keyks | How to Order">
 <meta property="og:description" content="Beautifully crafted cakes for life’s sweetest moments.">
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -13,6 +13,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fraunces:opsz,wght,SOFT@9..144,400..600,0..100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How far in advance should I book a custom cake?","acceptedAnswer":{"@type":"Answer","text":"We recommend ordering your customized cake 2 to 3 days before the scheduled date, so we can validate your order."}},
+{"@type":"Question","name":"How stable are the cakes and cupcakes?","acceptedAnswer":{"@type":"Answer","text":"To keep your cake stable, we use dowels for tiered cakes with two or more layers. This prevents sliding, leaning, and collapse."}},
+{"@type":"Question","name":"How do I take care of my cake?","acceptedAnswer":{"@type":"Answer","text":"Avoid direct sunlight and keep the cake in a cool, dry place. We recommend refrigerating it at 2 to 5 degrees Celsius, where it will last about two days. Do not use contaminated utensils, to avoid contamination and spoilage."}},
+{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We only accept QR code and e-wallet payments such as GCash. For bank transfers, we only use BPI QR codes."}},
+{"@type":"Question","name":"What are the delivery and pickup options?","acceptedAnswer":{"@type":"Answer","text":"We do not accept motorcycles for cake delivery because they could harm the cake in transit, especially tiered cakes with two or more layers. We recommend a car or any other four-wheel vehicle. Pickup is available at 9 a.m."}}
+]}
+</script>
 </head>
 <body>
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
@@ -26,53 +35,92 @@
 <main>
 <section class="order" id="order">
 <style>
-/* Scoped to the "Ordering is simple" section only */
-#order.order{--o-cream:#fbf6ee;--o-beige:#f1e7d8;--o-blush:#f3dcd6;--o-blush-deep:#e3b9b0;--o-brown:#6b4a3a;--o-ink:#4a3b34;--o-line:rgba(107,74,58,.22);background:linear-gradient(180deg,var(--o-cream),var(--o-beige));padding:clamp(40px,6vw,72px) 0;border-top:1px solid var(--o-line)}
-#order .o-shell{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(28px,4.5vw,64px);align-items:stretch}
-#order .o-head{margin:0 0 clamp(18px,2.5vw,28px)}
-#order .o-head h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(1.9rem,3.4vw,2.75rem);line-height:1.1;letter-spacing:-.01em;color:var(--o-brown);margin:0 0 6px;text-align:left}
-#order .o-head p{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--o-ink);opacity:.8;font-size:1rem}
-#order .o-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--o-line)}
-#order .o-steps li{position:relative;padding:22px clamp(14px,2.2vw,28px) 24px 0;border-bottom:1px solid var(--o-line);margin:0}
-#order .o-steps li:nth-child(odd){border-right:1px solid var(--o-line)}
-#order .o-steps li:nth-child(even){padding-left:clamp(14px,2.2vw,28px);padding-right:0}
-#order .o-num{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:2.4rem;line-height:1;color:var(--o-blush-deep);margin-bottom:8px}
-#order .o-steps h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.2rem;line-height:1.25;color:var(--o-brown);margin:0 0 6px}
-#order .o-steps p{font-family:'Nunito',system-ui,sans-serif;font-size:.95rem;line-height:1.55;color:var(--o-ink);margin:0;max-width:34ch}
-#order .o-remember{background:var(--o-blush);border-radius:20px;padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;position:relative}
-#order .o-remember::before{content:"";position:absolute;inset:8px;border:1px solid rgba(107,74,58,.18);border-radius:14px;pointer-events:none}
-#order .o-remember h3{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.9rem;line-height:1.1;color:var(--o-brown);margin:0 0 6px;position:relative}
-#order .o-remember ul{list-style:none;margin:0 0 20px;padding:0;position:relative}
-#order .o-remember li{padding:13px 0 13px 22px;border-top:1px solid rgba(107,74,58,.2);position:relative;font-family:'Nunito',system-ui,sans-serif;font-size:.93rem;line-height:1.5;color:var(--o-ink);margin:0}
-#order .o-remember li::before{content:"";position:absolute;left:2px;top:1.15em;width:7px;height:7px;border-radius:50%;background:var(--o-brown)}
-#order .o-remember li strong{display:block;font-weight:800;color:var(--o-brown);font-size:.98rem}
-#order .o-remember .btn{align-self:flex-start;margin-top:auto;position:relative}
-/* Fit the whole section in one screen (no scrolling needed to see it) */
-@media (min-width:901px) and (min-height:520px){
-  #order.order{min-height:calc(100vh - 162px);min-height:calc(100dvh - 162px);display:flex;align-items:center;padding:clamp(20px,4vh,56px) 0;box-sizing:border-box}
-  #order .o-shell{width:100%}
-  #order .o-head{margin-bottom:clamp(10px,2.2vh,24px)}
-  #order .o-head h2{font-size:clamp(1.8rem,4.6vh,2.75rem)}
-  #order .o-steps li{padding-top:clamp(12px,2.6vh,24px);padding-bottom:clamp(12px,2.8vh,26px)}
-  #order .o-num{font-size:clamp(1.8rem,5vh,2.6rem);margin-bottom:clamp(4px,1vh,8px)}
-  #order .o-remember{padding:clamp(18px,3.4vh,34px) clamp(20px,2.6vw,32px)}
-  #order .o-remember li{padding-top:clamp(8px,1.8vh,14px);padding-bottom:clamp(8px,1.8vh,14px)}
-  #order .o-remember ul{margin-bottom:clamp(12px,2.4vh,22px)}
-}
-@media (max-width:900px){
-  #order .o-shell{grid-template-columns:1fr}
-  #order .o-steps p{max-width:none}
-}
-@media (max-width:520px){
-  #order .o-steps{grid-template-columns:1fr 1fr}
-  #order .o-steps li{padding:16px 10px 18px 0}
-  #order .o-steps li:nth-child(even){padding-left:12px}
-  #order .o-num{font-size:1.9rem}
-  #order .o-steps h3{font-size:1.05rem}
-  #order .o-steps p{font-size:.88rem}
-}
-#order .o-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:auto;position:relative}
+/* Scoped to the Order page only */
+#order.order{--o-cream:#fbf6ee;--o-beige:#f1e7d8;--o-blush:#f3dcd6;--o-blush-deep:#e3b9b0;--o-brown:#6b4a3a;--o-ink:#4a3b34;--o-rose:#b4596e;--o-line:rgba(107,74,58,.22);background:var(--o-cream);padding:0;border-top:1px solid var(--o-line);color:var(--o-ink)}
+#order h2,#order h3{text-wrap:balance}
+#order h2{max-width:none}
+#order .o-eyebrow{display:block;font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.7rem;line-height:1.1;color:var(--o-rose);margin:0 0 8px}
+
+/* intro */
+#order .o-intro{text-align:center;padding:clamp(48px,7vw,92px) 0 clamp(30px,4vw,52px);background:radial-gradient(ellipse 70% 90% at 50% 0%,var(--o-blush) 0%,rgba(243,220,214,0) 70%)}
+#order .o-intro h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;letter-spacing:-.02em;color:var(--o-brown);margin:0 0 14px}
+#order .o-intro p{font-family:'Nunito',system-ui,sans-serif;font-size:1.1rem;color:var(--o-ink);opacity:.85;max-width:46ch;margin:0 auto}
+#order .o-jump{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font:800 .85rem/1 'Nunito',system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--o-brown);text-decoration:none;border-bottom:1.5px solid var(--o-blush-deep);padding-bottom:4px}
+#order .o-jump:hover{border-color:var(--o-brown)}
+
+/* steps */
+#order .o-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:none}
+#order .o-steps li{position:relative;background:#fff;border:1px solid var(--o-line);border-radius:22px;padding:26px 22px 28px;margin:0;transition:transform .25s,box-shadow .25s}
+#order .o-steps li:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(107,74,58,.12)}
+#order .o-num{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--o-blush);font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:1.5rem;line-height:1;color:var(--o-brown);margin-bottom:18px}
+#order .o-steps h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.2rem;line-height:1.25;color:var(--o-brown);margin:0 0 8px}
+#order .o-steps p{font-family:'Nunito',system-ui,sans-serif;font-size:.96rem;line-height:1.55;color:var(--o-ink);margin:0}
+
+/* things to remember */
+#order .o-notes{padding:clamp(36px,5vw,60px) 0 clamp(48px,6vw,84px)}
+#order .o-remember{position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.5fr);gap:clamp(24px,4vw,56px);align-items:center;background:var(--o-blush);border-radius:28px;padding:clamp(26px,4vw,48px)}
+#order .o-remember::before{content:"";position:absolute;inset:9px;border:1px solid rgba(107,74,58,.18);border-radius:20px;pointer-events:none}
+#order .o-remember h3{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:clamp(2rem,3.4vw,2.6rem);line-height:1.05;color:var(--o-brown);margin:0 0 18px;position:relative}
+#order .o-remember ul{list-style:none;margin:0;padding:0;position:relative}
+#order .o-remember li{padding:15px 0 15px 30px;border-top:1px solid rgba(107,74,58,.2);position:relative;font-family:'Nunito',system-ui,sans-serif;font-size:.98rem;line-height:1.5;color:var(--o-ink);margin:0}
+#order .o-remember li:last-child{border-bottom:1px solid rgba(107,74,58,.2)}
+#order .o-remember li::before{content:"";position:absolute;left:4px;top:1.3em;width:9px;height:9px;border-radius:50%;background:var(--o-brown)}
+#order .o-remember li strong{display:block;font-weight:800;color:var(--o-brown);font-size:1.02rem}
+#order .o-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:relative}
 #order .o-actions .btn{margin:0}
+
+/* FAQ */
+#order .o-faq{background:#fff;border-top:1px solid var(--o-line);padding:clamp(52px,7vw,96px) 0}
+#order .o-faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:clamp(30px,6vw,84px);align-items:start}
+#order .o-faq-side{position:sticky;top:104px}
+#order .o-faq-side h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(2rem,3.8vw,3rem);line-height:1.08;letter-spacing:-.015em;color:var(--o-brown);margin:0 0 14px}
+#order .o-faq-side p{font-family:'Nunito',system-ui,sans-serif;color:var(--o-ink);opacity:.85;margin:0 0 24px;max-width:34ch}
+#order .o-q{background:var(--o-cream);border:1px solid var(--o-line);border-radius:20px;margin:0 0 12px;transition:background .2s,border-color .2s,box-shadow .2s}
+#order .o-q[open]{background:#fff;border-color:var(--o-blush-deep);box-shadow:0 10px 26px rgba(107,74,58,.1)}
+#order .o-q summary{display:flex;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;list-style:none;border-radius:20px}
+#order .o-q summary::-webkit-details-marker{display:none}
+#order .o-q summary::after{content:"+";margin-left:auto;flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--o-line);background:#fff;font:400 1.4rem/1 'Nunito',system-ui,sans-serif;color:var(--o-brown);transition:transform .25s,background .2s,color .2s}
+#order .o-q[open] summary::after{content:"\2212";background:var(--o-brown);border-color:var(--o-brown);color:#fff}
+#order .o-q summary:hover::after{background:var(--o-blush)}
+#order .o-q summary:focus-visible{outline:2px solid var(--o-brown);outline-offset:2px}
+#order .o-q-ico{flex:none;width:44px;height:44px;border-radius:50%;background:var(--o-blush);display:grid;place-items:center}
+#order .o-q-ico svg{width:22px;height:22px;fill:none;stroke:var(--o-brown);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#order .o-q h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.12rem;line-height:1.3;color:var(--o-brown);margin:0}
+#order .o-a{padding:0 22px 22px 82px;font-family:'Nunito',system-ui,sans-serif;font-size:.98rem;line-height:1.65;color:var(--o-ink)}
+#order .o-a p{margin:0}
+#order .o-a ul{margin:10px 0 0;padding:0;list-style:none}
+#order .o-a li{position:relative;padding:5px 0 5px 20px;margin:0}
+#order .o-a li::before{content:"";position:absolute;left:2px;top:.95em;width:7px;height:7px;border-radius:50%;background:var(--o-blush-deep)}
+#order .o-a strong{color:var(--o-brown);font-weight:800}
+
+#order .o-steps li{display:flex;flex-direction:column;align-items:flex-start}
+#order .o-steps p strong{color:var(--o-brown);font-weight:800}
+#order .o-step-link{margin-top:auto;padding:14px 0 0;background:none;border:0;cursor:pointer;font:800 .88rem/1 'Nunito',system-ui,sans-serif;letter-spacing:.04em;color:var(--o-rose)}
+#order .o-step-link:hover{color:var(--o-brown)}
+#order .o-inspire{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;background:var(--o-beige);border:1px dashed rgba(107,74,58,.35);border-radius:22px;padding:20px 26px;font-family:'Nunito',system-ui,sans-serif}
+#order .o-inspire strong{display:block;font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--o-brown)}
+#order .o-inspire span{font-size:.96rem;color:var(--o-ink)}
+#order .o-inspire-links{display:flex;gap:10px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  #order .o-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #order .o-remember{grid-template-columns:1fr}
+  #order .o-faq-grid{grid-template-columns:1fr}
+  #order .o-faq-side{position:static}
+  #order .o-faq-side p{max-width:52ch}
+}
+@media (max-width:560px){
+  #order .o-steps{grid-template-columns:1fr;gap:12px}
+  #order .o-steps li{padding:20px 18px 22px;display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start}
+  #order .o-step-link{grid-column:2;padding-top:10px}
+  #order .o-num{margin:0;grid-row:span 2;width:46px;height:46px;font-size:1.3rem}
+  #order .o-steps h3{margin:2px 0 4px}
+  #order .o-q summary{padding:15px 16px;gap:12px}
+  #order .o-q-ico{width:38px;height:38px}
+  #order .o-q h3{font-size:1.02rem}
+  #order .o-a{padding:0 16px 18px}
+}
+@media (prefers-reduced-motion:reduce){#order .o-steps li,#order .o-q,#order .o-q summary::after{transition:none}#order .o-steps li:hover{transform:none}}
 /* Availability calendar */
 #order .o-cal{border:0;padding:0;background:transparent;max-width:92vw;color:var(--o-ink);font-family:'Nunito',system-ui,sans-serif}
 #order .o-cal::backdrop{background:rgba(74,59,52,.45)}
@@ -139,30 +187,88 @@
   #order .oq-sum{position:sticky;bottom:-24px;top:auto;box-shadow:0 -6px 16px rgba(74,59,52,.15)}
 }
 </style>
-  <div class="wrap o-shell">
-    <div class="o-process">
-      <div class="o-head"><h2>Ordering is simple.</h2><p>Four easy steps from idea to cake.</p></div>
-      <ol class="o-steps">
-        <li><span class="o-num" aria-hidden="true">01</span><h3>Choose Your Cake</h3><p>Browse our cake gallery or send an inspiration photo.</p></li>
-        <li><span class="o-num" aria-hidden="true">02</span><h3>Share Your Details</h3><p>Tell us your preferred flavor, size, theme, and event date.</p></li>
-        <li><span class="o-num" aria-hidden="true">03</span><h3>Confirm Your Booking</h3><p>Finalize your order details and secure your booking with a 50% down payment.</p></li>
-        <li><span class="o-num" aria-hidden="true">04</span><h3>Enjoy Your Cake</h3><p>Get ready for something sweet on your special day!</p></li>
-      </ol>
+  <div class="o-intro">
+    <div class="wrap">
+      <span class="o-eyebrow">how it works</span>
+      <h2>Ordering is simple.</h2>
+      <p>Four easy steps from idea to cake.</p>
+      <a class="o-jump" href="#faq">Read the FAQs <span aria-hidden="true">&darr;</span></a>
     </div>
-    <aside class="o-remember" aria-labelledby="o-remember-title">
-      <h3 id="o-remember-title">A Few Things to Remember</h3>
-      <ul>
-        <li><strong>Advance Booking</strong>We do not accept same-day or rush orders.</li>
-        <li><strong>50% Down Payment</strong>Required to secure your booking.</li>
-        <li><strong>Pickup &amp; Delivery</strong>Please be on time for pickup or arrange someone to receive your cake.</li>
-      </ul>
-      <div class="o-actions">
-        <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
-        <button class="btn btn-line" type="button" id="oq-open">Get a Quote</button>
-        <button class="btn btn-line" type="button" id="o-cal-open">Check Availability</button>
-      </div>
-    </aside>
   </div>
+
+  <div class="wrap">
+    <ol class="o-steps">
+      <li><span class="o-num" aria-hidden="true">1</span><h3>Build Your Cake</h3><p>Already have a cake in mind? Tap <strong>Get a Quote</strong>, pick your size, flavor, design and extras, and see your estimated price instantly.</p><button class="o-step-link" type="button" data-open-quote>Get a Quote <span aria-hidden="true">&rarr;</span></button></li>
+      <li><span class="o-num" aria-hidden="true">2</span><h3>Book Your Order</h3><p>Happy with your build? Tap <strong>Book My Order</strong> and we will take you to our booking form.</p></li>
+      <li><span class="o-num" aria-hidden="true">3</span><h3>Send Your Details &amp; Payment</h3><p>Fill out the form with your event date and any cake details you want, then send your 50% down payment to secure your booking.</p></li>
+      <li><span class="o-num" aria-hidden="true">4</span><h3>Enjoy Your Cake</h3><p>Get ready for something sweet on your special day!</p></li>
+    </ol>
+    <div class="o-inspire">
+      <div><strong>Need ideas first?</strong><span>Browse our galleries for inspiration, or send us a photo of the cake you love.</span></div>
+      <div class="o-inspire-links"><a class="btn btn-line btn-sm" href="cakes.html">Browse Cakes</a><a class="btn btn-line btn-sm" href="toppers.html">Browse Toppers</a></div>
+    </div>
+  </div>
+
+  <div class="o-notes">
+    <div class="wrap">
+      <aside class="o-remember" aria-labelledby="o-remember-title">
+        <div>
+          <h3 id="o-remember-title">A Few Things to Remember</h3>
+          <div class="o-actions">
+            <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
+            <button class="btn btn-line" type="button" id="oq-open">Get a Quote</button>
+            <button class="btn btn-line" type="button" id="o-cal-open">Check Availability</button>
+          </div>
+        </div>
+        <ul>
+          <li><strong>Advance Booking</strong>We do not accept same-day or rush orders.</li>
+          <li><strong>50% Down Payment</strong>Required to secure your booking.</li>
+          <li><strong>Pickup &amp; Delivery</strong>Please be on time for pickup or arrange someone to receive your cake.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <section class="o-faq" id="faq" aria-labelledby="faq-title">
+    <div class="wrap o-faq-grid">
+      <div class="o-faq-side">
+        <span class="o-eyebrow">good to know</span>
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <p>Everything you need to know before you book. Still have a question? We are happy to help.</p>
+        <a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Ask Us on Facebook</a>
+      </div>
+      <div class="o-faq-list">
+        <details class="o-q" name="faq" open>
+          <summary><span class="o-q-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><h3>How far in advance should I book a custom cake?</h3></summary>
+          <div class="o-a"><p>We recommend ordering your customized cake <strong>2 to 3 days before</strong> the scheduled date, so we can validate your order.</p></div>
+        </details>
+        <details class="o-q" name="faq">
+          <summary><span class="o-q-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3>How stable are the cakes and cupcakes?</h3></summary>
+          <div class="o-a"><p>To keep your cake stable, we use <strong>dowels</strong> for tiered cakes with two or more layers. This prevents sliding, leaning, and collapse.</p></div>
+        </details>
+        <details class="o-q" name="faq">
+          <summary><span class="o-q-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9"/></svg></span><h3>How do I take care of my cake?</h3></summary>
+          <div class="o-a"><p>A few simple tips keep your cake fresh and safe:</p>
+            <ul>
+              <li>Avoid direct sunlight and keep the cake in a cool, dry place.</li>
+              <li>We recommend refrigerating it at <strong>2 to 5&deg;C</strong>, where it will last about two days.</li>
+              <li>Do not use contaminated utensils, to avoid contamination and spoilage.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="o-q" name="faq">
+          <summary><span class="o-q-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h13v3"/><rect x="3" y="8" width="18" height="12" rx="3"/><circle cx="16.5" cy="14" r="1.2"/></svg></span><h3>What payment methods do you accept?</h3></summary>
+          <div class="o-a"><p>We only accept <strong>QR code and e-wallet payments</strong> such as GCash. For bank transfers, we only use <strong>BPI QR codes</strong>.</p></div>
+        </details>
+        <details class="o-q" name="faq">
+          <summary><span class="o-q-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16v-5l2-5h10l2 5v5"/><path d="M3 16h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></span><h3>What are the delivery and pickup options?</h3></summary>
+          <div class="o-a"><p>We do not accept motorcycles for cake delivery because they could harm the cake in transit, especially tiered cakes with two or more layers. For a safer and more comfortable ride, we recommend a <strong>car or any other four-wheel vehicle</strong>.</p>
+            <p style="margin-top:10px">Pickup is available at <strong>9 a.m.</strong></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
   <dialog class="o-cal" id="o-cal" aria-labelledby="o-cal-title">
     <div class="o-cal-box">
       <button class="o-cal-x" type="button" data-close aria-label="Close calendar">&times;</button>
@@ -302,6 +408,7 @@
   dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
 })();
 </script>
+<script>document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){var o=document.getElementById('oq-open');if(o)o.click();});});</script>
 </section>
 </main>
 <footer>
