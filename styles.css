@@ -285,19 +285,18 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
 .foot .logo-full+p{margin-top:6px}
 @media (max-width:960px){.logo img{height:52px}}
 
-/* Our Cakes: photo cards with descriptions */
-.cake-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;align-items:stretch}
-.cake-card{display:flex;flex-direction:column;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(73,54,49,.35);transition:transform .3s,box-shadow .3s}
-.cake-card:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(73,54,49,.45)}
-.cake-ph{width:100%;aspect-ratio:4/5;border:0;padding:0;border-radius:0;cursor:zoom-in;display:block}
-.cake-ph img{object-position:50% 30%}
-.cake-ph.empty{aspect-ratio:4/5}
-.cake-body{padding:20px 22px 26px;display:flex;flex-direction:column;gap:8px}
-.cake-tag{align-self:flex-start;padding:3px 12px;border-radius:999px;background:var(--lav);color:var(--cocoa);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-.cake-body h3{font-size:1.3rem;margin-top:4px}
-.cake-body p{color:var(--text-soft);font-size:.97rem;line-height:1.6}
-.cake-cta{min-height:320px;padding:32px;align-items:flex-start}
-dialog .lb-cap{margin:14px auto 0;max-width:62ch;text-align:center;color:var(--white);font-size:.95rem;line-height:1.55}
-dialog .lb-cap:empty{display:none}
-dialog:has(.lb-cap) img{max-height:74vh}
-@media (max-width:560px){.cake-grid{grid-template-columns:1fr;gap:22px}}
+/* edible topper cards (photo, description, CTA) */
+.tp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tp-card{display:flex;flex-direction:column;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.tp-card .tp-ph{width:100%;aspect-ratio:1;border:0;padding:0;border-radius:0;cursor:zoom-in;display:block}
+.tp-card .tp-ph.empty{cursor:default}
+.tp-body{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:20px 22px 24px;flex:1}
+.tp-tag{font:800 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--btn)}
+.tp-body p{color:var(--text-soft);font-size:.98rem;flex:1}
+.tp-btn{margin-top:8px}
+.tp-cta{min-height:260px;padding:32px;align-self:stretch}
+dialog.lb-has-cap img{max-height:74vh}
+dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:var(--cream);text-align:center;font-size:.95rem;line-height:1.5}
+@media (max-width:960px){.tp-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media (max-width:560px){.tp-grid{grid-template-columns:1fr}.tp-cta{min-height:0;padding:28px 24px}}
+
