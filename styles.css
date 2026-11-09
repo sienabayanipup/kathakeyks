@@ -46,7 +46,7 @@ section{padding:96px 0}
 .announce a{text-decoration:underline;text-underline-offset:3px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--blush)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--white);z-index:30}
-.nav{display:flex;flex-direction:column;align-items:center;padding:18px 0 12px;gap:10px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;gap:24px}
 .logo{font-family:var(--serif);font-weight:600;font-size:2.2rem;letter-spacing:-.02em;text-decoration:none;line-height:1;color:var(--cocoa)}
 .logo span{color:var(--rose-warm)}
 .menu{display:flex;align-items:center;justify-content:center;gap:32px;list-style:none;margin:0;padding:0}
@@ -168,7 +168,7 @@ footer :focus-visible{outline-color:var(--white)}
 dialog{border:0;background:transparent;padding:0;max-width:92vw;max-height:92vh;overflow:visible}
 dialog::backdrop{background:rgba(73,54,49,.85)}
 dialog img{max-height:86vh;max-width:92vw;border-radius:14px;object-fit:contain}
-dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border:0;border-radius:999px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--cocoa)}
+#lb>button{position:absolute;top:-44px;right:0;background:var(--cream);border:0;border-radius:999px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--cocoa)}
 
 /* one entrance moment: hero */
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -179,7 +179,7 @@ dialog button{position:absolute;top:-44px;right:0;background:var(--cream);border
 
 /* responsive */
 @media (max-width:960px){
-  .nav{flex-direction:row;justify-content:space-between;padding:0;height:68px}
+  .nav{flex-direction:row;justify-content:space-between;padding:0 24px;height:68px}
   .logo{font-size:1.5rem}
   .why-grid{grid-template-columns:1fr}.why-item,.why-item+.why-item{border-left:0;padding:24px 0 8px}.why-item+.why-item{border-top:1px solid var(--line)}
   section{padding:72px 0}
@@ -313,3 +313,15 @@ dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:v
 .cake-cta{min-height:260px;padding:32px;align-self:stretch}
 @media (max-width:960px){.cake-grid,#cake-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
 @media (max-width:560px){.cake-grid,#cake-grid{grid-template-columns:1fr}.cake-cta{min-height:0;padding:28px 24px}}
+
+/* header brand: logo + stylized wordmark */
+.brand-link{display:flex;align-items:center;gap:14px;flex:none}
+.logo.brand-link img{height:58px}
+.brand-link .brand{display:flex;flex-direction:column;gap:3px}
+.brand-link .brand-name{font:500 1.95rem/1 var(--serif);letter-spacing:-.02em;color:#5A3522}
+.brand-link .brand-name b{font-weight:500;color:var(--rose-warm)}
+.brand-link .brand-by{display:flex;align-items:center;gap:8px;font:600 1.3rem/1 var(--script);letter-spacing:0;color:#8F6B2A;padding-left:2px}
+.brand-link .brand-by::before{content:"";width:24px;height:1px;background:#B8923F}
+@media (min-width:961px) and (max-width:1120px){.menu{gap:20px}.brand-link .brand-name{font-size:1.65rem}}
+@media (max-width:960px){.logo.brand-link img{height:48px}.brand-link{gap:10px}.brand-link .brand-name{font-size:1.45rem}.brand-link .brand-by{font-size:1.1rem}.brand-link .brand-by::before{width:16px}}
+@media (max-width:380px){.brand-link .brand-by{display:none}.brand-link .brand-name{font-size:1.3rem}}
