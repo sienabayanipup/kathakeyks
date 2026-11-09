@@ -24,28 +24,59 @@
   </nav>
 </header>
 <main>
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div class="about-photo">
-      <figure class="ph" data-slot="about" data-label="Ann smiling and holding her Cake Fiesta medal beside a handmade sugar fairy figure"></figure>
-      <p class="ph-badge">Ann at WOFEX with her Cake Fiesta medal</p>
-    </div>
-    <div>
-      <span class="script">meet the baker</span>
-      <h2>Hi, I’m Ann, the heart behind Katha Keyks.</h2>
+<section class="ab" id="about" aria-labelledby="about-title">
+  <div class="wrap ab-grid">
+    <figure class="ab-photo">
+      <div class="ab-frame">
+        <img src="images/about.jpg" width="900" height="1200" alt="Ann smiling and holding her Cake Fiesta medal beside a handmade sugar fairy figure" fetchpriority="high">
+        <figcaption>Ann at WOFEX with her Cake Fiesta medal</figcaption>
+      </div>
+    </figure>
+    <div class="ab-copy">
+      <span class="ab-script">Meet the hands behind the magic.</span>
+      <h2 id="about-title">Hi, I’m Ann, the heart behind Katha Keyks.</h2>
+      <hr class="ab-rule">
       <p class="lede">A passionate home baker who loves turning sweet ideas into beautifully crafted cakes made with love and creativity.</p>
-      <p>I started my journey from scratch way back in 2017. Naalala ko pa, all my baking tools and equipment ay galing sa paluwagan.</p>
-      <p>Baking has always been more than just a hobby for me. It’s my way of bringing happiness and making memories a little sweeter, first to my kids and family.</p>
-      <p><strong>Maraming salamat sa laging pag-suporta</strong> sa aking small business and for allowing me to be part of your special moments.</p>
-      <h3 class="aw-title">Awards</h3>
-      <ul class="awards">
-        <li><strong>3rd Place, Gold Award</strong>Sugar Model Figure Category, <a href="https://www.facebook.com/WOFEX" target="_blank" rel="noopener">WOFEX World Food Expo</a> | Cake Fiesta Manila 2026</li>
-        <li><strong>2nd Place</strong>Sugar Art Cake Display Competition, Sugar King 2025</li>
-        <li><strong>Silver Award &amp; People’s Choice Award</strong>Peotraco Cake My Day Competition 2023</li>
-      </ul>
+      <div class="ab-story">
+        <p>I started my journey from scratch way back in 2017. Naalala ko pa, all my baking tools and equipment ay galing sa paluwagan.</p>
+        <p>Baking has always been more than just a hobby for me. It’s my way of bringing happiness and making memories a little sweeter, first to my kids and family.</p>
+        <p><strong>Maraming salamat sa laging pag-suporta</strong> sa aking small business and for allowing me to be part of your special moments.</p>
+      </div>
+      <p class="ab-sign" aria-label="Made with love, Ann."><span>Made with love, Ann.</span></p>
     </div>
   </div>
-</section><section class="why">
+</section>
+
+<section class="aw" id="awards" aria-labelledby="awards-title">
+  <div class="wrap">
+    <div class="aw-head">
+      <span class="ab-script">Sweet victories</span>
+      <h2 id="awards-title">Awards</h2>
+    </div>
+    <div class="aw-grid">
+      <article class="aw-card aw-feature">
+        <svg class="aw-medal" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2h9l7 22h-9zM35 2h-9l-7 22h9z"/><circle cx="24" cy="42" r="17" fill="currentColor" fill-opacity=".18"/><circle cx="24" cy="42" r="11"/><path d="m24 35 2.2 4.8 5.2.6-3.9 3.5 1.1 5.1-4.6-2.6-4.6 2.6 1.1-5.1-3.9-3.5 5.2-.6z" fill="currentColor"/></svg>
+        <span class="aw-year">2026</span>
+        <h3>3rd Place, Gold Award</h3>
+        <p class="aw-cat">Sugar Model Figure Category</p>
+        <p class="aw-event"><a href="https://www.facebook.com/WOFEX" target="_blank" rel="noopener">WOFEX World Food Expo</a> | Cake Fiesta Manila 2026</p>
+      </article>
+      <article class="aw-card">
+        <svg class="aw-medal silver" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2h9l7 22h-9zM35 2h-9l-7 22h9z"/><circle cx="24" cy="42" r="17" fill="currentColor" fill-opacity=".18"/><circle cx="24" cy="42" r="11"/><path d="m24 35 2.2 4.8 5.2.6-3.9 3.5 1.1 5.1-4.6-2.6-4.6 2.6 1.1-5.1-3.9-3.5 5.2-.6z" fill="currentColor"/></svg>
+        <span class="aw-year">2025</span>
+        <h3>2nd Place</h3>
+        <p class="aw-event">Sugar Art Cake Display Competition, Sugar King 2025</p>
+      </article>
+      <article class="aw-card">
+        <svg class="aw-medal silver" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2h9l7 22h-9zM35 2h-9l-7 22h9z"/><circle cx="24" cy="42" r="17" fill="currentColor" fill-opacity=".18"/><circle cx="24" cy="42" r="11"/><path d="m24 35 2.2 4.8 5.2.6-3.9 3.5 1.1 5.1-4.6-2.6-4.6 2.6 1.1-5.1-3.9-3.5 5.2-.6z" fill="currentColor"/></svg>
+        <span class="aw-year">2023</span>
+        <h3>Silver Award &amp; People’s Choice Award</h3>
+        <p class="aw-event">Peotraco Cake My Day Competition 2023</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="why">
   <div class="wrap">
     <h2 class="why-h">Handmade by Ann <span style="color:var(--rose)">♥</span></h2>
     <div class="why-grid">
