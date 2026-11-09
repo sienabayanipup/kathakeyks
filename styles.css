@@ -113,7 +113,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* about */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about .ph{aspect-ratio:1}
+.about-photo{position:relative;width:100%;max-width:520px;justify-self:center}
+.about-photo .ph{aspect-ratio:3/4}
 .aw-title{margin:30px 0 4px;font-size:1.15rem}
 .awards{list-style:none;margin:0;padding:0}
 .awards li{padding:14px 0;border-top:1px solid var(--line);font-size:.97rem;color:var(--text-soft)}
@@ -325,3 +326,7 @@ dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:v
 @media (min-width:961px) and (max-width:1120px){.menu{gap:20px}.brand-link .brand-name{font-size:1.65rem}}
 @media (max-width:960px){.logo.brand-link img{height:48px}.brand-link{gap:10px}.brand-link .brand-name{font-size:1.45rem}.brand-link .brand-by{font-size:1.1rem}.brand-link .brand-by::before{width:16px}}
 @media (max-width:380px){.brand-link .brand-by{display:none}.brand-link .brand-name{font-size:1.3rem}}
+
+/* about photo: caption badge */
+.ph-badge{position:absolute;right:14px;bottom:14px;max-width:calc(100% - 28px);margin:0;padding:8px 16px;border-radius:999px;background:rgba(255,249,242,.95);border:1px solid var(--line);box-shadow:0 6px 18px rgba(73,54,49,.18);font:700 .82rem/1.25 var(--sans);color:var(--cocoa)}
+@media (max-width:960px){.about-photo{max-width:420px;margin:0 auto}}
