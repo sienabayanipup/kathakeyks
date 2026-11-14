@@ -105,6 +105,15 @@
 #order .o-cal-grid .d.past{opacity:.35;background:transparent;border-color:transparent}
 #order .o-cal-grid .d.ltd{background:#f3e3b8;border-color:#e3cd93}
 #order .o-cal-grid .d.full{background:var(--o-blush-deep);border-color:var(--o-blush-deep);color:#fff;text-decoration:line-through}
+#order .o-cal{overflow:visible}
+#order .o-cal-box{overflow:visible}
+#order .o-cal-grid .d{position:relative}
+#order .o-cal-grid .d[data-tip]{cursor:default}
+#order .o-cal-grid .d[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--o-brown);color:#fff;font-size:.74rem;font-weight:700;line-height:1.2;padding:6px 10px;border-radius:8px;white-space:nowrap;text-decoration:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5;box-shadow:0 4px 12px rgba(74,59,52,.25)}
+#order .o-cal-grid .d[data-tip]::before{content:"";position:absolute;bottom:calc(100% + 3px);left:50%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--o-brown);border-bottom:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s;z-index:5}
+#order .o-cal-grid .d[data-tip]:hover::after,#order .o-cal-grid .d[data-tip]:focus::after{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+#order .o-cal-grid .d[data-tip]:hover::before,#order .o-cal-grid .d[data-tip]:focus::before{opacity:1;visibility:visible}
+#order .o-cal-grid .d[data-tip]:hover,#order .o-cal-grid .d[data-tip]:focus{z-index:6;outline:none}
 #order .o-cal-key{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:14px 0 8px;padding:0;font-size:.8rem}
 #order .o-cal-key li{display:flex;align-items:center;gap:6px;margin:0}
 #order .o-cal-key i{width:14px;height:14px;border-radius:5px;display:inline-block;border:1px solid var(--o-line);background:#fff}
@@ -226,7 +235,9 @@
       if(dt<=today){cls+=' past';txt='not available';}
       else if(used>=limit){cls+=' full';txt='fully booked';}
       else if(limit-used<=1){cls+=' ltd';txt='few slots left';}
-      html+='<div class="'+cls+'" aria-label="'+MON[m]+' '+d+', '+txt+'">'+d+'</div>';
+      var tip='',left=limit-used;
+      if(cls.indexOf('past')<0){tip=used>=limit?'Fully booked':left+' of '+limit+' slot'+(left===1?'':'s')+' available';}
+      html+='<div class="'+cls+'" aria-label="'+MON[m]+' '+d+', '+(tip||txt)+'"'+(tip?' data-tip="'+tip+'" tabindex="0"':'')+'>'+d+'</div>';
     }
     grid.innerHTML=html;
     prev.disabled=view<=startM;
