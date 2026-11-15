@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Katha Keyks | How to Order &amp; FAQs</title>
-<meta name="description" content="How to order a custom cake from Katha Keyks, plus FAQs on booking, cake care, payment, delivery and pickup.">
-<meta property="og:title" content="Katha Keyks | How to Order">
+<title>Katha Keyks | Edible Toppers</title>
+<meta name="description" content="Customized edible toppers from Katha Keyks: characters, figures and details to make your cake extra special.">
+<meta property="og:title" content="Katha Keyks | Edible Toppers">
 <meta property="og:description" content="Beautifully crafted cakes for life’s sweetest moments.">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -129,19 +129,6 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   header .menu .chef-hat svg{display:block;width:100%;height:100%}
 }
 </style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"How far in advance should I book a custom cake?","acceptedAnswer":{"@type":"Answer","text":"We recommend ordering your customized cake 2 to 3 days before the scheduled date, so we can validate your order."}},
-{"@type":"Question","name":"How stable are the cakes and cupcakes?","acceptedAnswer":{"@type":"Answer","text":"To keep your cake stable, we use dowels for tiered cakes with two or more layers. This prevents sliding, leaning, and collapse."}},
-{"@type":"Question","name":"How do I take care of my cake?","acceptedAnswer":{"@type":"Answer","text":"Avoid direct sunlight and keep the cake in a cool, dry place. We recommend refrigerating it at 2 to 5 degrees Celsius, where it will last about two days. Do not use contaminated utensils, to avoid contamination and spoilage."}},
-{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We only accept QR code and e-wallet payments such as GCash. For bank transfers, we only use BPI QR codes."}},
-{"@type":"Question","name":"What are the delivery and pickup options?","acceptedAnswer":{"@type":"Answer","text":"We do not accept motorcycles for cake delivery because they could harm the cake in transit, especially tiered cakes with two or more layers. We recommend a car or any other four-wheel vehicle. Pickup is available at 9 a.m."}},
-{"@type":"Question","name":"Is this product halal?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is halal and contains no pork."}},
-{"@type":"Question","name":"What types of ingredients are used?","acceptedAnswer":{"@type":"Answer","text":"This item is made with only premium-quality products and ingredients."}},
-{"@type":"Question","name":"Does this have any allergens?","acceptedAnswer":{"@type":"Answer","text":"Yes, this product contains milk. Please keep this in mind if you are allergic to dairy or have lactose intolerance."}},
-{"@type":"Question","name":"Who should not eat this?","acceptedAnswer":{"@type":"Answer","text":"Anyone with a dairy allergy should avoid this product or contact us first for a detailed list of the dairy ingredients used."}}
-]}
-</script>
 </head>
 <body>
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
@@ -149,321 +136,23 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   <nav class="wrap nav" aria-label="Main">
     <a href="index.html" class="logo brand-link" aria-label="Katha Keyks home"><img src="images/logo.png" alt="" width="72" height="72"><span class="brand" aria-hidden="true"><span class="brand-name">Katha <b>Keyks</b></span><span class="brand-by">by Ann</span></span></a>
     <button class="burger" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="menu" id="menu"><li><a href="index.html">Home</a></li><li><a href="cakes.html">Our Cakes</a></li><li><a href="toppers.html">Edible Toppers</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a class="btn btn-fill btn-sm" href="order.html" aria-current="page">Order a Cake</a></li></ul>
+    <ul class="menu" id="menu"><li><a href="index.html">Home</a></li><li><a href="cakes.html">Our Cakes</a></li><li><a href="toppers.html" aria-current="page">Edible Toppers</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a class="btn btn-fill btn-sm" href="order.html">Order a Cake</a></li></ul>
   </nav>
 </header>
 <main>
-<section class="order" id="order">
-<style>
-/* Scoped to the Order page only */
-#order.order{--o-cream:#fbf6ee;--o-beige:#f1e7d8;--o-blush:#f8e8e8;--o-blush-deep:#e3b9b0;--o-brown:#6b4a3a;--o-ink:#4a3b34;--o-rose:#b4596e;--o-line:rgba(107,74,58,.22);background:var(--o-cream);padding:0;border-top:1px solid var(--o-line);color:var(--o-ink)}
-#order h2,#order h3{text-wrap:balance;max-width:none}
-#order .o-script{display:block;font-family:'Dancing Script','Fraunces',cursive;font-weight:600;line-height:1.1;color:var(--o-rose)}
-
-/* how to order: photo + recipe card */
-#order .o-how{background:var(--o-blush);padding:clamp(44px,6vw,88px) 0}
-#order .o-how-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:clamp(28px,5vw,72px);align-items:center}
-#order .o-lead .o-script{font-size:1.7rem;margin-bottom:6px}
-#order .o-lead h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:clamp(2.3rem,4.6vw,3.6rem);line-height:1.03;letter-spacing:-.02em;color:var(--o-brown);margin:0 0 14px}
-#order .o-lead p{font-family:'Nunito',system-ui,sans-serif;font-size:1.05rem;color:var(--o-ink);opacity:.85;margin:0 0 30px;max-width:30ch}
-#order .o-photo{margin:0;width:min(300px,78%);background:#fff;padding:12px 12px 52px;border-radius:6px;box-shadow:0 14px 34px rgba(73,54,49,.18);transform:rotate(-3deg);position:relative}
-#order .o-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;display:block;background:var(--o-beige)}
-#order .o-photo figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.3rem;color:var(--o-brown)}
-
-#order .o-card{background:#fff;border-radius:26px;padding:clamp(26px,4vw,46px);box-shadow:0 18px 44px rgba(73,54,49,.1)}
-#order .o-card-title{font-size:clamp(1.8rem,3vw,2.3rem);margin:0 0 24px}
-#order .o-steps{list-style:none;margin:0;padding:0}
-#order .o-steps li{position:relative;padding:0 0 26px 62px;margin:0;min-height:44px}
-#order .o-steps li:last-child{padding-bottom:6px}
-#order .o-steps li:not(:last-child)::after{content:"";position:absolute;left:21px;top:48px;bottom:6px;border-left:2px dotted var(--o-blush-deep)}
-#order .o-num{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--o-rose);display:grid;place-items:center;font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.6rem;line-height:1;color:var(--o-rose);background:#fff}
-#order .o-steps h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.2rem;line-height:1.25;color:var(--o-brown);margin:2px 0 4px}
-#order .o-steps p{font-family:'Nunito',system-ui,sans-serif;font-size:.98rem;line-height:1.55;color:var(--o-ink);margin:0;max-width:46ch}
-#order .o-steps strong{color:var(--o-brown);font-weight:800}
-#order .o-notes{margin:26px 0 24px;padding:18px 22px;background:var(--o-cream);border-radius:18px;font-family:'Nunito',system-ui,sans-serif}
-#order .o-notes .o-script{font-size:1.5rem;margin-bottom:6px}
-#order .o-notes ul{list-style:none;margin:0;padding:0}
-#order .o-notes li{padding:5px 0 5px 18px;position:relative;font-size:.94rem;line-height:1.5;margin:0}
-#order .o-notes li::before{content:"";position:absolute;left:2px;top:.85em;width:7px;height:7px;border-radius:50%;background:var(--o-blush-deep)}
-#order .o-notes li strong{color:var(--o-brown);font-weight:800}
-#order .o-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-#order .o-actions .btn{margin:0}
-#order .o-inspire{margin:16px 0 0;font-family:'Nunito',system-ui,sans-serif;font-size:.94rem;color:var(--o-ink)}
-#order .o-inspire a{color:var(--o-brown);font-weight:800;text-decoration:underline;text-decoration-color:var(--o-blush-deep);text-underline-offset:3px}
-#order .o-inspire a:hover,#order .o-linkbtn:hover{text-decoration-color:var(--o-brown)}
-#order .o-linkbtn{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:var(--o-brown);font-weight:800;text-decoration:underline;text-decoration-color:var(--o-blush-deep);text-underline-offset:3px}
-
-@media (max-width:900px){
-  #order .o-how-grid{grid-template-columns:1fr}
-  #order .o-lead p{margin-bottom:22px}
-  #order .o-photo{display:none}
-}
-@media (max-width:520px){
-  #order .o-steps li{padding-left:56px}
-  #order .o-num{width:40px;height:40px;font-size:1.45rem}
-  #order .o-steps li:not(:last-child)::after{left:19px;top:44px}
-  #order .o-actions .btn{flex:1 1 auto;text-align:center;justify-content:center}
-}
-/* Availability calendar */
-#order .o-cal{border:0;padding:0;background:transparent;max-width:92vw;color:var(--o-ink);font-family:'Nunito',system-ui,sans-serif}
-#order .o-cal::backdrop{background:rgba(74,59,52,.45)}
-#order .o-cal-box{position:relative;width:min(380px,92vw);box-sizing:border-box;background:var(--o-cream);border-radius:20px;padding:24px 22px 20px;box-shadow:0 14px 40px rgba(74,59,52,.3)}
-#order .o-cal-box::before{content:"";position:absolute;inset:7px;border:1px solid rgba(107,74,58,.18);border-radius:14px;pointer-events:none}
-#order .o-cal-x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--o-brown);cursor:pointer;border-radius:50%}
-#order .o-cal-title{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:1.8rem;color:var(--o-brown);margin:0 0 10px;text-align:center}
-#order .o-cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-#order .o-cal-nav strong{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.1rem;color:var(--o-brown)}
-#order .o-cal-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--o-line);background:#fff;color:var(--o-brown);font-size:1.2rem;line-height:1;cursor:pointer}
-#order .o-cal-nav button:disabled{opacity:.3;cursor:default}
-#order .o-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-#order .o-cal-grid .wd{font-size:.72rem;font-weight:800;color:var(--o-brown);opacity:.7;padding:4px 0}
-#order .o-cal-grid .d{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:.88rem;font-weight:600;background:#fff;border:1px solid var(--o-line)}
-#order .o-cal-grid .d.past{opacity:.35;background:transparent;border-color:transparent}
-#order .o-cal-grid .d.ltd{background:#f3e3b8;border-color:#e3cd93}
-#order .o-cal-grid .d.full{background:var(--o-blush-deep);border-color:var(--o-blush-deep);color:#fff;text-decoration:line-through}
-#order .o-cal{overflow:visible}
-#order .o-cal-box{overflow:visible}
-#order .o-cal-grid .d{position:relative}
-#order .o-cal-grid .d[data-tip]{cursor:default}
-#order .o-cal-grid .d[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--o-brown);color:#fff;font-size:.74rem;font-weight:700;line-height:1.2;padding:6px 10px;border-radius:8px;white-space:nowrap;text-decoration:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,transform .15s;z-index:5;box-shadow:0 4px 12px rgba(74,59,52,.25)}
-#order .o-cal-grid .d[data-tip]::before{content:"";position:absolute;bottom:calc(100% + 3px);left:50%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--o-brown);border-bottom:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s;z-index:5}
-#order .o-cal-grid .d[data-tip]:hover::after,#order .o-cal-grid .d[data-tip]:focus::after{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-#order .o-cal-grid .d[data-tip]:hover::before,#order .o-cal-grid .d[data-tip]:focus::before{opacity:1;visibility:visible}
-#order .o-cal-grid .d[data-tip]:hover,#order .o-cal-grid .d[data-tip]:focus{z-index:6;outline:none}
-#order .o-cal-key{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin:14px 0 8px;padding:0;font-size:.8rem}
-#order .o-cal-key li{display:flex;align-items:center;gap:6px;margin:0}
-#order .o-cal-key i{width:14px;height:14px;border-radius:5px;display:inline-block;border:1px solid var(--o-line);background:#fff}
-#order .o-cal-key .k-ltd{background:#f3e3b8;border-color:#e3cd93}
-#order .o-cal-key .k-full{background:var(--o-blush-deep);border-color:var(--o-blush-deep)}
-#order .o-cal-note{margin:0;text-align:center;font-size:.8rem;opacity:.8}
-/* Cake quote builder */
-#order .o-quote{border:0;padding:0;background:transparent;max-width:96vw;color:var(--o-ink);font-family:'Nunito',system-ui,sans-serif}
-#order .o-quote::backdrop{background:rgba(74,59,52,.45)}
-#order .oq-box{position:relative;width:min(760px,96vw);max-height:92vh;max-height:92dvh;overflow-y:auto;box-sizing:border-box;background:var(--o-cream);border-radius:20px;padding:26px 24px 24px;box-shadow:0 14px 40px rgba(74,59,52,.3)}
-#order .oq-x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--o-brown);cursor:pointer;border-radius:50%;z-index:2}
-#order .oq-title{font-family:'Dancing Script','Fraunces',cursive;font-weight:600;font-size:2rem;color:var(--o-brown);margin:0;text-align:left;line-height:1.1}
-#order .oq-sub{margin:2px 0 16px;font-size:.92rem;opacity:.8}
-#order .oq-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:start}
-#order .oq-form{display:flex;flex-direction:column;gap:14px}
-#order .oq-form fieldset[hidden]{display:none}
-#order .oq-form fieldset{border:0;margin:0;padding:0;min-width:0}
-#order .oq-form legend{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1rem;color:var(--o-brown);padding:0;margin-bottom:6px}
-#order .oq-chips{display:flex;flex-wrap:wrap;gap:6px}
-#order .oq-chip{position:relative;margin:0;cursor:pointer}
-#order .oq-chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-#order .oq-chip span{display:flex;flex-direction:column;gap:1px;padding:8px 12px;border-radius:12px;border:1px solid var(--o-line);background:#fff;font-size:.86rem;font-weight:700;line-height:1.25;transition:background .15s,color .15s,border-color .15s}
-#order .oq-chip em{font-style:normal;font-weight:600;font-size:.74rem;opacity:.7}
-#order .oq-chip small{font-size:.72rem;font-weight:600;opacity:.7}
-#order .oq-chip input:checked+span{background:var(--o-brown);border-color:var(--o-brown);color:#fff}
-#order .oq-chip input:focus-visible+span{outline:2px solid var(--o-blush-deep);outline-offset:2px}
-#order .oq-sum{background:var(--o-blush);border-radius:16px;padding:18px 18px 16px;position:sticky;top:0}
-#order .oq-sum h4{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.05rem;color:var(--o-brown);margin:0 0 8px}
-#order .oq-sum ul{list-style:none;margin:0 0 10px;padding:0;font-size:.86rem}
-#order .oq-sum li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-top:1px solid rgba(107,74,58,.18);margin:0}
-#order .oq-sum li span:first-child{opacity:.75}
-#order .oq-sum li span:last-child{font-weight:700;text-align:right}
-#order .oq-total{display:flex;align-items:baseline;justify-content:space-between;border-top:2px solid rgba(107,74,58,.3);padding-top:10px;margin-bottom:6px}
-#order .oq-total span{font-size:.8rem;font-weight:800;color:var(--o-brown)}
-#order .oq-total strong{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.7rem;color:var(--o-brown)}
-#order .oq-note{font-size:.76rem;line-height:1.4;opacity:.8;margin:0 0 12px}
-#order .oq-sum .btn{width:100%;text-align:center;box-sizing:border-box}
-#order .oq-copied{min-height:1.1em;margin:8px 0 0;font-size:.76rem;font-weight:700;color:var(--o-brown);text-align:center}
-#order .oq-dp{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 10px;font-size:.84rem}
-#order .oq-dp span{font-weight:700;opacity:.85}
-#order .oq-dp strong{font-weight:800;color:var(--o-brown);font-size:1rem}
-#order .oq-sum .oq-terms{list-style:none;margin:0 0 12px;padding:10px 0 0;border-top:1px solid rgba(107,74,58,.18);font-size:.76rem;line-height:1.4}
-#order .oq-sum .oq-terms li{display:block;position:relative;padding:2px 0 2px 14px;border:0;margin:0;opacity:.9}
-#order .oq-sum .oq-terms li::before{content:"";position:absolute;left:2px;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--o-brown)}
-@media (max-width:700px){
-  #order .oq-body{grid-template-columns:1fr}
-  #order .oq-sum{position:sticky;bottom:-24px;top:auto;box-shadow:0 -6px 16px rgba(74,59,52,.15)}
-}
-</style>
-  <div class="o-how">
-    <div class="wrap o-how-grid">
-      <div class="o-lead">
-        <span class="o-script">how to order</span>
-        <h2>Ordering is simple.</h2>
-        <p>Four easy steps from idea to cake.</p>
-        <figure class="o-photo"><img src="images/cake-born18.jpg" alt="A two-tier pink and purple birthday cake with a fondant bow" loading="lazy" decoding="async"><figcaption>Where every cake tells a story.</figcaption></figure>
+<section class="gallery" id="toppers">
+  <div class="wrap">
+    <div class="head">
+      <div><h2>Edible Toppers</h2>
       </div>
-      <div class="o-card">
-        <span class="o-script o-card-title">Your cake, step by step</span>
-        <ol class="o-steps">
-          <li><span class="o-num" aria-hidden="true">1</span><h3>Build Your Cake</h3><p>Have a cake in mind? Tap <strong>Get a Quote</strong> to pick your options and see an instant estimate.</p></li>
-          <li><span class="o-num" aria-hidden="true">2</span><h3>Book Your Order</h3><p>Sure about it? Tap <strong>Book My Order</strong> to open our booking form.</p></li>
-          <li><span class="o-num" aria-hidden="true">3</span><h3>Send Details &amp; Payment</h3><p>Share your event details and send your 50% down payment to secure your date.</p></li>
-          <li><span class="o-num" aria-hidden="true">4</span><h3>Enjoy Your Cake</h3><p>Get ready for something sweet on your special day!</p></li>
-        </ol>
-        <aside class="o-notes" aria-labelledby="o-remember-title">
-          <span class="o-script" id="o-remember-title">A few things to remember</span>
-          <ul>
-            <li><strong>Advance booking:</strong> we do not accept same-day or rush orders.</li>
-            <li><strong>50% down payment:</strong> required to secure your booking.</li>
-            <li><strong>Pickup &amp; delivery:</strong> please be on time for pickup or arrange someone to receive your cake.</li>
-          </ul>
-        </aside>
-        <div class="o-actions">
-          <button class="btn btn-fill" type="button" id="oq-open">Get a Quote</button>
-          <button class="btn btn-line" type="button" id="o-cal-open">Check Availability</button>
-          <a class="btn btn-line" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Inquire Now</a>
-        </div>
-        <p class="o-inspire">Need ideas first? Browse our <a href="cakes.html">cakes</a> or <a href="toppers.html">edible toppers</a>. Questions? <button type="button" class="o-linkbtn" data-open-faq>Read our FAQs</button>.</p>
-      </div>
+      <p class="lede" style="margin:0">Make your cake more personalized, fun and extra special, for birthdays, celebrations or any sweet occasion. Tap a photo to enlarge it.</p>
+    </div>
+    <div class="tp-grid" id="topper-grid"></div>
+    <div class="tp-note">
+      <p>Topper prices depend on the character design, details and level of complexity. Send your preferred character or design inspiration when you order so we can give you the best recommendation and quotation.</p>
+      <div class="cta-row"><a class="btn btn-fill" href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Ask About a Topper</a></div>
     </div>
   </div>
-
-  <dialog class="o-cal" id="o-cal" aria-labelledby="o-cal-title">
-    <div class="o-cal-box">
-      <button class="o-cal-x" type="button" data-close aria-label="Close calendar">&times;</button>
-      <h3 class="o-cal-title" id="o-cal-title">Check Availability</h3>
-      <div class="o-cal-nav"><button type="button" data-prev aria-label="Previous month">&lsaquo;</button><strong data-month aria-live="polite"></strong><button type="button" data-next aria-label="Next month">&rsaquo;</button></div>
-      <div class="o-cal-grid" data-grid></div>
-      <ul class="o-cal-key"><li><i></i>Available</li><li><i class="k-ltd"></i>Few slots left</li><li><i class="k-full"></i>Fully booked</li></ul>
-      <p class="o-cal-note">Dates are a guide. Message us to confirm your date.</p>
-    </div>
-  </dialog>
-<script>
-(function(){
-  /* ===== GOOGLE APPS SCRIPT WEB APP URL (reads booking counts from the ORDER sheet) ===== */
-  var API='https://script.google.com/macros/s/AKfycbwnymCjHtQXxpCuXtkYiUx0zWbZafBrEJRR7K3wObngZFOO3OkYGmbE2zzNFMBLhuqohg/exec';
-  /* ================================================================================== */
-  var DATA={counts:{},weekday:5,weekend:2};
-  var dlg=document.getElementById('o-cal'),openBtn=document.getElementById('o-cal-open');
-  if(!dlg||!openBtn)return;
-  var grid=dlg.querySelector('[data-grid]'),label=dlg.querySelector('[data-month]'),prev=dlg.querySelector('[data-prev]'),next=dlg.querySelector('[data-next]');
-  var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),startM=new Date(now.getFullYear(),now.getMonth(),1),view=new Date(startM);
-  var MON=['January','February','March','April','May','June','July','August','September','October','November','December'],WD=['Su','Mo','Tu','We','Th','Fr','Sa'];
-  function pad(n){return String(n).padStart(2,'0');}
-  function load(){
-    return fetch(API).then(function(r){return r.json();}).then(function(j){
-      if(j&&j.counts){DATA=j;}
-    }).catch(function(){});
-  }
-  function render(){
-    var y=view.getFullYear(),m=view.getMonth(),html='';
-    label.textContent=MON[m]+' '+y;
-    WD.forEach(function(w){html+='<div class="wd">'+w+'</div>';});
-    for(var b=0;b<new Date(y,m,1).getDay();b++)html+='<div></div>';
-    for(var d=1,n=new Date(y,m+1,0).getDate();d<=n;d++){
-      var iso=y+'-'+pad(m+1)+'-'+pad(d),dt=new Date(y,m,d),cls='d',txt='available';
-      var dow=dt.getDay(),limit=(dow===0||dow===6)?DATA.weekend:DATA.weekday,used=DATA.counts[iso]||0;
-      if(dt<=today){cls+=' past';txt='not available';}
-      else if(used>=limit){cls+=' full';txt='fully booked';}
-      else if(limit-used<=1){cls+=' ltd';txt='few slots left';}
-      var tip='',left=limit-used;
-      if(cls.indexOf('past')<0){tip=used>=limit?'Fully booked':left+' of '+limit+' slot'+(left===1?'':'s')+' available';}
-      html+='<div class="'+cls+'" aria-label="'+MON[m]+' '+d+', '+(tip||txt)+'"'+(tip?' data-tip="'+tip+'" tabindex="0"':'')+'>'+d+'</div>';
-    }
-    grid.innerHTML=html;
-    prev.disabled=view<=startM;
-    next.disabled=view>=new Date(startM.getFullYear(),startM.getMonth()+11,1);
-  }
-  prev.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);render();});
-  next.addEventListener('click',function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);render();});
-  openBtn.addEventListener('click',function(){
-    view=new Date(startM);render();
-    if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
-    load().then(render);
-  });
-  dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
-  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
-})();
-</script>
-  <dialog class="o-quote" id="o-quote" aria-labelledby="oq-title">
-    <div class="oq-box">
-      <button class="oq-x" type="button" data-close aria-label="Close quote builder">&times;</button>
-      <h3 class="oq-title" id="oq-title">Build Your Order</h3>
-      <p class="oq-sub">Pick your options and see an estimated price instantly.</p>
-      <div class="oq-body">
-        <form class="oq-form" data-form onsubmit="return false"></form>
-        <div class="oq-sum" aria-live="polite">
-          <h4>Your order</h4>
-          <ul data-sum></ul>
-          <div class="oq-total"><span>Total</span><strong data-total></strong></div>
-          <div class="oq-dp"><span>50% down payment</span><strong data-dp></strong></div>
-          <ul class="oq-terms">
-            <li>50% down payment is required when booking.</li>
-            <li>No cancellation of bookings.</li>
-            <li>Major changes may not be allowed once confirmed.</li>
-            <li>No same-day or rush orders.</li>
-          </ul>
-          <a class="btn btn-fill" data-send href="https://docs.google.com/forms/d/e/1FAIpQLSfjFIxypDbdok1fup8KgbOfmu6VX6IJjZ8OkuXuMkzalWImTQ/viewform" target="_blank" rel="noopener">Book My Order</a>
-          <p class="oq-copied" data-copied></p>
-        </div>
-      </div>
-    </div>
-  </dialog>
-<script>
-(function(){
-  /* ===== EDIT PRICES HERE: ['Label', price in pesos, optional hint]. These are SAMPLE prices. ===== */
-  var GROUPS=[
-    {k:'type',t:'What would you like?',one:1,o:[['Cake',0,'Custom cake, with optional cupcakes'],['Cupcakes only',0,'12 or 24 pieces'],['Edible topper only',0,'Toppers without a cake']]},
-    /* --- Cake --- */
-    {k:'size',t:'Base size',f:['cake'],one:1,o:[['6 inch',1200],['8 inch',1800],['10 inch',2500]]},
-    {k:'tier',t:'Tiers',f:['cake'],one:1,o:[['1 tier',0],['2 tiers',1500],['3 tiers',3000],['4 tiers',4500],['5 tiers',6000],['6 tiers',7500]]},
-    {k:'flavor',t:'Cake flavor',f:['cake'],one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',150],['Ube',150],['Red velvet',200],['Caramel',200]]},
-    {k:'icing',t:'Icing',f:['cake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate drip',250],['Fondant',600]]},
-    {k:'design',t:'Design',f:['cake'],one:1,o:[['Simple',0,'Clean finish, minimal decor'],['Detailed',500,'Piped or themed details'],['Premium custom',1200,'Sculpted or fully custom']]},
-    {k:'cupadd',t:'Add cupcakes (same flavor & icing)',f:['cake'],one:1,o:[['No cupcakes',0],['12 cupcakes',600],['24 cupcakes',1100]]},
-    {k:'extra',t:'Extras (optional)',f:['cake'],one:0,o:[['Edible topper',250],['Fresh flowers',450],['Edible gold & pearls',200]]},
-    /* --- Cupcakes only --- */
-    {k:'cqty',t:'Quantity',f:['cupcake'],one:1,o:[['12 cupcakes',700],['24 cupcakes',1300]]},
-    {k:'cflavor',t:'Cupcake flavor',f:['cupcake'],one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',60],['Ube',60],['Red velvet',100],['Caramel',100]]},
-    {k:'cicing',t:'Icing',f:['cupcake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate ganache',150]]},
-    {k:'cdesign',t:'Decoration',f:['cupcake'],one:1,o:[['Simple',0,'Clean swirl'],['Themed',250,'Matching toppers or details'],['Premium custom',600,'Hand-decorated']]},
-    /* --- Edible topper only --- */
-    {k:'tstyle',t:'Topper type',f:['topper'],one:1,o:[['Cake topper',250],['Cupcake toppers (12)',350],['Cupcake toppers (24)',600]]},
-    {k:'tdesign',t:'Topper design',f:['topper'],one:1,o:[['Name or message',0],['Themed or character',150],['Custom illustrated',350]]}
-  ];
-  /* ================================================================================================ */
-  var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
-  if(!dlg||!openBtn)return;
-  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]');
-  var PESO='\u20B1';
-  function money(n){return PESO+n.toLocaleString('en-PH');}
-  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
-  var html='';
-  GROUPS.forEach(function(g){
-    html+='<fieldset data-g="'+g.k+'"><legend>'+esc(g.t)+'</legend><div class="oq-chips">';
-    g.o.forEach(function(o,i){
-      var type=g.one?'radio':'checkbox',chk=(g.one&&i===0)?' checked':'';
-      html+='<label class="oq-chip"><input type="'+type+'" name="'+g.k+'" value="'+i+'" data-price="'+o[1]+'" data-label="'+esc(o[0])+'"'+chk+'><span>'+esc(o[0])+(o[1]?'<em>+'+money(o[1])+'</em>':'')+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span></label>';
-    });
-    html+='</div></fieldset>';
-  });
-  form.innerHTML=html;
-  var text='';
-  function update(){
-    var total=0,rows='',lines=['Katha Keyks order quote request'];
-    var T=['cake','cupcake','topper'][+(form.querySelector('input[name="type"]:checked')||{value:0}).value];
-    GROUPS.forEach(function(g){
-      var show=!g.f||g.f.indexOf(T)>-1,fs=form.querySelector('[data-g="'+g.k+'"]');
-      if(fs)fs.hidden=!show;
-      if(!show)return;
-      var picked=[].slice.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'));
-      var label=picked.length?picked.map(function(i){return i.getAttribute('data-label');}).join(', '):'None';
-      picked.forEach(function(i){total+=+i.getAttribute('data-price');});
-      rows+='<li><span>'+esc(g.t.replace(' (optional)',''))+'</span><span>'+esc(label)+'</span></li>';
-      lines.push(g.t.replace(' (optional)','')+': '+label);
-    });
-    sum.innerHTML=rows;totalEl.textContent=money(total);var dp=Math.round(total/2);dpEl.textContent=money(dp);
-    lines.push('Total: '+money(total));lines.push('50% down payment: '+money(dp));
-    text=lines.join('\n');copied.textContent='';
-  }
-  form.addEventListener('change',update);
-  function copy(){
-    if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(text);}
-    return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=text;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}document.body.removeChild(a);});
-  }
-  send.addEventListener('click',function(){
-    copy().then(function(){copied.textContent='Quote copied! Paste it into the booking form.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
-  });
-  openBtn.addEventListener('click',function(){update();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
-  dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
-  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
-})();
-</script>
 </section>
 </main>
 <footer>
@@ -474,94 +163,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   </div>
   <div class="wrap copy">© <span id="yr"></span> Katha Keyks. All cakes made to order.</div>
 </footer>
-<aside class="fq" id="fq" aria-label="Frequently asked questions">
-<style>
-.fq{--fq-w:min(640px,92vw);--fq-brown:#6b4a3a;--fq-cream:#fbf6ee;--fq-blush:#f3dcd6;--fq-line:rgba(107,74,58,.22);position:fixed;right:0;bottom:clamp(16px,5vh,48px);z-index:40;display:flex;align-items:flex-end;transform:translateX(var(--fq-w));transition:transform .45s cubic-bezier(.22,.8,.3,1)}
-.fq.is-open{transform:translateX(0)}
-.fq-tab{appearance:none;border:0;cursor:pointer;position:relative;color:#fff;font-family:'Nunito',system-ui,sans-serif;font-weight:800;font-size:1rem;letter-spacing:.03em;padding:48px 14px 22px;margin-top:16px;border-radius:18px 0 0 8px;writing-mode:vertical-rl;display:flex;align-items:center;box-shadow:-2px 2px 10px rgba(74,59,52,.2);
-background:
- radial-gradient(circle at 50% 25px,#f3dcd6 8px,transparent 8.6px) 0 0/33.34% 100% repeat-x,
- linear-gradient(#f3dcd6,#f3dcd6) 0 0/100% 25px no-repeat,
- linear-gradient(#e3b9b0,#e3b9b0) 0 25px/100% 2px no-repeat,
- radial-gradient(circle at 25% 70%,#f3dcd6 1.8px,transparent 2.4px),
- radial-gradient(circle at 75% 82%,#e3b9b0 1.8px,transparent 2.4px),
- #6b4a3a}
-.fq-tab::before{content:"";position:absolute;top:-10px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8899a 0 16%,#c4566a 55%,#a23e52);box-shadow:0 2px 3px rgba(74,59,52,.28)}
-.fq-tab::after{content:"";position:absolute;top:-17px;left:50%;width:2px;height:9px;background:#5c7a4a;border-radius:2px;transform:rotate(20deg)}
-.fq-tab:focus-visible{outline:2px solid var(--fq-blush);outline-offset:2px}
-.fq-panel{width:var(--fq-w);max-height:min(78vh,680px);max-height:min(78dvh,680px);overflow-y:auto;box-sizing:border-box;background:var(--fq-cream);border:1px solid var(--fq-line);border-right:0;border-radius:16px 0 0 16px;padding:26px 26px 20px;box-shadow:-4px 4px 22px rgba(74,59,52,.16);visibility:hidden;transition:visibility 0s .45s}
-.fq.is-open .fq-panel{visibility:visible;transition-delay:0s}
-.fq-panel h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.9rem;color:var(--fq-brown);margin:0 0 4px;text-align:left;max-width:none}
-.fq-sub{margin:0 0 14px;font-family:'Nunito',system-ui,sans-serif;font-size:1rem;color:#4a3b34;opacity:.8}
-.fq-q{border-top:1px solid var(--fq-line);margin:0}
-.fq-q:last-of-type{border-bottom:1px solid var(--fq-line)}
-.fq-q summary{display:flex;align-items:center;gap:16px;padding:16px 2px;cursor:pointer;list-style:none}
-.fq-q summary::-webkit-details-marker{display:none}
-.fq-q summary::after{content:"+";margin-left:auto;flex:none;font:300 1.7rem/1 'Nunito',system-ui,sans-serif;color:#b4596e;transition:transform .25s}
-.fq-q[open] summary::after{transform:rotate(45deg)}
-.fq-q summary:focus-visible{outline:2px solid var(--fq-brown);outline-offset:2px}
-.fq-q h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.08rem;line-height:1.3;color:var(--fq-brown);margin:0}
-.fq-a{padding:0 30px 18px 2px;font-family:'Nunito',system-ui,sans-serif;font-size:.97rem;line-height:1.6;color:#4a3b34}
-.fq-a p{margin:0}
-.fq-a ul{margin:8px 0 0;padding:0;list-style:none}
-.fq-a li{position:relative;padding:4px 0 4px 18px;margin:0}
-.fq-a li::before{content:"";position:absolute;left:2px;top:.9em;width:7px;height:7px;border-radius:50%;background:#e3b9b0}
-.fq-a strong{color:var(--fq-brown);font-weight:800}
-.fq-more{margin:16px 0 0;font-family:'Nunito',system-ui,sans-serif;font-size:.94rem;color:#4a3b34}
-.fq-more a{color:var(--fq-brown);font-weight:800;text-decoration:underline;text-decoration-color:#e3b9b0;text-underline-offset:3px}
-@media (prefers-reduced-motion:reduce){.fq,.fq-panel,.fq-q summary::after{transition:none}}
-</style>
-  <button class="fq-tab" type="button" aria-expanded="false" aria-controls="fq-panel">FAQs</button>
-  <div class="fq-panel" id="fq-panel">
-    <h2>Good to Know</h2>
-    <p class="fq-sub">Answers to the questions we hear most.</p>
-      <details class="fq-q" name="fq" open>
-        <summary><h3>How far in advance should I book a custom cake?</h3></summary>
-        <div class="fq-a"><p>We recommend ordering your customized cake <strong>2 to 3 days before</strong> the scheduled date, so we can validate your order.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>How stable are the cakes and cupcakes?</h3></summary>
-        <div class="fq-a"><p>To keep your cake stable, we use <strong>dowels</strong> for tiered cakes with two or more layers. This prevents sliding, leaning, and collapse.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>How do I take care of my cake?</h3></summary>
-        <div class="fq-a"><p>A few simple tips keep your cake fresh and safe:</p><ul><li>Avoid direct sunlight and keep the cake in a cool, dry place.</li><li>We recommend refrigerating it at <strong>2 to 5&deg;C</strong>, where it will last about two days.</li><li>Do not use contaminated utensils, to avoid contamination and spoilage.</li></ul></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>What payment methods do you accept?</h3></summary>
-        <div class="fq-a"><p>We only accept <strong>QR code and e-wallet payments</strong> such as GCash. For bank transfers, we only use <strong>BPI QR codes</strong>.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>What are the delivery and pickup options?</h3></summary>
-        <div class="fq-a"><p>We do not accept motorcycles for cake delivery because they could harm the cake in transit, especially tiered cakes with two or more layers. For a safer and more comfortable ride, we recommend a <strong>car or any other four-wheel vehicle</strong>.</p><p style="margin-top:10px">Pickup is available at <strong>9 a.m.</strong></p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>Is this product halal?</h3></summary>
-        <div class="fq-a"><p>Yes, it is <strong>halal</strong> and contains no pork.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>What types of ingredients are used?</h3></summary>
-        <div class="fq-a"><p>This item is made with only <strong>premium-quality</strong> products and ingredients.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>Does this have any allergens?</h3></summary>
-        <div class="fq-a"><p>Yes, this product contains <strong>milk</strong>. Please keep this in mind if you are allergic to dairy or have lactose intolerance.</p></div>
-      </details>
-      <details class="fq-q" name="fq">
-        <summary><h3>Who should not eat this?</h3></summary>
-        <div class="fq-a"><p>Anyone with a <strong>dairy allergy</strong> should avoid this product or contact us first for a detailed list of the dairy ingredients used.</p></div>
-      </details>
-    <p class="fq-more">Still have a question? <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook</a>.</p>
-  </div>
-</aside>
-<script>
-(function(){var fq=document.getElementById('fq');if(!fq)return;var t=fq.querySelector('.fq-tab');
-function set(o){fq.classList.toggle('is-open',o);t.setAttribute('aria-expanded',o);}
-t.addEventListener('click',function(){set(!fq.classList.contains('is-open'));});
-document.querySelectorAll('[data-open-faq]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();set(true);t.focus();});});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
-document.addEventListener('click',function(e){if(fq.classList.contains('is-open')&&!fq.contains(e.target))set(false);});})();
-</script>
+<dialog id="lb" class="lb-has-cap" aria-label="Topper photo"><button aria-label="Close">×</button><img alt=""><p class="lb-cap"></p></dialog>
 <script src="main.js"></script>
 <script>
 (function(){
