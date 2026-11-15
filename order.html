@@ -210,32 +210,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
 #order .oq-sum li span:last-child{overflow-wrap:anywhere}
 #order .oq-sum li.oq-empty{display:block;opacity:.7;font-style:italic}
 #order .oq-sum .btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none}
-#oq-print{display:none}
-@media print{
-  @page{margin:14mm}
-  body>*:not(#oq-print){display:none!important}
-  html,body{background:#fff!important}
-  #oq-print{display:block;font-family:'Nunito',Arial,sans-serif;color:#4a3b34;font-size:12pt;line-height:1.45}
-  #oq-print .pq-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:18px;border-bottom:2px solid #e3b9b0}
-  #oq-print .pq-head img{width:64px;height:64px;object-fit:contain}
-  #oq-print .pq-brand{flex:1}
-  #oq-print h1{font:500 24pt/1.1 'Fraunces',Georgia,serif;color:#6b4a3a;margin:0}
-  #oq-print .pq-brand p{margin:2px 0 0;color:#b4596e;font-weight:700;font-size:10.5pt}
-  #oq-print .pq-date{text-align:right;font-size:10.5pt}
-  #oq-print .pq-date strong{display:block;font:500 16pt 'Fraunces',Georgia,serif;color:#6b4a3a}
-  #oq-print .pq-table{width:100%;border-collapse:collapse;margin-bottom:18px}
-  #oq-print .pq-table th{text-align:left;font-size:10pt;text-transform:uppercase;letter-spacing:.06em;color:#b4596e;padding:6px 8px;border-bottom:2px solid #e3b9b0}
-  #oq-print .pq-table td{padding:7px 8px;border-bottom:1px solid #efdcd6;vertical-align:top}
-  #oq-print .pq-table td:first-child{font-weight:700;width:34%}
-  #oq-print .pq-p{text-align:right;white-space:nowrap}
-  #oq-print .pq-table tfoot td{font-weight:800;border-bottom:0;font-size:12.5pt;color:#6b4a3a}
-  #oq-print .pq-table tfoot tr:first-child td{border-top:2px solid #e3b9b0}
-  #oq-print h2{font:500 14pt 'Fraunces',Georgia,serif;color:#6b4a3a;margin:0 0 6px}
-  #oq-print .pq-terms{margin:0 0 14px;padding-left:18px;font-size:10.5pt}
-  #oq-print .pq-note{font-size:10pt;margin:0 0 8px;color:#6b5a52}
-  #oq-print .pq-contact{font-size:10.5pt;font-weight:700;color:#6b4a3a;margin:0;padding-top:10px;border-top:1px solid #efdcd6}
-  #oq-print tr{break-inside:avoid}
-}
+#order .oq-copied a{color:inherit;text-decoration:underline;font-weight:800}
 </style>
 </head>
 <body>
@@ -487,7 +462,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
             <li>Major changes may not be allowed once confirmed.</li>
             <li>No same-day or rush orders.</li>
           </ul>
-          <button class="btn" type="button" data-print>Print Quote</button>
+          <button class="btn" type="button" data-download>Download Quote</button>
           <a class="btn btn-fill" data-send href="https://docs.google.com/forms/d/e/1FAIpQLSfjFIxypDbdok1fup8KgbOfmu6VX6IJjZ8OkuXuMkzalWImTQ/viewform" target="_blank" rel="noopener">Book My Order</a>
           <p class="oq-copied" data-copied></p>
         </div>
@@ -522,7 +497,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   /* ================================================================================================ */
   var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
   if(!dlg||!openBtn)return;
-  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]'),printBtn=dlg.querySelector('[data-print]');
+  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]'),dlBtn=dlg.querySelector('[data-download]');
   var PESO='\u20B1';
   function money(n){return PESO+n.toLocaleString('en-PH');}
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -608,7 +583,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
     text=lines.join('\n');
     copied.textContent=ready?'':'Choose all options to see your total.';
     send.setAttribute('aria-disabled',ready?'false':'true');
-    if(printBtn)printBtn.setAttribute('aria-disabled',ready?'false':'true');
+    if(dlBtn)dlBtn.setAttribute('aria-disabled',ready?'false':'true');
   }
   form.addEventListener('change',function(e){
     var t=e.target;
@@ -624,28 +599,113 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
     if(!ready){e.preventDefault();copied.textContent='Please choose all options to complete your quote.';return;}
     copy().then(function(){copied.textContent='Quote copied! Paste it into the booking form.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
   });
-  /* ----- printable quote ----- */
-  function printQuote(){
+  /* ----- downloadable quote (PDF built in the browser, works on phones) ----- */
+  var C={brown:'#6b4a3a',ink:'#4a3b34',rose:'#b4596e',line:'#efdcd6',edge:'#e3b9b0',soft:'#6b5a52'};
+  var FD="'Fraunces',Georgia,serif",FB="'Nunito',Arial,sans-serif";
+  function wrap(ctx,text,maxW){
+    var out=[];
+    String(text).split('\n').forEach(function(par){
+      var line='';
+      par.split(/\s+/).forEach(function(w){
+        while(ctx.measureText(w).width>maxW){
+          var k=w.length;while(k>1&&ctx.measureText(w.slice(0,k)).width>maxW)k--;
+          if(line){out.push(line);line='';}
+          out.push(w.slice(0,k));w=w.slice(k);
+        }
+        var t=line?line+' '+w:w;
+        if(ctx.measureText(t).width>maxW&&line){out.push(line);line=w;}else line=t;
+      });
+      out.push(line);
+    });
+    return out;
+  }
+  function layout(ctx,paint,W,logo,dateStr,terms){
+    var M=90,R=W-M,y=0,selX=M+360,selW=R-210-selX,itemW=330;
+    ctx.textBaseline='alphabetic';
+    function txt(s,x,yy,font,color,align){ctx.font=font;if(!paint)return;ctx.fillStyle=color;ctx.textAlign=align||'left';ctx.fillText(s,x,yy);}
+    function rule(yy,h,color){if(!paint)return;ctx.fillStyle=color;ctx.fillRect(M,yy,R-M,h);}
+    if(paint&&logo)ctx.drawImage(logo,M,70,110,110);
+    txt('Katha Keyks',M+135,130,'500 58px '+FD,C.brown);
+    txt('Custom cakes by Ann',M+135,174,'700 26px '+FB,C.rose);
+    txt('Order Quote',R,120,'500 40px '+FD,C.brown,'right');
+    txt(dateStr,R,164,'600 24px '+FB,C.soft,'right');
+    rule(205,4,C.edge);
+    y=262;
+    txt('ITEM',M,y,'800 20px '+FB,C.rose);txt('SELECTION',selX,y,'800 20px '+FB,C.rose);txt('PRICE',R,y,'800 20px '+FB,C.rose,'right');
+    y+=16;rule(y,3,C.edge);
+    items.forEach(function(it){
+      ctx.font='800 27px '+FB;var a=wrap(ctx,it.n,itemW);
+      ctx.font='600 27px '+FB;var b=wrap(ctx,it.l,selW);
+      var n=Math.max(a.length,b.length),base=y+46,p=it.p===null?'':(it.p>0?money(it.p):'Included');
+      a.forEach(function(l,i){txt(l,M,base+i*36,'800 27px '+FB,C.ink);});
+      b.forEach(function(l,i){txt(l,selX,base+i*36,'600 27px '+FB,C.ink);});
+      if(p)txt(p,R,base,'700 27px '+FB,C.ink,'right');
+      y=base+(n-1)*36+24;rule(y,2,C.line);
+    });
+    y+=14;rule(y,4,C.edge);y+=56;
+    txt('Estimated total',M,y,'800 34px '+FB,C.brown);txt(money(total),R,y,'800 34px '+FB,C.brown,'right');
+    y+=52;
+    txt('50% down payment',M,y,'800 30px '+FB,C.brown);txt(money(dp),R,y,'800 30px '+FB,C.brown,'right');
+    y+=84;
+    txt('Terms',M,y,'500 36px '+FD,C.brown);y+=18;
+    terms.forEach(function(t){
+      ctx.font='600 24px '+FB;var ls=wrap(ctx,t,R-M-30);y+=36;
+      if(paint){ctx.fillStyle=C.edge;ctx.beginPath();ctx.arc(M+8,y-9,5,0,6.3);ctx.fill();}
+      ls.forEach(function(l,i){txt(l,M+30,y+i*32,'600 24px '+FB,C.ink);});
+      y+=(ls.length-1)*32;
+    });
+    y+=56;
+    ctx.font='600 22px '+FB;
+    wrap(ctx,'This is an estimate only. The final price is confirmed when your order is booked. To book, send this quote with your event date and details through our booking form or message us on Facebook.',R-M).forEach(function(l){
+      txt(l,M,y,'600 22px '+FB,C.soft);y+=32;
+    });
+    y+=10;rule(y,2,C.line);y+=44;
+    txt('facebook.com/cakeliciousph   |   instagram.com/katha_keyks',M,y,'800 24px '+FB,C.brown);
+    return y;
+  }
+  function toPdf(dataUrl,w,h){
+    var bin=atob(dataUrl.split(',')[1]),len=bin.length,jpg=new Uint8Array(len),i;
+    for(i=0;i<len;i++)jpg[i]=bin.charCodeAt(i);
+    var W=595.28,H=W*h/w,parts=[],off=[],pos=0,enc=new TextEncoder();
+    function add(u){parts.push(u);pos+=u.length;}
+    function str(s){add(enc.encode(s));}
+    str('%PDF-1.4\n');
+    off[1]=pos;str('1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n');
+    off[2]=pos;str('2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj\n');
+    off[3]=pos;str('3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 '+W.toFixed(2)+' '+H.toFixed(2)+']/Resources<</XObject<</Im0 4 0 R>>>>/Contents 5 0 R>>endobj\n');
+    off[4]=pos;str('4 0 obj<</Type/XObject/Subtype/Image/Width '+w+'/Height '+h+'/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length '+len+'>>stream\n');add(jpg);str('\nendstream\nendobj\n');
+    var cs='q '+W.toFixed(2)+' 0 0 '+H.toFixed(2)+' 0 0 cm /Im0 Do Q';
+    off[5]=pos;str('5 0 obj<</Length '+cs.length+'>>stream\n'+cs+'\nendstream\nendobj\n');
+    var xr=pos,x='xref\n0 6\n0000000000 65535 f \n';
+    for(i=1;i<=5;i++)x+=('0000000000'+off[i]).slice(-10)+' 00000 n \n';
+    str(x+'trailer<</Size 6/Root 1 0 R>>\nstartxref\n'+xr+'\n%%EOF');
+    return new Blob(parts,{type:'application/pdf'});
+  }
+  function loadFonts(){
+    if(!document.fonts||!document.fonts.load)return Promise.resolve();
+    var all=Promise.all([document.fonts.load('800 27px Nunito','\u20B1 Aa'),document.fonts.load('600 27px Nunito','Aa'),document.fonts.load('700 27px Nunito','Aa'),document.fonts.load('500 58px Fraunces','Aa')]);
+    return Promise.race([all,new Promise(function(r){setTimeout(r,1500);})]).catch(function(){});
+  }
+  function loadLogo(){return new Promise(function(res){var im=new Image();im.onload=function(){res(im);};im.onerror=function(){res(null);};im.src='images/logo.png';});}
+  function downloadQuote(){
     update();
     if(!ready){copied.textContent='Please choose all options to complete your quote.';return;}
-    var sheet=document.getElementById('oq-print');
-    if(!sheet){sheet=document.createElement('div');sheet.id='oq-print';document.body.appendChild(sheet);}
-    var date=new Date().toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
-    var rows=items.map(function(it){
-      var p=it.p===null?'':(it.p>0?money(it.p):'Included');
-      return '<tr><td>'+esc(it.n)+'</td><td>'+esc(it.l)+'</td><td class="pq-p">'+p+'</td></tr>';
-    }).join('');
-    var terms=[].slice.call(dlg.querySelectorAll('.oq-terms li')).map(function(li){return '<li>'+esc(li.textContent)+'</li>';}).join('');
-    sheet.innerHTML=
-      '<div class="pq-head"><img src="images/logo.png" alt="" width="64" height="64"><div class="pq-brand"><h1>Katha Keyks</h1><p>Custom cakes by Ann</p></div><div class="pq-date"><strong>Order Quote</strong><span>'+esc(date)+'</span></div></div>'+
-      '<table class="pq-table"><thead><tr><th>Item</th><th>Selection</th><th class="pq-p">Price</th></tr></thead><tbody>'+rows+'</tbody>'+
-      '<tfoot><tr><td colspan="2">Estimated total</td><td class="pq-p">'+money(total)+'</td></tr><tr><td colspan="2">50% down payment</td><td class="pq-p">'+money(dp)+'</td></tr></tfoot></table>'+
-      '<h2>Terms</h2><ul class="pq-terms">'+terms+'</ul>'+
-      '<p class="pq-note">This is an estimate only. The final price is confirmed when your order is booked. To book, send this quote with your event date and details through our booking form or message us on Facebook.</p>'+
-      '<p class="pq-contact">facebook.com/cakeliciousph &nbsp;|&nbsp; instagram.com/katha_keyks</p>';
-    window.print();
+    copied.textContent='Preparing your quote\u2026';
+    var d=new Date(),dateStr=d.toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
+    var iso=d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+    var terms=[].slice.call(dlg.querySelectorAll('.oq-terms li')).map(function(li){return li.textContent;});
+    loadFonts().then(loadLogo).then(function(logo){
+      var W=1240,end=layout(document.createElement('canvas').getContext('2d'),false,W,logo,dateStr,terms);
+      var H=Math.max(1754,Math.ceil(end+110)),c=document.createElement('canvas');
+      c.width=W;c.height=H;
+      var ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
+      layout(ctx,true,W,logo,dateStr,terms);
+      var blob=toPdf(c.toDataURL('image/jpeg',.92),W,H),url=URL.createObjectURL(blob),name='Katha-Keyks-Quote-'+iso+'.pdf';
+      var a=document.createElement('a');a.href=url;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();document.body.removeChild(a);
+      copied.innerHTML='Your quote is downloading. If nothing happens, <a href="'+url+'" download="'+name+'" target="_blank" rel="noopener">tap here to open it</a>.';
+    }).catch(function(){copied.textContent='Sorry, we could not create the file. Please take a screenshot of your quote instead.';});
   }
-  if(printBtn)printBtn.addEventListener('click',printQuote);
+  if(dlBtn)dlBtn.addEventListener('click',downloadQuote);
   openBtn.addEventListener('click',function(){update();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
   dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
   dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
