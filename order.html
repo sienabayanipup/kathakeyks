@@ -197,6 +197,46 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
 }
 @media (min-width:901px) and (max-height:800px){#order.order .o-stack{--pw:150px}}
 </style>
+<style id="quote-extras">
+/* per-tier flavors, notes and printable quote */
+#order .oq-tiers{display:grid;gap:8px}
+#order .oq-tier{display:flex;align-items:center;gap:10px}
+#order .oq-tier label{flex:0 0 112px;font-size:.84rem;font-weight:700;color:var(--o-brown)}
+#order .oq-tier select{flex:1;min-width:0;box-sizing:border-box;padding:9px 12px;border-radius:12px;border:1px solid var(--o-line);background:#fff;color:var(--o-brown);font:700 .86rem/1.2 'Nunito',system-ui,sans-serif}
+#order .oq-tier select:focus-visible,#order .oq-form textarea:focus-visible{outline:2px solid var(--o-blush-deep);outline-offset:2px}
+#order .oq-hint{margin:8px 0 0;font-size:.74rem;line-height:1.4;opacity:.75}
+#order .oq-form textarea{width:100%;box-sizing:border-box;resize:vertical;padding:10px 12px;border-radius:12px;border:1px solid var(--o-line);background:#fff;color:var(--o-brown);font:600 .86rem/1.4 'Nunito',system-ui,sans-serif}
+#order .oq-sum [data-print]{margin-top:8px}
+#order .oq-sum li span:last-child{overflow-wrap:anywhere}
+#order .oq-sum li.oq-empty{display:block;opacity:.7;font-style:italic}
+#order .oq-sum .btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none}
+#oq-print{display:none}
+@media print{
+  @page{margin:14mm}
+  body>*:not(#oq-print){display:none!important}
+  html,body{background:#fff!important}
+  #oq-print{display:block;font-family:'Nunito',Arial,sans-serif;color:#4a3b34;font-size:12pt;line-height:1.45}
+  #oq-print .pq-head{display:flex;align-items:center;gap:14px;padding-bottom:12px;margin-bottom:18px;border-bottom:2px solid #e3b9b0}
+  #oq-print .pq-head img{width:64px;height:64px;object-fit:contain}
+  #oq-print .pq-brand{flex:1}
+  #oq-print h1{font:500 24pt/1.1 'Fraunces',Georgia,serif;color:#6b4a3a;margin:0}
+  #oq-print .pq-brand p{margin:2px 0 0;color:#b4596e;font-weight:700;font-size:10.5pt}
+  #oq-print .pq-date{text-align:right;font-size:10.5pt}
+  #oq-print .pq-date strong{display:block;font:500 16pt 'Fraunces',Georgia,serif;color:#6b4a3a}
+  #oq-print .pq-table{width:100%;border-collapse:collapse;margin-bottom:18px}
+  #oq-print .pq-table th{text-align:left;font-size:10pt;text-transform:uppercase;letter-spacing:.06em;color:#b4596e;padding:6px 8px;border-bottom:2px solid #e3b9b0}
+  #oq-print .pq-table td{padding:7px 8px;border-bottom:1px solid #efdcd6;vertical-align:top}
+  #oq-print .pq-table td:first-child{font-weight:700;width:34%}
+  #oq-print .pq-p{text-align:right;white-space:nowrap}
+  #oq-print .pq-table tfoot td{font-weight:800;border-bottom:0;font-size:12.5pt;color:#6b4a3a}
+  #oq-print .pq-table tfoot tr:first-child td{border-top:2px solid #e3b9b0}
+  #oq-print h2{font:500 14pt 'Fraunces',Georgia,serif;color:#6b4a3a;margin:0 0 6px}
+  #oq-print .pq-terms{margin:0 0 14px;padding-left:18px;font-size:10.5pt}
+  #oq-print .pq-note{font-size:10pt;margin:0 0 8px;color:#6b5a52}
+  #oq-print .pq-contact{font-size:10.5pt;font-weight:700;color:#6b4a3a;margin:0;padding-top:10px;border-top:1px solid #efdcd6}
+  #oq-print tr{break-inside:avoid}
+}
+</style>
 </head>
 <body>
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
@@ -448,6 +488,7 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
             <li>No same-day or rush orders.</li>
           </ul>
           <a class="btn btn-fill" data-send href="https://docs.google.com/forms/d/e/1FAIpQLSfjFIxypDbdok1fup8KgbOfmu6VX6IJjZ8OkuXuMkzalWImTQ/viewform" target="_blank" rel="noopener">Book My Order</a>
+          <button class="btn" type="button" data-print>Print Quote</button>
           <p class="oq-copied" data-copied></p>
         </div>
       </div>
@@ -461,9 +502,11 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
     /* --- Cake --- */
     {k:'size',t:'Base size',f:['cake'],one:1,o:[['6 inch',1200],['8 inch',1800],['10 inch',2500]]},
     {k:'tier',t:'Tiers',f:['cake'],one:1,o:[['1 tier',0],['2 tiers',1500],['3 tiers',3000],['4 tiers',4500],['5 tiers',6000],['6 tiers',7500]]},
+    {k:'fmode',t:'Flavors',f:['cake'],one:1,o:[['One flavor for the whole cake',0],['Different flavor for each tier',0,'Choose a flavor per tier']]},
     {k:'flavor',t:'Cake flavor',f:['cake'],one:1,o:[['Chocolate',0],['Vanilla',0],['Mocha',150],['Ube',150],['Red velvet',200],['Caramel',200]]},
-    {k:'icing',t:'Icing',f:['cake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Chocolate drip',250],['Fondant',600]]},
+    {k:'icing',t:'Icing',f:['cake'],one:1,o:[['Buttercream',0],['Whipped cream',0],['Fondant',600]]},
     {k:'design',t:'Design',f:['cake'],one:1,o:[['Simple',0,'Clean finish, minimal decor'],['Detailed',500,'Piped or themed details'],['Premium custom',1200,'Sculpted or fully custom']]},
+    {k:'drip',t:'Design add-on (optional)',f:['cake'],one:0,o:[['Chocolate drip',250]]},
     {k:'cupadd',t:'Add cupcakes (same flavor & icing)',f:['cake'],one:1,o:[['No cupcakes',0],['12 cupcakes',600],['24 cupcakes',1100]]},
     {k:'extra',t:'Extras (optional)',f:['cake'],one:0,o:[['Edible topper',250],['Fresh flowers',450],['Edible gold & pearls',200]]},
     /* --- Cupcakes only --- */
@@ -475,49 +518,134 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
     {k:'tstyle',t:'Topper type',f:['topper'],one:1,o:[['Cake topper',250],['Cupcake toppers (12)',350],['Cupcake toppers (24)',600]]},
     {k:'tdesign',t:'Topper design',f:['topper'],one:1,o:[['Name or message',0],['Themed or character',150],['Custom illustrated',350]]}
   ];
+  /* Flavor rule for tiered cakes: each different flavor's add-on is charged once, however many tiers use it. */
   /* ================================================================================================ */
   var dlg=document.getElementById('o-quote'),openBtn=document.getElementById('oq-open');
   if(!dlg||!openBtn)return;
-  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]');
+  var form=dlg.querySelector('[data-form]'),sum=dlg.querySelector('[data-sum]'),totalEl=dlg.querySelector('[data-total]'),dpEl=dlg.querySelector('[data-dp]'),send=dlg.querySelector('[data-send]'),copied=dlg.querySelector('[data-copied]'),printBtn=dlg.querySelector('[data-print]');
   var PESO='\u20B1';
   function money(n){return PESO+n.toLocaleString('en-PH');}
-  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  var FLAV=GROUPS.filter(function(g){return g.k==='flavor';})[0].o;
   var html='';
   GROUPS.forEach(function(g){
     html+='<fieldset data-g="'+g.k+'"><legend>'+esc(g.t)+'</legend><div class="oq-chips">';
     g.o.forEach(function(o,i){
-      var type=g.one?'radio':'checkbox',chk=(g.one&&i===0)?' checked':'';
+      var type=g.one?'radio':'checkbox',chk='';
       html+='<label class="oq-chip"><input type="'+type+'" name="'+g.k+'" value="'+i+'" data-price="'+o[1]+'" data-label="'+esc(o[0])+'"'+chk+'><span>'+esc(o[0])+(o[1]?'<em>+'+money(o[1])+'</em>':'')+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span></label>';
     });
     html+='</div></fieldset>';
+    if(g.k==='flavor'){
+      html+='<fieldset data-g="tierflav" hidden><legend>Flavor for each tier</legend><div class="oq-tiers" data-tiers></div><p class="oq-hint">Each flavor with an add-on is charged once, no matter how many tiers use it.</p></fieldset>';
+    }
   });
+  html+='<fieldset data-g="notes"><legend>Notes (optional)</legend><textarea data-notes rows="2" maxlength="300" placeholder="e.g. half chocolate and half vanilla in one tier, theme, colors, allergies"></textarea></fieldset>';
   form.innerHTML=html;
-  var text='';
+  var tiersBox=form.querySelector('[data-tiers]'),tierFs=form.querySelector('[data-g="tierflav"]'),notes=form.querySelector('[data-notes]');
+  var tierVals=[],tierCount=0,items=[],total=0,dp=0,text='';
+  function tierName(i,n){return 'Tier '+(i+1)+(i===0?' (bottom)':(i===n-1?' (top)':''));}
+  function buildTiers(n){
+    var h='',i;
+    for(i=0;i<n;i++){
+      h+='<div class="oq-tier"><label for="oq-tf'+i+'">'+tierName(i,n)+'</label><select id="oq-tf'+i+'" data-ti="'+i+'"><option value="">Choose a flavor</option>'+
+        FLAV.map(function(o,j){return '<option value="'+j+'"'+(j===tierVals[i]?' selected':'')+'>'+esc(o[0])+(o[1]?' (+'+money(o[1])+')':'')+'</option>';}).join('')+
+        '</select></div>';
+    }
+    tiersBox.innerHTML=h;tierCount=n;
+  }
+  var ready=false;
   function update(){
-    var total=0,rows='',lines=['Katha Keyks order quote request'];
-    var T=['cake','cupcake','topper'][+(form.querySelector('input[name="type"]:checked')||{value:0}).value];
+    var tv=form.querySelector('input[name="type"]:checked');
+    var T=tv?['cake','cupcake','topper'][+tv.value]:null;
+    var tierIn=form.querySelector('input[name="tier"]:checked');
+    var n=tierIn?(+tierIn.value)+1:0;
+    var modeIn=form.querySelector('input[name="fmode"]:checked'),mv=modeIn?modeIn.value:null;
+    var per=(T==='cake'&&n>1&&mv==='1');
+    var complete=!!T,lines=['Katha Keyks order quote request'];
+    items=[];total=0;
+    tierFs.hidden=!per;
+    form.querySelector('[data-g="notes"]').hidden=!T;
     GROUPS.forEach(function(g){
-      var show=!g.f||g.f.indexOf(T)>-1,fs=form.querySelector('[data-g="'+g.k+'"]');
+      var fs=form.querySelector('[data-g="'+g.k+'"]');
+      var show=!g.f||(T&&g.f.indexOf(T)>-1);
+      if(g.k==='fmode'&&n<2)show=false;
+      if(g.k==='flavor'){
+        if(per){
+          if(fs)fs.hidden=true;
+          if(tierCount!==n)buildTiers(n);
+          var seen={},prem=0,i;
+          for(i=0;i<n;i++){
+            var v=tierVals[i];
+            if(v==null){complete=false;continue;}
+            var f=FLAV[v],nm=tierName(i,n)+' flavor';
+            items.push({n:nm,l:f[0],p:null});lines.push(nm+': '+f[0]);
+            if(!seen[f[0]]){seen[f[0]]=1;prem+=f[1];}
+          }
+          if(prem){total+=prem;items.push({n:'Flavor add-ons',l:'Counted once per flavor',p:prem});lines.push('Flavor add-ons: '+money(prem));}
+          return;
+        }
+        if(n>1&&mv!=='0')show=false;
+      }
       if(fs)fs.hidden=!show;
       if(!show)return;
       var picked=[].slice.call(form.querySelectorAll('input[name="'+g.k+'"]:checked'));
-      var label=picked.length?picked.map(function(i){return i.getAttribute('data-label');}).join(', '):'None';
-      picked.forEach(function(i){total+=+i.getAttribute('data-price');});
-      rows+='<li><span>'+esc(g.t.replace(' (optional)',''))+'</span><span>'+esc(label)+'</span></li>';
-      lines.push(g.t.replace(' (optional)','')+': '+label);
+      if(g.one&&!picked.length)complete=false;
+      if(!picked.length)return;
+      var label=picked.map(function(i){return i.getAttribute('data-label');}).join(', ');
+      var price=0;picked.forEach(function(i){price+=+i.getAttribute('data-price');});
+      total+=price;
+      var name=g.t.replace(' (optional)','').replace('What would you like?','Order type');
+      items.push({n:name,l:label,p:price});
+      lines.push(name+': '+label);
     });
-    sum.innerHTML=rows;totalEl.textContent=money(total);var dp=Math.round(total/2);dpEl.textContent=money(dp);
+    var nt=notes.value.trim();
+    if(nt){items.push({n:'Notes',l:nt,p:null});lines.push('Notes: '+nt);}
+    ready=complete;
+    sum.innerHTML=items.length?items.map(function(it){return '<li><span>'+esc(it.n)+'</span><span>'+esc(it.l)+'</span></li>';}).join(''):'<li class="oq-empty"><span>Your choices will show up here.</span></li>';
+    dp=Math.round(total/2);
+    totalEl.textContent=ready?money(total):'\u2014';dpEl.textContent=ready?money(dp):'\u2014';
     lines.push('Total: '+money(total));lines.push('50% down payment: '+money(dp));
-    text=lines.join('\n');copied.textContent='';
+    text=lines.join('\n');
+    copied.textContent=ready?'':'Choose all options to see your total.';
+    send.setAttribute('aria-disabled',ready?'false':'true');
+    if(printBtn)printBtn.setAttribute('aria-disabled',ready?'false':'true');
   }
-  form.addEventListener('change',update);
+  form.addEventListener('change',function(e){
+    var t=e.target;
+    if(t&&t.getAttribute&&t.getAttribute('data-ti')!==null){tierVals[+t.getAttribute('data-ti')]=(t.value===''?null:+t.value);}
+    update();
+  });
+  notes.addEventListener('input',update);
   function copy(){
     if(navigator.clipboard&&navigator.clipboard.writeText){return navigator.clipboard.writeText(text);}
     return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=text;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}document.body.removeChild(a);});
   }
-  send.addEventListener('click',function(){
+  send.addEventListener('click',function(e){
+    if(!ready){e.preventDefault();copied.textContent='Please choose all options to complete your quote.';return;}
     copy().then(function(){copied.textContent='Quote copied! Paste it into the booking form.';}).catch(function(){copied.textContent='Please copy your selections manually.';});
   });
+  /* ----- printable quote ----- */
+  function printQuote(){
+    update();
+    if(!ready){copied.textContent='Please choose all options to complete your quote.';return;}
+    var sheet=document.getElementById('oq-print');
+    if(!sheet){sheet=document.createElement('div');sheet.id='oq-print';document.body.appendChild(sheet);}
+    var date=new Date().toLocaleDateString('en-PH',{year:'numeric',month:'long',day:'numeric'});
+    var rows=items.map(function(it){
+      var p=it.p===null?'':(it.p>0?money(it.p):'Included');
+      return '<tr><td>'+esc(it.n)+'</td><td>'+esc(it.l)+'</td><td class="pq-p">'+p+'</td></tr>';
+    }).join('');
+    var terms=[].slice.call(dlg.querySelectorAll('.oq-terms li')).map(function(li){return '<li>'+esc(li.textContent)+'</li>';}).join('');
+    sheet.innerHTML=
+      '<div class="pq-head"><img src="images/logo.png" alt="" width="64" height="64"><div class="pq-brand"><h1>Katha Keyks</h1><p>Custom cakes by Ann</p></div><div class="pq-date"><strong>Order Quote</strong><span>'+esc(date)+'</span></div></div>'+
+      '<table class="pq-table"><thead><tr><th>Item</th><th>Selection</th><th class="pq-p">Price</th></tr></thead><tbody>'+rows+'</tbody>'+
+      '<tfoot><tr><td colspan="2">Estimated total</td><td class="pq-p">'+money(total)+'</td></tr><tr><td colspan="2">50% down payment</td><td class="pq-p">'+money(dp)+'</td></tr></tfoot></table>'+
+      '<h2>Terms</h2><ul class="pq-terms">'+terms+'</ul>'+
+      '<p class="pq-note">This is an estimate only. The final price is confirmed when your order is booked. To book, send this quote with your event date and details through our booking form or message us on Facebook.</p>'+
+      '<p class="pq-contact">facebook.com/cakeliciousph &nbsp;|&nbsp; instagram.com/katha_keyks</p>';
+    window.print();
+  }
+  if(printBtn)printBtn.addEventListener('click',printQuote);
   openBtn.addEventListener('click',function(){update();if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');});
   dlg.querySelector('[data-close]').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open');});
   dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
