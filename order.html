@@ -181,6 +181,21 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   #order.order .o-lead p{margin-bottom:14px}
   #order.order .o-steps li{padding-bottom:18px}
 }
+
+/* overlapping polaroid stack */
+#order.order .o-stack{display:none}
+@media (min-width:901px){
+  #order.order .o-stack{display:block;--pw:190px;position:relative;width:min(340px,100%);height:calc(var(--pw)*1.65 + 34px);margin-top:6px}
+  #order.order .o-stack .o-photo{position:absolute;width:var(--pw);margin:0;padding:9px 9px 38px;border-radius:5px;
+    box-shadow:0 10px 24px rgba(73,54,49,.2);transition:transform .35s cubic-bezier(.22,.8,.3,1),box-shadow .35s ease}
+  #order.order .o-stack .o-photo img{aspect-ratio:4/5}
+  #order.order .o-stack .o-photo figcaption{font-size:1rem;bottom:8px;line-height:1.1;padding:0 6px}
+  #order.order .o-stack .o-p1{left:0;top:18px;transform:rotate(-8deg);z-index:1}
+  #order.order .o-stack .o-p2{right:0;top:0;transform:rotate(7deg);z-index:2}
+  #order.order .o-stack .o-p3{left:50%;top:calc(var(--pw)*.42);margin-left:calc(var(--pw)/-2);transform:rotate(-2deg);z-index:3}
+  #order.order .o-stack .o-photo:hover{z-index:4;transform:rotate(0deg) translateY(-6px) scale(1.03);box-shadow:0 16px 30px rgba(73,54,49,.26)}
+}
+@media (min-width:901px) and (max-height:800px){#order.order .o-stack{--pw:150px}}
 </style>
 </head>
 <body>
@@ -325,7 +340,11 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
         <span class="o-script">how to order</span>
         <h2>Ordering is simple.</h2>
         <p>Four easy steps from idea to cake.</p>
-        <figure class="o-photo"><img src="images/cake-born18.jpg" alt="A two-tier pink and purple birthday cake with a fondant bow" loading="lazy" decoding="async"><figcaption>Where every cake tells a story.</figcaption></figure>
+        <div class="o-stack">
+          <figure class="o-photo o-p1"><img src="images/cake-unicorn.jpg" alt="A pastel watercolor cake with a fondant unicorn, sugar roses and a rainbow arch" loading="lazy" decoding="async"><figcaption>Rainbow Unicorn</figcaption></figure>
+          <figure class="o-photo o-p2"><img src="images/hero-sub.jpg" alt="A space-themed cake with a fondant astronaut on the moon" loading="lazy" decoding="async"><figcaption>Astronaut on the Moon</figcaption></figure>
+          <figure class="o-photo o-p3"><img src="images/cake-born18.jpg" alt="A two-tier pink and purple birthday cake with a fondant bow" loading="lazy" decoding="async"><figcaption>Where every cake tells a story.</figcaption></figure>
+        </div>
       </div>
       <div class="o-card">
         <span class="o-script o-card-title">Your cake, step by step</span>
