@@ -174,11 +174,14 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
 .kk-create{background:var(--kk-cream);padding:clamp(64px,8vw,104px) 0 clamp(64px,8vw,96px)}
 .kk-head{text-align:center;margin-bottom:clamp(36px,5vw,56px)}
 .kk-head .kk-sub{margin-top:14px}
-.kk-flank{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2vw,24px)}
-.kk-flank .kk-line{flex:1 1 40px;max-width:150px;height:1px;background:linear-gradient(90deg,transparent,var(--kk-rose));opacity:.55}
-.kk-flank .kk-line:last-of-type{transform:scaleX(-1)}
-.kk-flank>span:not(.kk-line){white-space:nowrap}
-.kk-spark--s{position:static;flex:none;width:18px;height:18px}
+.kk-eyebrow--h{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px}
+.kk-tick{display:block;width:clamp(24px,5vw,48px);height:1px;background:var(--kk-rose);opacity:.6}
+.kk-title-h{position:relative;display:inline-block;padding:0 clamp(26px,3.4vw,44px)}
+.kk-title-h .kk-spark{position:absolute;fill:#E7A9B6;opacity:.9}
+.kk-spark--a{width:22px;height:22px;left:0;top:-4px}
+.kk-spark--b{width:15px;height:15px;right:2px;bottom:6px}
+.kk-head .kk-divider{margin:20px auto 18px}
+.kk-sub--it{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,1.6vw,1.2rem);line-height:1.6;color:#7A5545;max-width:30em}
 .kk-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,32px)}
 .kk-card{position:relative;text-align:center;padding:clamp(10px,1.4vw,14px) clamp(10px,1.4vw,14px) clamp(22px,2.4vw,28px);background:linear-gradient(180deg,#FBE4E1,#FCEEEA);border:1px solid var(--kk-line);border-radius:22px;transition:transform .35s cubic-bezier(.22,.8,.3,1),box-shadow .35s}
 .kk-media{aspect-ratio:1/1;overflow:hidden;border-radius:14px;background:#fff}
@@ -204,7 +207,7 @@ main .btn.btn.kk-cta{font-family:'Nunito',system-ui,sans-serif;font-weight:800;f
   .kk-values{grid-template-columns:1fr;gap:28px;max-width:320px}
   .kk-values li+li{border-left:0;border-top:1px solid rgba(180,89,110,.3);padding-top:28px}
   .kk-cards{grid-template-columns:1fr;max-width:420px;margin-inline:auto;gap:24px}
-  .kk-flank .kk-line,.kk-flank .kk-spark--s{display:none}
+  .kk-title-h{padding:0 22px}.kk-spark--a{width:16px;height:16px}.kk-spark--b{display:none}
   .kk-spark--l{left:0;top:10%}
 }
 @media (prefers-reduced-motion:reduce){.kk-media img,.kk-title{transition:none}.kk-card:hover .kk-media img{transform:none}.kk-card{transition:none}}
@@ -251,11 +254,12 @@ main .btn.btn.kk-cta{font-family:'Nunito',system-ui,sans-serif;font-weight:800;f
 </section>
 <section class="kk-create" aria-labelledby="kk-create-h">
   <div class="kk-wrap">
-    <header class="kk-head" data-kk-reveal>
-      <p class="kk-eyebrow">Made with love, just for you</p>
-      <h2 id="kk-create-h" class="kk-display kk-display--md kk-flank"><svg class="kk-spark kk-spark--s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c.8 6.500 3.500 9.200 11 11-7.500 1.800-10.200 4.500-11 11-.8-6.500-3.500-9.200-11-11 7.500-1.800 10.200-4.500 11-11Z"/></svg><span class="kk-line" aria-hidden="true"></span><span>Explore Our Creations <svg class="kk-h" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5C5 15.2 2.5 11.6 2.5 8a4.9 4.9 0 0 1 9.5-1.6A4.9 4.9 0 0 1 21.5 8c0 3.6-2.5 7.2-9.5 12.5Z"/></svg></span><span class="kk-line" aria-hidden="true"></span><svg class="kk-spark kk-spark--s" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c.8 6.500 3.500 9.200 11 11-7.500 1.800-10.200 4.500-11 11-.8-6.500-3.500-9.200-11-11 7.500-1.800 10.200-4.500 11-11Z"/></svg></h2>
-      <p class="kk-sub">From celebration cakes to little sweet details, discover something special for every occasion.</p>
-    </header>
+    <div class="kk-head" data-kk-reveal>
+      <p class="kk-eyebrow kk-eyebrow--h"><span class="kk-tick" aria-hidden="true"></span>Made with love, just for you<span class="kk-tick" aria-hidden="true"></span></p>
+      <h2 id="kk-create-h" class="kk-display kk-display--md kk-title-h"><svg class="kk-spark kk-spark--a" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c.8 6.500 3.500 9.200 11 11-7.500 1.800-10.200 4.500-11 11-.8-6.500-3.500-9.200-11-11 7.500-1.800 10.200-4.500 11-11Z"/></svg>Explore Our Creations<svg class="kk-spark kk-spark--b" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c.8 6.500 3.500 9.200 11 11-7.500 1.800-10.200 4.500-11 11-.8-6.500-3.500-9.200-11-11 7.500-1.800 10.200-4.500 11-11Z"/></svg></h2>
+      <div class="kk-divider" aria-hidden="true"><span></span><svg class="kk-h" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5C5 15.2 2.5 11.6 2.5 8a4.9 4.9 0 0 1 9.5-1.6A4.9 4.9 0 0 1 21.5 8c0 3.6-2.5 7.2-9.5 12.5Z"/></svg><span></span></div>
+      <p class="kk-sub kk-sub--it">From celebration cakes to little sweet details, discover something special for every occasion.</p>
+    </div>
     <div class="kk-cards">
       <article class="kk-card" data-kk-reveal>
         <div class="kk-media"><img src="images/cat-cakes.jpg" alt="Light blue construction-themed birthday cake with fondant digger, road and name lettering" width="800" height="800" loading="lazy" decoding="async"></div>
