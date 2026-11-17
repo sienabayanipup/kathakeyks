@@ -11,124 +11,8 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fraunces:opsz,wght,SOFT@9..144,400..600,0..100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..600,0..100;1,9..144,400,0..100&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style id="frosted-nav">
-/* ===== Katha Keyks navigation: soft glazed pills with a fine piped-pearl edge ===== */
-@property --c1{syntax:'<color>';inherits:false;initial-value:#FFFAF1}
-@property --c2{syntax:'<color>';inherits:false;initial-value:#FAE6D8}
-header{--np-choc:#5A3522;--np-cream:#FFFBF5;--np-edge:#EBCFCB;--np-rose:#B4596E}
-header .nav{position:relative}
-header .menu{gap:10px;justify-content:flex-end}
-header .menu li{margin:0}
-
-/* one shape for every item */
-header .menu a:not(.btn),header .menu a.btn{
-  --c1:#FFFAF1;--c2:#FAE6D8;--edge:#E9CDC4;--bead:rgba(212,130,148,.7);
-  position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
-  height:40px;padding:0 22px;border-radius:999px;
-  font:700 .85rem/1 var(--sans);letter-spacing:.03em;text-transform:none;white-space:nowrap;text-decoration:none;
-  color:var(--np-choc);border:1px solid var(--edge);
-  background:
-    radial-gradient(ellipse 60% 100% at 50% 0,rgba(255,255,255,.7),rgba(255,255,255,0) 72%) 0 0/100% 55% no-repeat,
-    linear-gradient(180deg,var(--c1),var(--c2));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -2px 4px rgba(180,89,110,.1),0 4px 10px rgba(180,89,110,.14);
-  transition:transform .3s cubic-bezier(.22,.8,.3,1),--c1 .3s ease,--c2 .3s ease,border-color .3s ease,box-shadow .3s ease}
-header .menu a:not(.btn)::after,header .menu a.btn::after{content:none;display:none}
-
-/* fine piped-pearl line just inside the edge */
-header .menu a:not(.btn)::before,header .menu a.btn::before{
-  content:"";display:block;position:absolute;inset:3px;border-radius:999px;pointer-events:none;
-  border:1.5px dotted var(--bead);transition:border-color .3s ease}
-
-header .menu a:not(.btn):hover,header .menu a:not(.btn):focus-visible{
-  --c1:#FBD9DE;--c2:#EFB2BF;--edge:#DB93A3;--bead:rgba(180,89,110,.75);transform:translateY(-2px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 4px rgba(180,89,110,.14),0 9px 15px rgba(196,119,133,.28)}
-header .menu a:not(.btn):focus-visible,header .menu a.btn:focus-visible{outline:2px solid var(--np-rose);outline-offset:3px}
-
-/* active page: richer strawberry glaze, white pearls */
-header .menu a[aria-current="page"]:not(.btn){--c1:#F4B6C2;--c2:#E598AA;--edge:#CC6B80;--bead:rgba(255,255,255,.95)}
-
-/* primary CTA: glossy dusty rose */
-header .menu a.btn{
-  --c1:#D17B8E;--c2:#B4566B;--edge:#9C4A5E;--bead:rgba(255,255,255,.7);
-  margin-left:8px;padding:0 28px;color:#fff;font-weight:800;text-shadow:0 1px 1px rgba(90,35,50,.25);
-  background:
-    radial-gradient(ellipse 60% 100% at 50% 0,rgba(255,255,255,.4),rgba(255,255,255,0) 72%) 0 0/100% 55% no-repeat,
-    linear-gradient(180deg,var(--c1),var(--c2));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -3px 5px rgba(90,35,50,.2),0 6px 13px rgba(180,89,110,.32)}
-header .menu a.btn:hover,header .menu a.btn:focus-visible{--c1:#C46379;--c2:#9C4A5E;--edge:#8A3F52;transform:translateY(-2px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -3px 5px rgba(90,35,50,.22),0 10px 18px rgba(156,74,94,.38)}
-
-/* burger */
-header .burger{width:52px;height:40px;padding:0;border-radius:999px;color:var(--np-choc);
-  flex-direction:column;align-items:center;justify-content:center;gap:4px;
-  border:1px solid #E9CDC4;
-  background:radial-gradient(ellipse 60% 100% at 50% 0,rgba(255,255,255,.7),rgba(255,255,255,0) 72%) 0 0/100% 55% no-repeat,linear-gradient(180deg,#FFFAF1,#FAE6D8);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -2px 4px rgba(180,89,110,.1),0 4px 10px rgba(180,89,110,.14);transition:transform .3s ease}
-header .burger span{width:18px;margin:0;border-radius:2px;background:var(--np-choc)}
-header .burger:hover{transform:translateY(-2px)}
-header .burger:focus-visible{outline:2px solid var(--np-rose);outline-offset:3px}
-header .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-header .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-@media (min-width:961px) and (max-width:1120px){
-  header .menu{gap:6px}
-  header .menu a:not(.btn){padding:0 15px;font-size:.8rem}
-  header .menu a.btn{padding:0 20px;font-size:.8rem;margin-left:2px}
-}
-
-@media (max-width:960px){
-  header .burger{display:flex}
-  header .menu{top:calc(100% + 8px);left:12px;right:12px;z-index:60;
-    flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 10px;padding:24px 16px;
-    background:var(--np-cream);border:1px solid var(--np-edge);border-radius:24px;box-shadow:0 12px 28px rgba(90,53,34,.14)}
-  header .menu li,header .menu li:last-child{padding:0;border:0}
-  header .menu li:last-child{flex-basis:100%;display:flex;justify-content:center;margin-top:4px}
-  header .menu a:not(.btn){padding:0 24px}
-  header .menu a.btn{margin-left:0;padding:0 38px}
-}
-
-/* call-to-action buttons (main content): same glazed pill + pearl edge as the navigation */
-main .btn.btn,.fb .btn.btn{
-  --c1:#FFFAF1;--c2:#FAE6D8;--edge:#E9CDC4;--bead:rgba(212,130,148,.7);
-  position:relative;box-sizing:border-box;height:48px;padding:0 34px;border-radius:999px;
-  font:700 .95rem/1 var(--sans);letter-spacing:.03em;text-decoration:none;white-space:nowrap;
-  color:#5A3522;border:1px solid var(--edge);
-  background:
-    radial-gradient(ellipse 60% 100% at 50% 0,rgba(255,255,255,.7),rgba(255,255,255,0) 72%) 0 0/100% 55% no-repeat,
-    linear-gradient(180deg,var(--c1),var(--c2));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -2px 4px rgba(180,89,110,.1),0 5px 12px rgba(180,89,110,.15);
-  transition:transform .3s cubic-bezier(.22,.8,.3,1),--c1 .3s ease,--c2 .3s ease,border-color .3s ease,box-shadow .3s ease}
-main .btn.btn::before,.fb .btn.btn::before{content:"";display:block;position:absolute;inset:3.5px;border-radius:999px;pointer-events:none;border:1.5px dotted var(--bead)}
-main .btn.btn-sm,.fb .btn.btn-sm{height:40px;padding:0 24px;font-size:.88rem}
-main .btn.btn-sm::before,.fb .btn.btn-sm::before{inset:3px}
-main .btn.btn:not(.btn-fill):hover{--c1:#FBD9DE;--c2:#EFB2BF;--edge:#DB93A3;--bead:rgba(180,89,110,.75);color:#5A3522;transform:translateY(-2px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 4px rgba(180,89,110,.14),0 10px 16px rgba(196,119,133,.28)}
-main .btn.btn-fill,.fb .btn.btn-fill{
-  --c1:#D17B8E;--c2:#B4566B;--edge:#9C4A5E;--bead:rgba(255,255,255,.7);
-  color:#fff;font-weight:800;text-shadow:0 1px 1px rgba(90,35,50,.25);
-  background:
-    radial-gradient(ellipse 60% 100% at 50% 0,rgba(255,255,255,.4),rgba(255,255,255,0) 72%) 0 0/100% 55% no-repeat,
-    linear-gradient(180deg,var(--c1),var(--c2));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -3px 5px rgba(90,35,50,.2),0 7px 15px rgba(180,89,110,.32)}
-main .btn.btn-fill:hover{--c1:#C46379;--c2:#9C4A5E;--edge:#8A3F52;color:#fff;transform:translateY(-2px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -3px 5px rgba(90,35,50,.22),0 11px 19px rgba(156,74,94,.38)}
-main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E;outline-offset:3px}
-@media (max-width:480px){main .btn.btn:not(.btn-sm){height:46px;padding:0 26px;font-size:.92rem}}
-
-/* cake slice that follows the hovered / active pill (desktop only) */
-.chef-hat{display:none}
-@media (min-width:961px){
-  header .menu{position:relative}
-  header .menu .chef-hat{display:block;position:absolute;left:0;top:0;width:25px;height:22px;margin:0;padding:0;border:0;list-style:none;
-    z-index:3;pointer-events:none;opacity:0;transform:translate(0,0);
-    filter:drop-shadow(0 2px 2px rgba(90,53,34,.18))}
-  header .menu .chef-hat.is-ready{opacity:1}
-  header .menu .chef-hat.is-moving{transition:transform .5s cubic-bezier(.34,1.35,.5,1)}
-  header .menu .chef-hat svg{display:block;width:100%;height:100%}
-}
-</style>
 </head>
 <body>
 <div class="announce">Custom cakes, made to order. <a href="https://www.facebook.com/cakeliciousph" target="_blank" rel="noopener">Message us on Facebook to book your date.</a></div>
@@ -140,22 +24,29 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   </nav>
 </header>
 <main>
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <figure class="ph" data-slot="about" data-label="Ann, baker of Katha Keyks"></figure>
-    <div>
-      <span class="script">meet the baker</span>
+<section class="ab" id="about">
+  <div class="wrap ab-grid">
+    <div class="ab-photo">
+      <figure class="ab-frame">
+        <img src="images/about.jpg" alt="Ann, baker of Katha Keyks" width="600" height="800" fetchpriority="high" decoding="async" onerror="this.closest('.ab-photo').style.display='none'">
+        <figcaption>Ann, baker of Katha Keyks</figcaption>
+      </figure>
+    </div>
+    <div class="ab-copy">
+      <span class="ab-script">meet the baker</span>
       <h2>Hi, I’m Ann, the heart behind Katha Keyks.</h2>
       <p class="lede">A passionate home baker who loves turning sweet ideas into beautifully crafted cakes made with love and creativity.</p>
-      <p>I started my journey from scratch way back in 2017. Naalala ko pa, all my baking tools and equipment ay galing sa paluwagan.</p>
-      <p>Baking has always been more than just a hobby for me. It’s my way of bringing happiness and making memories a little sweeter, first to my kids and family.</p>
-      <p><strong>Maraming salamat sa laging pag-suporta</strong> sa aking small business and for allowing me to be part of your special moments.</p>
-      <h3 class="aw-title">Awards</h3>
-      <ul class="awards">
-        <li><strong>3rd Place, Gold Award</strong>Sugar Model Figure Category, <a href="https://www.facebook.com/WOFEX" target="_blank" rel="noopener">WOFEX World Food Expo</a> | Cake Fiesta Manila 2026</li>
-        <li><strong>2nd Place</strong>Sugar Art Cake Display Competition, Sugar King 2025</li>
-        <li><strong>Silver Award &amp; People’s Choice Award</strong>Peotraco Cake My Day Competition 2023</li>
+      <div class="ab-story">
+        <p>I started my journey from scratch way back in 2017. Naalala ko pa, all my baking tools and equipment ay galing sa paluwagan.</p>
+        <p>Baking has always been more than just a hobby for me. It’s my way of bringing happiness and making memories a little sweeter, first to my kids and family.</p>
+        <p><strong>Maraming salamat sa laging pag-suporta</strong> sa aking small business and for allowing me to be part of your special moments.</p>
+      </div>
+      <ul class="ab-awards" aria-label="Awards">
+        <li class="gold"><svg class="ab-medal" viewBox="0 0 26 34" aria-hidden="true" fill="currentColor"><path d="M4 0h6l3 9-3 2zM22 0h-6l-3 9 3 2z" opacity=".55"/><circle cx="13" cy="22" r="9"/><circle cx="13" cy="22" r="5.5" fill="none" stroke="#fff" stroke-width="1.2" opacity=".7"/></svg><span class="yr">2026</span><strong>3rd Place, Gold Award</strong>Sugar Model Figure Category, <a href="https://www.facebook.com/WOFEX" target="_blank" rel="noopener">WOFEX World Food Expo</a> | Cake Fiesta Manila 2026</li>
+        <li class="silver"><svg class="ab-medal" viewBox="0 0 26 34" aria-hidden="true" fill="currentColor"><path d="M4 0h6l3 9-3 2zM22 0h-6l-3 9 3 2z" opacity=".55"/><circle cx="13" cy="22" r="9"/><circle cx="13" cy="22" r="5.5" fill="none" stroke="#fff" stroke-width="1.2" opacity=".7"/></svg><span class="yr">2025</span><strong>2nd Place</strong>Sugar Art Cake Display Competition, Sugar King 2025</li>
+        <li class="silver"><svg class="ab-medal" viewBox="0 0 26 34" aria-hidden="true" fill="currentColor"><path d="M4 0h6l3 9-3 2zM22 0h-6l-3 9 3 2z" opacity=".55"/><circle cx="13" cy="22" r="9"/><circle cx="13" cy="22" r="5.5" fill="none" stroke="#fff" stroke-width="1.2" opacity=".7"/></svg><span class="yr">2023</span><strong>Silver Award &amp; People’s Choice Award</strong>Peotraco Cake My Day Competition 2023</li>
       </ul>
+      <p class="ab-sign"><span>Ann</span></p>
     </div>
   </div>
 </section><section class="why">
@@ -177,36 +68,6 @@ main .btn.btn:focus-visible,.fb .btn.btn:focus-visible{outline:2px solid #B4596E
   </div>
   <div class="wrap copy">© <span id="yr"></span> Katha Keyks. All cakes made to order.</div>
 </footer>
-<script src="main.js"></script>
-<script>
-(function(){
-var menu=document.getElementById('menu');if(!menu)return;
-var mq=window.matchMedia('(min-width:961px)');
-var hat=document.createElement('li');hat.className='chef-hat';hat.setAttribute('aria-hidden','true');
-hat.innerHTML='<svg viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg" focusable="false"><g stroke="#5A3522" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"><path d="M3.9 23H28.5V25.5Q28.5 26.7 27.3 26.7H5.1Q3.9 26.7 3.9 25.5Z" fill="#F4CDAA"/><path d="M3.9 16.5H28.5V23H3.9Z" fill="#E8A3B2"/><path d="M4 15.5C4.6 12 8.4 9.8 13.4 9L26.4 11.2C28.6 11.7 29 13.6 28.6 15.5Z" fill="#FBD9C0"/><path d="M3.7 15.4H28.7V18.4Q28.7 20.2 26.9 20.2 25.1 20.2 25.1 18.6 25.1 17.7 23.8 17.7 22.5 17.7 22.5 18.9 22.5 20.9 20.7 20.9 18.9 20.9 18.9 19 18.9 17.7 17.4 17.7 15.9 17.7 15.9 19.2 15.9 20.7 14.3 20.7 12.7 20.7 12.7 19.2 12.7 18 11.3 18 9.9 18 9.9 19.2 9.9 20.4 8.2 20.4 6.5 20.4 6.5 18.8 6.5 17.9 5.2 17.9 3.7 17.9 3.7 18.4Z" fill="#FFF3F2"/><path d="M15.6 8.6C15.4 6 16.2 4.4 17.4 3.4" fill="none" stroke="#5C7A4A"/><circle cx="15.2" cy="8" r="3" fill="#D9566E" stroke="#5A3522"/></g><circle cx="14.3" cy="7" r=".8" fill="#fff" opacity=".8"/></svg>';
-menu.insertBefore(hat,menu.firstChild);
-var links=[].slice.call(menu.querySelectorAll('a'));
-function home(){return menu.querySelector('a[aria-current="page"]');}
-function place(a,lift){
-  if(!a||!mq.matches){hat.classList.remove('is-ready');return;}
-  var x=a.offsetLeft+a.offsetWidth/2-hat.offsetWidth/2;
-  var y=a.offsetTop-hat.offsetHeight+3-(lift?2:0);
-  hat.style.transform='translate('+Math.round(x)+'px,'+Math.round(y)+'px)';
-  hat.classList.add('is-ready');
-}
-function rest(){place(home(),false);}
-function init(){rest();requestAnimationFrame(function(){requestAnimationFrame(function(){hat.classList.add('is-moving');});});}
-links.forEach(function(a){
-  a.addEventListener('mouseenter',function(){place(a,true);});
-  a.addEventListener('focus',function(){place(a,true);});
-  a.addEventListener('blur',rest);
-});
-menu.addEventListener('mouseleave',rest);
-window.addEventListener('resize',function(){hat.classList.remove('is-moving');rest();requestAnimationFrame(function(){hat.classList.add('is-moving');});});
-window.addEventListener('load',init);
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){hat.classList.remove('is-moving');rest();requestAnimationFrame(function(){hat.classList.add('is-moving');});});
-init();
-})();
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
