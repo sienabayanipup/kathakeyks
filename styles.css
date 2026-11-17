@@ -344,9 +344,8 @@ dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:v
 
 /* photo: original file, uncropped (frame is exactly 3:4) */
 .ab-photo{position:relative;width:100%;max-width:470px;justify-self:center;align-self:center;margin:0;animation:rise 1s both}
-.ab-photo::before{content:"";position:absolute;inset:0;border:1.5px solid var(--gold);border-radius:32px;transform:translate(16px,16px);opacity:.8}
 .ab-frame{position:relative;z-index:1;padding:12px 12px 0;background:var(--white);border-radius:28px;
-  box-shadow:0 2px 0 rgba(184,146,63,.25),0 30px 60px -22px rgba(73,54,49,.4),0 8px 16px -8px rgba(73,54,49,.18)}
+  box-shadow:0 30px 60px -22px rgba(73,54,49,.4),0 8px 16px -8px rgba(73,54,49,.18)}
 .ab-frame img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
 .ab-frame figcaption{padding:11px 8px 13px;text-align:center;font:600 .88rem/1.35 var(--sans);color:var(--text-soft)}
 
@@ -391,7 +390,6 @@ dialog .lb-cap{position:absolute;left:0;right:0;top:100%;margin-top:12px;color:v
 @media (max-width:860px){
   .ab-grid{grid-template-columns:1fr;gap:44px}
   .ab-photo{max-width:360px;margin-right:auto;margin-left:auto}
-  .ab-photo::before{transform:translate(12px,12px)}
   .ab-copy h2{max-width:none}
 }
 /* phones: awards become a swipeable row so the page doesn't grow long */
